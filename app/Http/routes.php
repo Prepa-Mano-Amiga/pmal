@@ -41,3 +41,5 @@ Route::get('/eliminam/{idm}','curso@eliminam')->name('eliminam');
 Route::get('/modificam/{idm}','curso@modificam')->name('modificam');
 
 Route::POST('/editamaestro','curso@editamaestro')->name('editamaestro');
+
+Route::get('/altamun','curso@altamun');

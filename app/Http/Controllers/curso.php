@@ -82,6 +82,10 @@ class curso extends Controller
         $maestros = maestros::orderBy('nombre', 'asc')->get();
         return view ('sistema.reportemaestros')->with('maestros', $maestros);
     }
+
+    public function altamun(){
+        return view ('sistema.altamunicipio');
+    }
     
     public function eliminam($idm){
         maestros::find($idm)->delete();
