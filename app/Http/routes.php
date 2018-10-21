@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/altamun','municipio@altamun');
+Route::get('/altamun','munici@altamun');
 Route::get('/altausuario','usuario@altausuario');
