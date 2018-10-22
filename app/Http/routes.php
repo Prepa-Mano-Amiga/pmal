@@ -19,6 +19,7 @@ Route::get('/altamun','municipio@altamun');
 //catalogo usuario
 Route::get('/altausuario','usuario@altausuario');
 Route::POST('/guardausuario','usuario@guardausuario')->name('guardausuario');
+Route::get('/reporteusuario','usuario@reporteusuario');
 
 Route::get('/altaemp','empleado@altaempleado');
 

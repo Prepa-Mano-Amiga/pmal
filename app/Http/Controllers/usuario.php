@@ -62,6 +62,12 @@ class usuario extends Controller
 			$mensaje= "Registro guardado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 		}
+
+		//consulta maestro
+	public function reporteusuario(){
+			$usuarios = usuarios::orderBy('nombre','asc')->get();
+			return view ('sistema.reporteusuarios')->with('usuarios',$usuarios);
+		}
 	
 }
  
