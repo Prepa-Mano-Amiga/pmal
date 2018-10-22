@@ -1,5 +1,6 @@
-<html>
-<body>
+@extends('sistema.principal')
+
+@section('contenido')
 <h1> Alta de Libro </h1>
 <br>
 <form action =''  method='POST' enctype='multipart/form-data'>
@@ -40,5 +41,4 @@ Disponible <input type = 'radio' name = 'dispo' value = 'Si' checked >n
 <input type = 'radio' name = 'dispo' value = 'Si'>s
 <br>
 </form>
-</body>
-</html>
+@stop

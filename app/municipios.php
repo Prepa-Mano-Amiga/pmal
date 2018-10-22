@@ -1,0 +1,14 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\softDeletes;
+
+class municipios extends Model{
+    use softDeletes;
+    protected $primaryKey   =   'idm';
+    protected $fillable     =   ['idm','nombre','ide'];
+    protected $date=['deleted_at'];
+    
+}

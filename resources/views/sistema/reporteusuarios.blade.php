@@ -1,5 +1,6 @@
-<html>
-<body>
+@extends('sistema.principal')
+
+@section('contenido')
 <h1>Reporte de usuarios</h1>
 <br>
 <table  border=1>
@@ -25,5 +26,4 @@
 </tr>  
     @endforeach
 </table>
-</body>
-</html>
+@stop

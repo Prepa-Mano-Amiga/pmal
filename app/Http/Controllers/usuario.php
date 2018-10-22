@@ -63,7 +63,7 @@ class usuario extends Controller
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 		}
 
-	//consulta maestro
+	//consulta usuario
 	public function reporteusuario(){
 			$usuarios = usuarios::orderBy('nombre','asc')->get();
 			return view ('sistema.reporteusuarios')->with('usuarios',$usuarios);

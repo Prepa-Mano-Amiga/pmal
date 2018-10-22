@@ -1,7 +1,11 @@
-<html>
-<body>
+@extends('sistema.principal')
+
+@section('contenido')
+<div class="box">
+
 <h1> Alta de usuarios </h1>
 <br>
+
 <form action ='{{route('guardausuario')}}'  method='POST' enctype='multipart/form-data'>
 {{csrf_field()}}
 
@@ -44,5 +48,5 @@ Apellido Materno<input type ='text' name ='ap_mat' value="{{old('ap_mat')}}">
 <input type = 'submit' balue='Guardar'>
 <br>
 </form>
-</body>
-</html>
+</div>
+@stop

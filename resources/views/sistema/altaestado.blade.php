@@ -1,5 +1,7 @@
-<html>
-<body>
+@extends('sistema.principal')
+
+@section('contenido')
+<div class="box">
 <head><title>Alta Estado</title></head>
     <h1>Alta Estado</h1><br>
     <form action='{{route('guardaestado')}}' method='POST' enctype='multipart/form-data'>
@@ -17,5 +19,5 @@
         
         <input type="submit" name="Guardar" value="Guardar">
     </form>
-</body>
-</html>
+    </div>
+@stop

@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 //catalogo municipio
 Route::get('/altamun','municipio@altamun');
+Route::POST('/guardamun','municipio@guardamun')->name('guardamun');
+Route::get('/reportemun','municipio@reportemun');
 //catalogo estado
 Route::get('/altaest','estado@altaestado');
 Route::POST('/guardaestado','estado@guardaestado')->name('guardaestado');
