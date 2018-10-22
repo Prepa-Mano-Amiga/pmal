@@ -114,9 +114,11 @@
                     <li class="breadcrumb-item active">Inicio</li>
                 </ol>
             </div>
+
             <div id="contenido">
-                @yield('contenido')
-            </div>
+                  @yield('contenido')
+            </div><br><br><br><br>
+            
             <!-- /.container-fluid -->
             <!--Footer-->
             <footer class="sticky-footer">

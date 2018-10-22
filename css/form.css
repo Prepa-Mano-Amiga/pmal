@@ -1,17 +1,19 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-color: #fff4;
-    background-size: cover;
+table a{
+    color: #002859;
+    text-decoration: none;
+    outline: none;
+}
+
+table a:hover{
+    color: rgba(0, 40, 89, 0.8);
 }
 
 .box{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-20%,-50%);
-    width: 400px;
+    transform: translate(-30%,-50%);
+    width: 500px;
     background: rgba(233, 236, 239,0.5);
     padding: 40px;
     box-sizing: border-box;
@@ -31,8 +33,36 @@ body{
     margin-bottom: 30px;
 }
 
+.box select{
+    padding: 10px 0;
+    margin-bottom: 30px;
+}
+
+.box select {
+    padding: 10px 0;
+    margin-bottom: 30px;
+}
+
 .box input{
     width: 100%;
+    box-sizing: border-box;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #999;
+}
+
+.box select{
+    width: 90%;
+    box-sizing: border-box;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #999;
+}
+
+.box option{
+    width: 90%;
     box-sizing: border-box;
     box-shadow: none;
     outline: none;
@@ -72,14 +102,30 @@ body{
 
 .box form div label{
     position: absolute;
-    top: 10px;
-    left: 0;
+    top: 15px;
+    left: 15px;
     color: #999;
     transition: .5s;
     pointer-events: none;
 }
 
 .box input:focus ~ label{
+    top: -12px;
+    left: 15px;
+    color: rgb(236, 96, 0);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.box select:focus ~ label{
+    top: -12px;
+    left: 0;
+    color: rgb(236, 96, 0);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.box option:focus ~ label{
     top: -12px;
     left: 0;
     color: rgb(236, 96, 0);
@@ -92,7 +138,20 @@ body{
     font-weight: bold;
 }
 
+.box select:valid ~ label{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.box option:valid ~ label{
+    font-size: 13px;
+    font-weight: bold;
+}
+
 .box input:focus{
     border-bottom: 2px solid rgb(236, 96, 0);
 }
 
+.box option:focus{
+    border-bottom: 2px solid rgb(236, 96, 0);
+}
