@@ -17,8 +17,5 @@ Route::get('/', function () {
 
 Route::get('/altamun','municipio@altamun');
 Route::get('/altausuario','usuario@altausuario');
-<<<<<<< HEAD
-Route::get('/altaempleado','empleado@altaempleado');
-=======
 Route::get('/altaemp','empleado@altaempleado');
->>>>>>> 17a3c8e0b7525e7281214846a5f089650258d423
+
