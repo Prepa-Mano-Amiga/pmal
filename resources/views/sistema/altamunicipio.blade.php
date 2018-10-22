@@ -1,16 +1,19 @@
-<html>
-<body>
-<head><title>Alta Municipio</title></head>
-    <h1>Alta Maestros</h1><br>
-    <form action='' method='POST' enctype='multipart/form-data'>
-        {{csrf_field()}}
-        
-        @if($errors->first('nombre'))
-            <i>{{$errors->first('nombre') }}</i>
-        @endif<br>
-        Nombre: <br><input type="text" name="nombre" value="{{old('nombre')}}"><br>
-        
-        <input type="submit" name="Guardar" value="Guardar">
-    </form>
-</body>
-</html>
+@extends('sistema.principal')
+
+@section('contenido')
+<div class="box">
+  <h3>Nuevo Municipio</h3>
+  <form>
+    <div>
+      <input type="text" name="idm">
+      <label for="">Clave</label>
+    </div>
+    <div>
+      <input type="text" name="nombre">
+      <label for="">Nombre</label>
+    </div>    
+    <input class="btn btn-primary btn-block" type="submit" value="Enviar">
+    <input class="btn btn-primary btn-block" type="reset" value="Cancelar">
+  </form>
+</div>
+@stop

@@ -9,7 +9,7 @@ class empleado extends Controller
 {
  	public function altaempleado()
     {	
-	return view ('sistema.alta');
+	    return view ('sistema.altaempleado');
     }
 	
 }
