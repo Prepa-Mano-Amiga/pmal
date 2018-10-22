@@ -1,6 +1,6 @@
 <html>
 <body>
-<h1>Reporte de maestros</h1>
+<h1>Reporte de usuarios</h1>
 <br>
 <table  border=1>
 <tr>
