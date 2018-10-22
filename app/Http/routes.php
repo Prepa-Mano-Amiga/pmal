@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('/altamun','municipio@altamun');
 Route::get('/altausuario','usuario@altausuario');
+Route::get('/altaemp','empleado@altaempleado');
