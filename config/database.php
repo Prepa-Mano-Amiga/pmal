@@ -54,11 +54,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', 'mysql.prepamanoamigalerma.org'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'tic73'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'prepamanoamigabase'),
+            'username' => env('DB_USERNAME', 'armando6723588'),
+            'password' => env('DB_PASSWORD', 'armando5618858'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
