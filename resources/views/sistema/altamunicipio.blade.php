@@ -1,8 +1,9 @@
-<html>
-<body>
-<head><title>Alta Municipio</title></head>
-    <h1>Alta Municipio</h1><br>
-    <form action='' method='POST' enctype='multipart/form-data'>
+@extends('sistema.principal')
+
+@section('contenido')
+<div class="box">
+  <h3>Nuevo Municipio</h3>
+  <form action='' method='POST' enctype='multipart/form-data'>
         {{csrf_field()}}
         
         @if($errors->first('idm'))
@@ -19,8 +20,8 @@
 					
 				   </select>
         <br>
-        
-        <input type="submit" name="Guardar" value="Guardar">
-    </form>
-</body>
-</html>
+     <input class="btn btn-primary btn-block" type="submit" value="Enviar">
+    <input class="btn btn-primary btn-block" type="reset" value="Cancelar">
+  </form>
+</div>
+@stop
