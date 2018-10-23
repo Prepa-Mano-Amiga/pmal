@@ -56,11 +56,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-<<<<<<< HEAD
-            'database' => env('DB_DATABASE', 'pmal'),
-=======
             'database' => env('DB_DATABASE', 'manoamiga'),
->>>>>>> 8814b568379c7f547f89976bb86ba6d2d9ab4ed4
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
