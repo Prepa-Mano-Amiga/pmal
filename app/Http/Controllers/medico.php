@@ -1,0 +1,76 @@
+<?php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+use App\rmedicos;
+
+class medico extends Controller
+{
+ 	public function altaregmedicos()
+    {	
+		  $clavesig = rmedicos::orderBy('idrm','desc')->take(1)->get();
+           $idrm = $clavesig[0]->idrm+1;
+	   return view ('sistema.altaregmedicos')->with('idrm',$idrm);
+	 
+    }	
+    public function guardaregmedico(Request $request)
+    {
+		$responsable = $request->responsable;
+		$idrm = $request->idrm;
+		$num_hermanos= $request->num_hermanos;
+		$nom_hermanos = $request->nom_hermanos;
+		$edad = $request->edad;
+        $tipo_sangre = $request->tipo_sangre;
+        $contacto1 = $request->contacto1;
+        $tel1 = $request->tel1;
+        $contacto2 = $request->contacto2;
+        $tel2 = $request->tel2;
+        $contacto3 = $request->contacto3;
+        $tel3 = $request->tel3;
+		///NUNCA SE RECIBEN LOS ARCHIVOS
+		
+		
+		$this->validate($request,[
+         'idrm'=>'required|numeric',
+         'responsable'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'num_hermanos'=>'required|numeric',
+         'nom_hermanos'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'edad'=>'required|numeric',
+         'tipo_sangre'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'contacto1'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'tel1'=>'required|numeric',
+         'contacto2'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'tel2'=>'required|numeric',
+         'contacto1'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+	     'tel3'=>'required|numeric'
+         
+	     ]);
+		 	 
+		    $med = new rmedicos;
+			$med->idrm = $request->idrm;
+			$med->responsable = $request->responsable;
+			$med->num_hermanos =$request->num_hermanos;
+			$med->nom_hermanos = $request->nom_hermanos;
+			$med->edad =$request->edad;
+			$med->tipo_sangre =$request->tipo_sangre;
+            $med->contacto1=$request->contacto1;
+            $med->tel1=$request->tel1;
+            $med->contacto2=$request->contacto2;
+            $med->tel2=$request->tel2;
+            $med->contacto3=$request->contacto3;
+            $med->tel3=$request->tel3;
+            $med->save();
+            
+		$proceso = "Alta De Registro Medico";	
+	    $mensaje="Registro guardado correctamente";
+		return view('sistema.mensaje')
+		->with('proceso',$proceso)
+		->with('mensaje',$mensaje);
+    }	
+    public function reporteregmedico(){
+		$medico = rmedicos::orderBy('responsable','asc')->get();
+		return view ('sistema.reporteregmedico')->with('medico',$medico);
+	}
+}

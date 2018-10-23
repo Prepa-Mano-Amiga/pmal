@@ -33,15 +33,28 @@ Route::get('/altausuario','usuario@altausuario');
 Route::POST('/guardausuario','usuario@guardausuario')->name('guardausuario');
 Route::get('/reporteusuario','usuario@reporteusuario');
 
-//catalogo empleado
-Route::get('/altaemp','empleado@altaempleado');
-
 //Catalogo Escuela
 Route::get('/altaescuela','escuela@altaescuela');
 Route::POST('/guardaescuela','escuela@guardaescuela')->name('guardaescuela');
 Route::get('/reporteEscuelas','escuela@reporteEscuelas');
 
-//Catalogo Alumnos
+//Catalogo tutores
 Route::get('/altaTutor','tutor@altaTutor');
 Route::POST('/guardaTutor','tutor@guardaTutor')->name('guardaTutor');
 Route::get('/reporteTutor','tutor@reporteTutor');
+
+//catalogo empleado
+Route::get('/altaemp','empleado@altaempleado');
+Route::POST('/guardaempleado','empleado@guardaempleado')->name('guardaempleado');
+Route::get('/reporteempleado','empleado@reporteempleado');
+
+//catalogo registro medico
+Route::get('/altaregmedicos','medico@altaregmedicos');
+Route::POST('/guardaregmedico','medico@guardaregmedico')->name('guardaregmedico');
+Route::get('/reporteregmedico','medico@reporteregmedico');
+
+//Catalogo libros
+Route::get('/altalibro','libro@altalibro');
+Route::POST('/guardalibro','libro@guardalibro')->name('guardalibro');
+Route::get('/reportelibro','libro@reportelibro');
+
