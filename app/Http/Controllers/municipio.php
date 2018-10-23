@@ -40,7 +40,7 @@ class municipio extends Controller
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 		}
 
-	//consulta maestro
+	//consulta Municipio
 	public function reportemun(){
 		$municipio = municipios::orderBy('nombre','asc')->get();
 		return view ('sistema.reportemunicipio')->with('municipio',$municipio);

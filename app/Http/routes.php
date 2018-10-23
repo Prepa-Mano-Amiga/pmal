@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//catalogo Alumnos
+Route::get('/altaAlum','alumno@altaAlum');
+Route::POST('/guardAlum','alumno@guardaAlum')->name('guardaAlum');
+Route::get('/reportealum','alumno@reportealum');
 //catalogo municipio
 Route::get('/altamun','municipio@altamun');
 Route::POST('/guardamun','municipio@guardamun')->name('guardamun');
