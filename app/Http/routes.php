@@ -29,4 +29,13 @@ Route::POST('/guardausuario','usuario@guardausuario')->name('guardausuario');
 Route::get('/reporteusuario','usuario@reporteusuario');
 //catalogo empleado
 Route::get('/altaemp','empleado@altaempleado');
-
+Route::POST('/guardaempleado','empleado@guardaempleado')->name('guardaempleado');
+Route::get('/reporteempleado','empleado@reporteempleado');
+//catalogo registro medico
+Route::get('/altaregmedicos','medico@altaregmedicos');
+Route::POST('/guardaregmedico','medico@guardaregmedico')->name('guardaregmedico');
+Route::get('/reporteregmedico','medico@reporteregmedico');
+//Catalogo libros
+Route::get('/altalibro','libro@altalibro');
+Route::POST('/guardalibro','libro@guardalibro')->name('guardalibro');
+Route::get('/reportelibro','libro@reportelibro');
