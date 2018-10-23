@@ -1,6 +1,5 @@
 @extends('sistema.principal')
 @section('contenido')
-<div class="box">
 <h1> Alta de Alumnos </h1>
 <br>
 <form action = '{{route('guardaAlum')}}' method='POST' enctype='multipart/form-data'>
@@ -187,5 +186,4 @@
 <br>
 
 </form>
-</div>
 @stop

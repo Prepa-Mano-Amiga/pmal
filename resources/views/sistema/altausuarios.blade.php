@@ -1,7 +1,6 @@
 @extends('sistema.principal')
 
 @section('contenido')
-<div class="box">
 
 <h1> Alta de usuarios </h1>
 <br>
@@ -48,5 +47,4 @@ Apellido Materno<input type ='text' name ='ap_mat' value="{{old('ap_mat')}}">
 <input type = 'submit' balue='Guardar'>
 <br>
 </form>
-</div>
 @stop

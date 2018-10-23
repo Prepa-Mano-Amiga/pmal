@@ -15,16 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
+
 //catalogo Alumnos
 Route::get('/altaAlum','alumno@altaAlum');
 Route::POST('/guardAlum','alumno@guardaAlum')->name('guardaAlum');
 Route::get('/reportealum','alumno@reportealum');
-=======
+
 //Vista Administracion
 Route::get('/admin','administrador@admin');
-
->>>>>>> 3f4725755ea69d644e5d3bc6b730fcee4241d7b5
 //catalogo municipio
 Route::get('/altamun','municipio@altamun');
 Route::POST('/guardamun','municipio@guardamun')->name('guardamun');

@@ -1,6 +1,5 @@
-<html>
-    <body>
-        <head><title></title></head>
+@extends('sistema.principal')
+@section('contenido')
         <form action='{{route('guardaescuela')}}' method='POST' enctype='multipart/form-data'>
             {{csrf_field()}}
                 @if($errors->first('ides'))
@@ -47,5 +46,4 @@
             <input  class="btn btn-primary btn-block" type="submit" name="Guardar" value="Guardar">
             <input class="btn btn-primary btn-block" type="reset" value="Cancelar">
         </form >
-    </body>
-</html>
+@stop

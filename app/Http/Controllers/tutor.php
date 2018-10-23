@@ -36,7 +36,7 @@ class tutor extends Controller
 			$num_ext	    = $request->num_ext;
 			$colonia	    = $request->colonia;
 			$localidad	    = $request->localidad;
-			$cp	        = $request->cp;
+			$cp	        	= $request->cp;
 			//nunca se reciben los archivos
 			
 			$this->validate($request,[
@@ -47,7 +47,7 @@ class tutor extends Controller
 				'ocupacion'	    	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 				'compañia'	    	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 				'curp'				=>'required|min:8|max:32',
-				'grado_estudios'	=>'required|numeric',
+				'grado_estudios'	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 				'email'				=>'required|email',
 				'calle'		    	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 				'num_int'	    	=>'required|numeric',
@@ -78,13 +78,13 @@ class tutor extends Controller
             $tut	->ida		    	=	$request->ida;
 			$tut	->save();
 			
-			$proceso ="Alta de Escuela";
+			$proceso ="Alta de Tutor";
 			$mensaje= "Registro guardado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 		}
 
-		public function reporteEscuelas(){
-			$escuelas = escuelas::orderBy('nombre','asc')->get();
-			return view ('sistema.reporteEscuelas')->with('escuelas',$escuelas);
+		public function reporteTutor(){
+			$tutores = tutores::orderBy('nombre','asc')->get();
+			return view ('sistema.reporteTutores')->with('tutores',$tutores);
 		}
 }

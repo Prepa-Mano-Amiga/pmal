@@ -1,7 +1,6 @@
-<html>
-    <body>
-        <head><title></title></head>
-        <form action='{{route('guardaescuela')}}' method='POST' enctype='multipart/form-data'>
+@extends('sistema.principal')
+@section('contenido')
+        <form action='{{route('guardaTutor')}}' method='POST' enctype='multipart/form-data'>
             {{csrf_field()}}
                 @if($errors->first('idt'))
                     <i>{{$errors->first('idt')}}</i>
@@ -33,10 +32,10 @@
                 @endif
                 Ocupacion<br><input type="text" name="ocupacion" value="{{old('ocupacion')}}"><br><br>
 
-                @if($errors->first('Compañia'))
-                    <i>{{$errors->first('Compañia') }}</i>
+                @if($errors->first('compañia'))
+                    <i>{{$errors->first('compañia') }}</i>
                 @endif
-                Compañia<br><input type="text" name="Compañia" value="{{old('Compañia')}}"><br><br>
+                Compañia<br><input type="text" name="compañia" value="{{old('compañia')}}"><br><br>
 
                 @if($errors->first('curp'))
                     <i>{{$errors->first('curp') }}</i>
@@ -99,5 +98,4 @@
             <input  class="btn btn-primary btn-block" type="submit" name="Guardar" value="Guardar">
             <input class="btn btn-primary btn-block" type="reset" value="Cancelar">
         </form >
-    </body>
-</html>
+@stop
