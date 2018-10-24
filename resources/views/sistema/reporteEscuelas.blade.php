@@ -21,7 +21,7 @@
                         <th>Clave de Sector</th>
                         <th>Operaciones</th>
                         @foreach($escuelas as $es)
-                    <tr>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>

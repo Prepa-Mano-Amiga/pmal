@@ -21,7 +21,7 @@
                         <th>Apellido Materno</th>
                         <th>Operaciones</th>
                         @foreach($usuarios as $us)
-                    <tr>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>
@@ -42,6 +42,18 @@
                         </td>
                         @endforeach
                     </tr>
+                    <tfoot>
+                        <tr>
+                            <th>Clave</th>
+                            <th>Usuario</th>
+                            <th>Contraseña</th>
+                            <th>Tipo Usuario</th>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Operaciones</th>
+                        </tr>
+                    </tfoot>
                 </tbody>
             </table>
         </div>

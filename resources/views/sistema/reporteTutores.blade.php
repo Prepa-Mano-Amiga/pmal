@@ -30,7 +30,7 @@
                         <th>Codigo Postal</th>
                         <th>Operaciones</th>
                         @foreach($tutores as $tu)
-                    <tr>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>
