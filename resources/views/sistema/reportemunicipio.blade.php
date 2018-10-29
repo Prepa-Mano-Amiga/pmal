@@ -1,15 +1,11 @@
-@extends('sistema.principal')
-
+@extends('sistema.principalTable')
 @section('contenido')
-<h1>Reporte de Municipios</h1>
-<div class="card mb-3">
-    <div class="card-header">
-        <i class="fas fa-table"></i>
-        Reporte Escuelas
-    </div>
+<div class="card">
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <h4 class="card-title">Reporte Municipios</h4>
+        <h6 class="card-subtitle">Preparatoria Mano Amiga Lerma</h6>
+        <div class="table-responsive m-t-40">
+            <table id="myTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>Clave</th>
@@ -25,11 +21,11 @@
                         <td>{{$mun->nombre}}</td>
                         <td>{{$mun->ide}}</td>
                         <td>
-                        <a href="#">
-                                <i class='fa fa-pencil-alt fa-lg fa-fw' tittle='modificar'></i>
+                            <a href="#" class="opt">
+                                <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
-                            <a href="#">
-                                <i class='fa fa-trash fa-lg fa-fw'></i>
+                            <a href="#" class="opt">
+                                <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
                             </a>
                         </td>
                         @endforeach
@@ -46,6 +42,5 @@
             </table>
         </div>
     </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 </div>
 @stop

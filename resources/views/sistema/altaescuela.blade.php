@@ -1,49 +1,127 @@
 @extends('sistema.principal')
+
 @section('contenido')
-        <form action='{{route('guardaescuela')}}' method='POST' enctype='multipart/form-data'>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Alta Escuela</h4>
+        <h6 class="card-subtitle">Preparatoria Mano Amiga Lerma</h6>
+        <form action='{{route('guardaescuela')}}' class="form p-t-20" method='POST' enctype='multipart/form-data'>
             {{csrf_field()}}
-                @if($errors->first('ides'))
-                    <i>{{$errors->first('ides')}}</i>
-                @endif
-                Clave<br><input type="text"  name = 'ides' value="{{$idec}}" readonly="readonly"><br><br>
+            <div class="row">
+                <div class="col-lg-6">
+                    @if($errors->first('ides'))
+                        <i>{{$errors->first('ides')}}</i>
+                    @endif
+                    <div class="form-group">
+                        <label for="exampleInputuname">Clave Escuela</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-key"></i></div>
+                                <input type="text"  class="form-control" name = 'ides' value="{{$idec}}" readonly="readonly">
+                        </div>
+                    </div>
+				</div>
             
-                @if($errors->first('nombre'))
-                    <i>{{$errors->first('nombre') }}</i>
-                @endif
-                Nombre<br><input type="text" name="nombre" value="{{old('nombre')}}"><br><br>
+                <div class="col-lg-6">
+                    @if($errors->first('nombre'))
+                        <i>{{$errors->first('nombre') }}</i>
+                    @endif
+                    <div class="form-group">
+                        <label for="exampleInputuname">Nombre</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-user"></i></div>
+                                <input type="text" class="form-control" name="nombre" value="{{old('nombre')}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                @if($errors->first('localidad'))
-                    <i>{{$errors->first('localidad') }}</i>
-                @endif
-                Localidad<br><input type="text" name="localidad" value="{{old('localidad')}}"><br><br>
+            <div class="row">
+                <div class="col-lg-6">
+                    @if($errors->first('localidad'))
+                        <i>{{$errors->first('localidad') }}</i>
+                    @endif
+                    <div class="form-group">
+                        <label for="exampleInputuname">Localidad</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-location-pin"></i></div>
+                                <input type="text" class="form-control" name="localidad" value="{{old('localidad')}}">
+                        </div>
+                    </div>
+                </div>
 
-                @if($errors->first('sostenimiento'))
-                    <i>{{$errors->first('sostenimiento') }}</i>
-                @endif
-                Sostenimiento<br><input type="text" name="sostenimiento" value="{{old('sostenimiento')}}"><br><br>
+                <div class="col-lg-6">
+                    @if($errors->first('sostenimiento'))
+                        <i>{{$errors->first('sostenimiento') }}</i>
+                    @endif
+                    <div class="form-group">
+                        <label for="exampleInputuname">Sostenimiento</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-money"></i></div>
+                                <input type="text" class="form-control" name="sostenimiento" value="{{old('sostenimiento')}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                @if($errors->first('fec_engre'))
-                    <i>{{$errors->first('fec_engre') }}</i>
-                @endif
-                Fecha De Egreso<br><input type="date" name="fec_engre" value="{{old('fec_engre')}}"><br><br>
+            <div class="row">
+                <div class="col-lg-6">
+                    @if($errors->first('fec_engre'))
+                        <i>{{$errors->first('fec_engre') }}</i>
+                    @endif
+                    <div class="form-group">
+                        <label for="exampleInputuname">Fecha De Egreso</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-calendar"></i></div>
+                                <input type="date" class="form-control" name="fec_engre" value="{{old('fec_engre')}}">
+                        </div>
+                    </div>
+                </div>
 
-                @if($errors->first('promedio'))
-                    <i>{{$errors->first('promedio') }}</i>
-                @endif
-                Promedio<br><input type="text" name="promedio" value="{{old('promedio')}}"><br><br>
+                <div class="col-lg-6">
+                    @if($errors->first('promedio'))
+                        <i>{{$errors->first('promedio') }}</i>
+                    @endif
+                    <div class="form-group">
+                        <label for="exampleInputuname">Promedio</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-medall"></i></div>
+                                <input type="text" class="form-control" name="promedio" value="{{old('promedio')}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                @if($errors->first('clave_sector'))
-                    <i>{{$errors->first('clave_sector') }}</i>
-                @endif
-                Clave de Sector<br><input type="text" name="clave_sector" value="{{old('clave_sector')}}"><br>
+            <div class="row">
+                <div class="col-lg-6">
+                    @if($errors->first('clave_sector'))
+                        <i>{{$errors->first('clave_sector') }}</i>
+                    @endif
+                    <div class="form-group">
+                        <label for="exampleInputuname">Clave de Sector</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-bookmark"></i></div>
+                                <input type="text" class="form-control" name="clave_sector" value="{{old('clave_sector')}}">
+                        </div>
+                    </div>
+                </div>
 
-                Seleccione Municipio
-                <Select name='idm'>
-                @foreach($municipios as $mun)
-                    <option value = '{{$mun->idm}}'>{{$mun->nombre}}</option>
-                @endforeach
-            </select><br><br>
-            <input  class="btn btn-primary btn-block" type="submit" name="Guardar" value="Guardar">
-            <input class="btn btn-primary btn-block" type="reset" value="Cancelar">
+                <div class="col-lg-6">
+                <div class="form-group">
+                        <label for="exampleInputuname">Seleccione Municipio</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-location-pin"></i></div>
+                            <Select class="form-control" name='idm'>
+                                @foreach($municipios as $mun)
+                                    <option value = '{{$mun->idm}}'>{{$mun->nombre}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input  type="submit" class="btn btn-success waves-effect waves-light m-r-10" name="Guardar" value="Guardar">
+            <input type="reset" class="btn btn-danger waves-effect waves-light" value="Cancelar">
         </form >
+    </div>
+</div>
 @stop
