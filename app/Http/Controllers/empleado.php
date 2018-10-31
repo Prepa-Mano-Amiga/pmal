@@ -46,14 +46,29 @@ class empleado extends Controller
 			$emple->telefono=$request->telefono;
             $emple->save();
             
-		$proceso = "ALTA DE Empleado";	
+		$proceso = "ALTA DE EMPLEADO";	
 	    $mensaje="Registro guardado correctamente";
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)
 		->with('mensaje',$mensaje);
     }	
     public function reporteempleado(){
-		$empleado = bempleados::orderBy('nombre','asc')->get();
+		$empleado=\DB::select("SELECT b.idbe,b.nombre,b.ap_pat,b.ap_mat,b.turno,b.correo,b.telefono,b.deleted_at
+		FROM bempleados AS b");
 		return view ('sistema.reporteempleados')->with('empleado',$empleado);
+	}
+	public function eliminaempleado($idbe)
+	{
+		    bempleados::find($idbe)->delete();
+		    $proceso = "ELIMINAR Empleado";
+			$mensaje = "El empleado ha sido borrado Correctamente";
+			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+	}
+	public function restauraempleado($idbe)
+	{
+		bempleados::withTrashed()->where('idbe',$idbe)->restore();
+		$proceso = "RESTAURACION DE EMPLEADO";	
+	    $mensaje="Registro restaurado correctamente";
+		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
 }

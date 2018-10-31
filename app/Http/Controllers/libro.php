@@ -67,7 +67,22 @@ class libro extends Controller
 		->with('mensaje',$mensaje);
     }	
     public function reportelibro(){
-		$libro = libros::orderBy('nombre','asc')->get();
+		$libro=\DB::select("SELECT l.idl,l.nombre,l.autor,l.clasificacion,l.existencias,l.codigo,l.disponible,l.archivo,l.deleted_at
+		FROM libros AS l");
 		return view ('sistema.reportelibro')->with('libro',$libro);
+	}
+	public function eliminalibro($idl)
+	{
+		    libros::find($idl)->delete();
+		    $proceso = "ELIMINAR Libro";
+			$mensaje = "El libro ha sido borrado Correctamente";
+			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+	}
+	public function restauralibro($idl)
+	{
+		libros::withTrashed()->where('idl',$idl)->restore();
+		$proceso = "RESTAURACION DE LIBRO";	
+	    $mensaje="Registro restaurado correctamente";
+		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
 }

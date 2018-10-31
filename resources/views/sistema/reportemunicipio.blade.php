@@ -12,6 +12,7 @@
                         <th>Nombre</th>
                         <th>Estado</th>
                         <th>Operaciones</th>
+                        @if(count($municipio) > 0)
                         @foreach($municipio as $mun)
                     </tr>
                 </thead>
@@ -19,16 +20,25 @@
                     <tr>
                         <td>{{$mun->idm}}</td>
                         <td>{{$mun->nombre}}</td>
-                        <td>{{$mun->ide}}</td>
+                        <td>{{$mun->estad}}</td>
+                        
                         <td>
+                            @if($mun->deleted_at =="")
                             <a href="#" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
-                            <a href="#" class="opt">
+                            
+                            <a href="{{URL::action('municipio@eliminamun',['idm'=>$mun->idm])}}" class="opt">
                                 <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
                             </a>
+                            @else
+                            <a href="{{URL::action('municipio@restauramun',['idm'=>$mun->idm])}}" class="opt"> 
+                               <i class='fa fa-history' title='Restaurar'></i> 
+                            </a>
+                            @endif
                         </td>
                         @endforeach
+                        @endif
                     </tr>
                 <tfoot> 
                     <tr>

@@ -15,6 +15,7 @@
                         <th>Fecha de Egreso</th>
                         <th>Promedio</th>
                         <th>Clave de Sector</th>
+                        <th>Municipio</th>
                         <th>Operaciones</th>
                         @foreach($escuelas as $es)
                     </tr>
@@ -28,13 +29,21 @@
                         <td>{{$es->fec_engre}}</td>
                         <td>{{$es->promedio}}</td>
                         <td>{{$es->clave_sector}}</td>
+                        <td>{{$es->municipio}}</td>
                         <td>
+                            @if($es->deleted_at =="")
                             <a href="#" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
-                            <a href="#" class="opt">
+                            
+                            <a href="{{URL::action('escuela@eliminaescuela',['ides'=>$es->ides])}}" class="opt">
                                 <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
                             </a>
+                            @else
+                            <a href="{{URL::action('escuela@restauraescuela',['ides'=>$es->ides])}}" class="opt"> 
+                               <i class='fa fa-history' title='Restaurar'></i> 
+                            </a>
+                            @endif
                         </td>
                         @endforeach
                     </tr>
@@ -47,6 +56,7 @@
                       <th>Fecha de Egreso</th>
                       <th>Promedio</th>
                       <th>Clave de Sector</th>
+                      <th>Municipio</th>
                       <th>Operaciones</th>
                     </tr>
                   </tfoot>

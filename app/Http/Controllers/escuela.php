@@ -55,7 +55,23 @@ class escuela extends Controller
 		}
 
 		public function reporteEscuelas(){
-			$escuelas = escuelas::orderBy('nombre','asc')->get();
+			$escuelas=\DB::select("SELECT e.ides,e.nombre,e.localidad,e.sostenimiento,e.fec_engre,e.promedio,e.clave_sector,m.nombre AS municipio,e.deleted_at
+			FROM escuelas AS e
+			INNER JOIN municipios AS m ON e.idm = m.idm");
 			return view ('sistema.reporteEscuelas')->with('escuelas',$escuelas);
 		}
+		public function eliminaescuela($ides)
+	{
+		    escuelas::find($ides)->delete();
+		    $proceso = "ELIMINAR Escuela";
+			$mensaje = "El escuela ha sido borrado Correctamente";
+			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+	}
+	public function restauraescuela($ides)
+	{
+		escuelas::withTrashed()->where('ides',$ides)->restore();
+		$proceso = "RESTAURACION DE ESCUELA";	
+	    $mensaje="Registro restaurado correctamente";
+		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
+	}
 }

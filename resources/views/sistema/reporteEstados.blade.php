@@ -19,12 +19,19 @@
                         <td>{{$es->ide}}</td>
                         <td>{{$es->nombre}}</td>
                         <td>
+                            @if($es->deleted_at =="")
                             <a href="#" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
-                            <a href="#" class="opt">
+                            
+                            <a href="{{URL::action('estado@eliminaestado',['ide'=>$es->ide])}}" class="opt">
                                 <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
                             </a>
+                            @else
+                            <a href="{{URL::action('estado@restauraestado',['ide'=>$es->ide])}}" class="opt"> 
+                               <i class='fa fa-history' title='Restaurar'></i> 
+                            </a>
+                            @endif
                         </td>
                         @endforeach
                     </tr> 

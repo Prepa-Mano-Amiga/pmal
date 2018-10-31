@@ -29,12 +29,19 @@
                         <td>{{$us->ap_pat}}</td>
                         <td>{{$us->ap_mat}}</td>
                         <td>
+                            @if($us->deleted_at =="")
                             <a href="#" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
-                            <a href="#" class="opt">
+                            
+                            <a href="{{URL::action('usuario@eliminausuario',['idu'=>$us->idu])}}" class="opt">
                                 <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
                             </a>
+                            @else
+                            <a href="{{URL::action('usuario@restaurausuario',['idu'=>$us->idu])}}" class="opt"> 
+                               <i class='fa fa-history' title='Restaurar'></i> 
+                            </a>
+                            @endif
                         </td>
                         @endforeach
                     </tr>

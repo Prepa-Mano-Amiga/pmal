@@ -21,7 +21,7 @@
                         <th>Contacto3</th>
                         <th>tel3</th>
                         <th>Operaciones</th>
-                        @foreach($medico as $me)
+                        @foreach($rmedico as $me)
                     </tr>
                 </thead>
                 <tbody>
@@ -39,12 +39,19 @@
                         <td>{{$me->contacto3}}</td>
                         <td>{{$me->tel3}}</td>
                         <td>
+                            @if($me->deleted_at =="")
                             <a href="#" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
-                            <a href="#" class="opt">
+                            
+                            <a href="{{URL::action('medico@eliminaregmedico',['idrm'=>$me->idrm])}}" class="opt">
                                 <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
                             </a>
+                            @else
+                            <a href="{{URL::action('medico@restauraregmedico',['idrm'=>$me->idrm])}}" class="opt"> 
+                               <i class='fa fa-history' title='Restaurar'></i> 
+                            </a>
+                            @endif
                         </td>
                         @endforeach
                     </tr> 

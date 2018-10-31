@@ -65,8 +65,23 @@ class usuario extends Controller
 
 	//consulta usuario
 	public function reporteusuario(){
-			$usuarios = usuarios::orderBy('nombre','asc')->get();
+		$usuarios=\DB::select("SELECT u.idu,u.usuario,u.password,u.tipo_usu,u.nombre,u.ap_pat,u.ap_mat,u.deleted_at
+		FROM usuarios AS u");
 			return view ('sistema.reporteusuarios')->with('usuarios',$usuarios);
+		}
+	public function eliminausuario($idu)
+		{
+				usuarios::find($idu)->delete();
+				$proceso = "ELIMINAR USUARIO";
+				$mensaje = "El usuario ha sido borrado Correctamente";
+				return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+		}
+	public function restaurausuario($idu)
+		{
+			usuarios::withTrashed()->where('idu',$idu)->restore();
+			$proceso = "RESTAURACION DE USUARIO";	
+			$mensaje="Registro restaurado correctamente";
+			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 		}
 	
 }

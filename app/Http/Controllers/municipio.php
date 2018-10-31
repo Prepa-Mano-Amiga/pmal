@@ -12,7 +12,7 @@ class municipio extends Controller
  	public function altamun()
 	{	
 		$estados = estados::OrderBy('nombre','asc')->get();
-		$clavesig = municipios::orderBy('idm','desc')->take(1)->get();
+		$clavesig = municipios::withTrashed()->orderBy('idm','desc')->take(1)->get();
 		$idmun	  = $clavesig[0]->idm+1;
 		return view ('sistema.altamunicipio')->with('estados',$estados)->with('idmun',$idmun);
 	}
@@ -42,7 +42,60 @@ class municipio extends Controller
 
 	//consulta Municipio
 	public function reportemun(){
-		$municipio = municipios::orderBy('nombre','asc')->get();
+	$municipio=\DB::select("SELECT m.idm,m.nombre,e.nombre as estad,m.deleted_at
+	FROM municipios AS m
+	INNER JOIN estados AS e ON e.ide = m.ide");
 		return view ('sistema.reportemunicipio')->with('municipio',$municipio);
+	}
+	//
+	public function eliminamun($idm)
+	{
+		    municipios::find($idm)->delete();
+		    $proceso = "ELIMINAR Municipio";
+			$mensaje = "El municipio ha sido borrado Correctamente";
+			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+	}
+	public function restauramun($idm)
+	{
+		municipios::withTrashed()->where('idm',$idm)->restore();
+		$proceso = "RESTAURACION DE MUNICIPIO";	
+	    $mensaje="Registro restaurado correctamente";
+		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
+	}
+	public function modificamun($idm)
+	{
+		$municipios = municipios::where('idm','=',$idm)->get();
+		
+		$ide = $maestro[0]->ide;
+		
+		$estados = estados::where('ide','=',$ide)->get();
+		$demasestados = estados::where('ide','!=',$ide)
+		                           ->get();
+		
+		
+		return view('sistema.guardamaestro')
+								 ->with('ide',$ide)
+								 ->with('estados',$estados[0]->nombre)
+								 ->with('demasestados',$demasestados);
+	}
+	public function editamun(Request $request)
+	{
+		$idm 		= $request->idm;
+		$nombre		= $request->nombre;
+		///NUNCA SE RECIBEN LOS ARCHIVOS
+		
+		$this->validate($request,[
+			'idm'		=>'required|numeric',
+			'nombre'	=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'
+	     ]);
+		 
+		    $mun = municipios::find($idm);
+			$mun->idm		=	$request->idm;
+			$mun->nombre	=	$request->nombre;
+			$mun->ide		=	$request->ide;
+			$mun->save();
+		$proceso = "Modificacion DE MUNICIPIO";	
+	    $mensaje="Registro modificado correctamente";
+		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
 }

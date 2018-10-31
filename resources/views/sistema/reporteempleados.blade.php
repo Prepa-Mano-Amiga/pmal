@@ -29,13 +29,20 @@
                         <td>{{$bem->correo}}</td>
                         <td>{{$bem->telefono}}</td>
                         <td>
+                            @if($bem->deleted_at =="")
                             <a href="#" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
-                            <a href="#" class="opt">
+                            
+                            <a href="{{URL::action('empleado@eliminaempleado',['idbe'=>$bem->idbe])}}" class="opt">
                                 <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
                             </a>
-                        </td>
+                            @else
+                            <a href="{{URL::action('empleado@restauraempleado',['idbe'=>$bem->idbe])}}" class="opt"> 
+                               <i class='fa fa-history' title='Restaurar'></i> 
+                            </a>
+                            @endif
+                        </td>  
                         @endforeach
                         
                     </tr>  

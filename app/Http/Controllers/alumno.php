@@ -56,7 +56,7 @@ class alumno extends Controller
             'ap_pat'	=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
             'ap_mat'	=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
             'edad'		=>'required|integer|min:14|max:25',
-            'curp'	    =>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú][0-9]+$/'],
+            'curp'	    =>'required',['regex:/^[A-Z]{4}[0-9]{6}[A-Z]{6}[0-9]{2}$/'],
             'email'	    =>'required|email',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
             'grado'	    =>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
             'semestre'	=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
@@ -162,8 +162,28 @@ class alumno extends Controller
 
     //consulta Alumno
 	public function reportealum(){
-		$alumnos = alumnos::orderBy('nombre','asc')->get();
+		$alumnos=\DB::select("SELECT a.ida,a.nombre,a.ap_pat,a.ap_mat,a.edad,a.sexo,a.curp,a.email,a.grado,a.semestre,a.telefono,a.calle,a.num_int,a.num_ext,
+        a.colonia,a.localidad,a.cp,a.lugar_nac,a.dia,a.mes,a.año,a.ciclo_escolar,a.act_nac,a.fich_pago,a.foto,a.cert_sec,a.deleted_at,
+        e.nombre AS estado,m.nombre AS municipio,r.responsable AS responsable
+        FROM alumnos AS a
+        INNER JOIN escuelas AS e ON e.ides = a.ides
+        INNER JOIN municipios AS m ON m.idm = a.idm
+        INNER JOIN rmedicos AS r ON r.idrm = a.idrm");
 		return view ('sistema.reportealumno')->with('alumnos',$alumnos);
+    }
+    public function eliminaalum($ida)
+	{
+		    alumnos::find($ida)->delete();
+		    $proceso = "ELIMINAR Alumno";
+			$mensaje = "El alumno ha sido borrado Correctamente";
+			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+	}
+	public function restauraalum($ida)
+	{
+		alumnos::withTrashed()->where('ida',$ida)->restore();
+		$proceso = "RESTAURACION DE ALUMNO";	
+	    $mensaje="Registro restaurado correctamente";
+		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
 
 }

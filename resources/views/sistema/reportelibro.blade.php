@@ -32,12 +32,19 @@
                         <td><img src = "{{asset('archivos/'.$lib->archivo)}}"
                             height =50 width=50></td>
                         <td>
+                            @if($lib->deleted_at =="")
                             <a href="#" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
-                            <a href="#" class="opt">
+                            
+                            <a href="{{URL::action('libro@eliminalibro',['idl'=>$lib->idl])}}" class="opt">
                                 <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
                             </a>
+                            @else
+                            <a href="{{URL::action('libro@restauralibro',['idl'=>$lib->idl])}}" class="opt"> 
+                               <i class='fa fa-history' title='Restaurar'></i> 
+                            </a>
+                            @endif
                         </td>
                         @endforeach
                     </tr> 

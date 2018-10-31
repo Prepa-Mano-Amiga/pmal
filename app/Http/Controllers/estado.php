@@ -38,8 +38,22 @@ class estado extends Controller
 
 	//consulta Estado
 	public function reporteEstado(){
-		$estados = estados::orderBy('nombre','asc')->get();
+		$estados=\DB::select("SELECT e.ide,e.nombre,e.deleted_at
+		FROM estados AS e");
 		return view ('sistema.reporteEstados')->with('estados',$estados);
 	}
-	
+	public function eliminaestado($ide)
+	{
+		    estados::find($ide)->delete();
+		    $proceso = "ELIMINAR Estado";
+			$mensaje = "El estado ha sido borrado Correctamente";
+			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+	}
+	public function restauraestado($ide)
+	{
+		estados::withTrashed()->where('ide',$ide)->restore();
+		$proceso = "RESTAURACION DE Estado";	
+	    $mensaje="Registro restaurado correctamente";
+		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
+	}
 }

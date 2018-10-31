@@ -70,7 +70,23 @@ class medico extends Controller
 		->with('mensaje',$mensaje);
     }	
     public function reporteregmedico(){
-		$medico = rmedicos::orderBy('responsable','asc')->get();
-		return view ('sistema.reporteregmedico')->with('medico',$medico);
-	}
+		$rmedico=\DB::select("SELECT r.idrm,r.responsable,r.num_hermanos,r.nom_hermanos,r.edad,r.tipo_sangre,
+        r.contacto1,r.tel1,r.contacto2,r.tel2,r.contacto3,r.tel3,r.deleted_at
+        FROM rmedicos AS r");
+		return view ('sistema.reporteregmedico')->with('rmedico',$rmedico);
+    }
+    public function eliminaregmedico($idrm)
+    {
+        rmedicos::find($idrm)->delete();
+        $proceso = "ELIMINAR Registro Medico";
+        $mensaje = "El Registro Medico ha sido borrado Correctamente";
+        return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+    }
+    public function restauraregmedico($idrm)
+    {
+    rmedicos::withTrashed()->where('idrm',$idrm)->restore();
+    $proceso = "RESTAURACION DE REGISTRO MEDICO";	
+    $mensaje="Registro restaurado correctamente";
+    return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
+    }   
 }

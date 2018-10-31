@@ -84,7 +84,26 @@ class tutor extends Controller
 		}
 
 		public function reporteTutor(){
-			$tutores = tutores::orderBy('nombre','asc')->get();
+			$tutores=\DB::select("SELECT t.idt,t.nombre,t.ap_pat,t.ap_mat,t.fec_nac,t.ocupacion,t.compañia,t.curp,t.grado_estudios,t.email,t.calle,t.num_int,t.num_ext,
+			t.colonia,t.localidad,t.cp,t.deleted_at,
+			m.nombre AS municipio,a.nombre AS alumno
+			FROM tutores AS t
+			INNER JOIN municipios AS m ON t.idm = m.idm
+			INNER JOIN alumnos AS a ON t.ida = a.ida");
 			return view ('sistema.reporteTutores')->with('tutores',$tutores);
 		}
+		public function eliminatutor($idt)
+	{
+		    tutores::find($idt)->delete();
+		    $proceso = "ELIMINAR TUTOR";
+			$mensaje = "El Tutor ha sido borrado Correctamente";
+			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+	}
+	public function restauratutor($idt)
+	{
+		tutores::withTrashed()->where('idt',$idt)->restore();
+		$proceso = "RESTAURACION DE TUTOR";	
+	    $mensaje="Registro restaurado correctamente";
+		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
+	}
 }
