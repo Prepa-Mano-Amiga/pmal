@@ -24,6 +24,8 @@ Route::POST('/guardAlum','alumno@guardaAlum')->name('guardaAlum');
 Route::get('/reportealum','alumno@reportealum');
 Route::get('/eliminaalum/{ida}','alumno@eliminaalum')->name('eliminaalum');
 Route::get('/restauraalum/{ida}','alumno@restauraalum')->name('restauraalum');
+Route::get('/modificaAl/{ida}','alumno@modificaAl')->name('modificaAl');
+Route::POST('/editAlum','alumno@editAlum')->name('editAlum');
 
 //catalogo municipio
 Route::get('/altamun','municipio@altamun');
@@ -31,6 +33,8 @@ Route::POST('/guardamun','municipio@guardamun')->name('guardamun');
 Route::get('/reportemun','municipio@reportemun');
 Route::get('/eliminamun/{idm}','municipio@eliminamun')->name('eliminamun');
 Route::get('/restauramun/{idm}','municipio@restauramun')->name('restauramun');
+Route::get('/modificamun/{idm}','municipio@modificamun')->name('modificamun');
+Route::POST('/editmun','municipio@editmun')->name('editmun');
 
 //catalogo estado
 Route::get('/altaest','estado@altaestado');
@@ -47,6 +51,8 @@ Route::POST('/guardausuario','usuario@guardausuario')->name('guardausuario');
 Route::get('/reporteusuario','usuario@reporteusuario');
 Route::get('/eliminausuario/{idu}','usuario@eliminausuario')->name('eliminausuario');
 Route::get('/restaurausuario/{idu}','usuario@restaurausuario')->name('restaurausuario');
+Route::get('/modificausuario/{idu}','usuario@modificausuario')->name('modificausuario');
+Route::POST('/editusuario','usuario@editusuario')->name('editusuario');
 
 //Catalogo Escuela
 Route::get('/altaescuela','escuela@altaescuela');
@@ -72,6 +78,8 @@ Route::POST('/guardaempleado','empleado@guardaempleado')->name('guardaempleado')
 Route::get('/reporteempleado','empleado@reporteempleado');
 Route::get('/eliminaempleado/{idbe}','empleado@eliminaempleado')->name('eliminaempleado');
 Route::get('/restauraempleado/{idbe}','empleado@restauraempleado')->name('restauraempleado');
+Route::get('/modificaempleado/{idbe}','empleado@modificaempleado')->name('modificaempleado');
+Route::POST('/editaempleado','empleado@editaempleado')->name('editaempleado');
 
 //catalogo registro medico
 Route::get('/altaregmedicos','medico@altaregmedicos');
@@ -79,6 +87,8 @@ Route::POST('/guardaregmedico','medico@guardaregmedico')->name('guardaregmedico'
 Route::get('/reporteregmedico','medico@reporteregmedico');
 Route::get('/eliminaregmedico/{idrm}','medico@eliminaregmedico')->name('eliminaregmedico');
 Route::get('/restauraregmedico/{idrm}','medico@restauraregmedico')->name('restauraregmedico');
+Route::get('/modificaregmedico/{idrm}','medico@modificaregmedico')->name('modificaregmedico');
+Route::POST('/editaregmedico','medico@editaregmedico')->name('editaregmedico');
 
 //Catalogo libros
 Route::get('/altalibro','libro@altalibro');
@@ -86,4 +96,6 @@ Route::POST('/guardalibro','libro@guardalibro')->name('guardalibro');
 Route::get('/reportelibro','libro@reportelibro');
 Route::get('/eliminalibro/{idl}','libro@eliminalibro')->name('eliminalibro');
 Route::get('/restauralibro/{idl}','libro@restauralibro')->name('restauralibro');
+Route::get('/modificalibro/{idl}','libro@modificalibro')->name('modificalibro');
+Route::POST('/editalibro','libro@editalibro')->name('editalibro');
 

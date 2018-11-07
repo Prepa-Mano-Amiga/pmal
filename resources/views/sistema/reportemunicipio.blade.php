@@ -24,7 +24,7 @@
                         
                         <td>
                             @if($mun->deleted_at =="")
-                            <a href="#" class="opt">
+                            <a href="{{URL::action('municipio@modificamun',['idm'=>$mun->idm])}}" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
                             

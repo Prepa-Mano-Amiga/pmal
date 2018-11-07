@@ -4,7 +4,7 @@
     <div class="card-body">
         <h4 class="card-title">Alta Usuario</h4>
         <h6 class="card-subtitle">Preparatoria Mano Amiga Lerma</h6>
-		<form action ='{{route('guardausuario')}}'  class="form p-t-20" method='POST' enctype='multipart/form-data'>
+		<form action ='{{route('editusuario')}}'  class="form p-t-20" method='POST' enctype='multipart/form-data'>
 			{{csrf_field()}}
 			<div class="row">
                 <div class="col-lg-6">
@@ -15,7 +15,7 @@
                         <label for="exampleInputuname">Clave usuario</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-key"></i></div>
-				 				<input type = 'text' class="form-control" name = 'idu' value="{{$idus}}" readonly="readonly">
+				 				<input type = 'text' class="form-control" name = 'idu' value="{{$usu->idu}}" readonly="readonly">
 						</div>
                     </div>
 				</div>
@@ -28,7 +28,7 @@
                         <label for="exampleInputuname">Nombre de Usuario</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-user"></i></div>
-				 				<input type ='text' class="form-control" name = 'usuario' value="{{old('usuario')}}" >
+				 				<input type ='text' class="form-control" name = 'usuario' value="{{$usu->usuario}}" >
 						</div>
                     </div>
 				</div>
@@ -43,7 +43,7 @@
                         <label for="exampleInputuname">Contraseña</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-lock"></i></div>
-				 				<input type = 'password' class="form-control" name = 'password' value="{{old('password')}}">
+				 				<input type = 'password' class="form-control" name = 'password' value="{{$usu->password}}">
 						</div>
                     </div>
 				</div>
@@ -56,7 +56,7 @@
                         <label for="exampleInputuname">Tipo de usuario</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-user"></i></div>
-					 			<input type ='text' class="form-control" name='tipo_usu' value="{{old('tipo_usu')}}">
+					 			<input type ='text' class="form-control" name='tipo_usu' value="{{$usu->tipo_usu}}">
 						</div>
                     </div>
 				</div>
@@ -71,7 +71,7 @@
                         <label for="exampleInputuname">Nombre</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-user"></i></div>
-								<input type ='text' class="form-control" name ='nombre' value="{{old('nombre')}}">
+								<input type ='text' class="form-control" name ='nombre' value="{{$usu->nombre}}">
 						</div>
                     </div>
 				</div>
@@ -84,7 +84,7 @@
                         <label for="exampleInputuname">Apellido Paterno</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-user"></i></div>
-								<input type ='text' class="form-control" name ='ap_pat' value="{{old('ap_pat')}}">
+								<input type ='text' class="form-control" name ='ap_pat' value="{{$usu->ap_pat}}">
 						</div>
                     </div>
 				</div>
@@ -97,7 +97,7 @@
                         <label for="exampleInputuname">Apellido Materno</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-user"></i></div>
-								<input type ='text' class="form-control" name ='ap_mat' value="{{old('ap_mat')}}">
+								<input type ='text' class="form-control" name ='ap_mat' value="{{$usu->ap_mat}}">
 						</div>
                     </div>
 				</div>
@@ -107,6 +107,8 @@
 						<i>{{$errors->first('foto')}}</i>
 					@endif
 					<div class="form-group">
+							Foto de Usuario<br>
+							<img src ="{{asset('archivos/'.$usu->foto)}}" height = 150 width = 150><br>
                         <label for="exampleInputuname">Seleccione una foto </label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-cloud-up"></i></div>

@@ -33,7 +33,7 @@
                             height =50 width=50></td>
                         <td>
                             @if($lib->deleted_at =="")
-                            <a href="#" class="opt">
+                            <a href="{{URL::action('libro@modificalibro',['idl'=>$lib->idl])}}" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
                             
