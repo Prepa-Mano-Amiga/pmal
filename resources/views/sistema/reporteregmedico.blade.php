@@ -40,7 +40,7 @@
                         <td>{{$me->tel3}}</td>
                         <td>
                             @if($me->deleted_at =="")
-                            <a href="#" class="opt">
+                            <a href="{{URL::action('medico@modificaregmedico',['idrm'=>$me->idrm])}}" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
                             

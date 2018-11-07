@@ -10,7 +10,7 @@ class empleado extends Controller
 {
  	public function altaempleado()
     {	
-		  $clavesig = bempleados::orderBy('idbe','desc')->take(1)->get();
+		 $clavesig = bempleados::orderBy('idbe','desc')->take(1)->get();
            $idbe = $clavesig[0]->idbe+1;
 	   return view ('sistema.altaempleado')->with('idbe',$idbe);
 	 
@@ -70,5 +70,48 @@ class empleado extends Controller
 		$proceso = "RESTAURACION DE EMPLEADO";	
 	    $mensaje="Registro restaurado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
+	}
+	public function modificaempleado($idbe)
+	{
+
+		
+		$bempleado = bempleados::where('idbe','=',$idbe)->get();
+		$idbe = $bempleado[0]->idbe;
+		return view('sistema.guardaempleado')->with('bempleados',$bempleado[0])->with('idbe',$idbe);					
+	}
+	public function editaempleado(Request $request)
+	{
+		$nombre = $request->nombre;
+		$idbe = $request->idbe;
+		$ap_pat= $request->ap_pat;
+		$ap_mat = $request->ap_mat;
+		$turno = $request->turno;
+		$correo = $request->correo;
+		///NUNCA SE RECIBEN LOS ARCHIVOS
+		
+		
+		$this->validate($request,[
+	     'idbe'=>'required|numeric',
+         'nombre'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'ap_pat'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'ap_mat'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'turno'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+		 'correo'=>'required|',
+	     'telefono'=>'required|numeric'
+	     ]);
+		 	 
+		    $emple = bempleados::find($idbe);
+			$emple->idbe = $request->idbe;
+			$emple->nombre = $request->nombre;
+			$emple->ap_pat =$request->ap_pat;
+			$emple->ap_mat = $request->ap_mat;
+			$emple->turno =$request->turno;
+			$emple->correo =$request->correo;
+			$emple->telefono=$request->telefono;
+            $emple->save();
+            
+		$proceso = "MODIFICACION DE EMPLEADO";	
+	    $mensaje="Registro modificado correctamente";
+		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
 }

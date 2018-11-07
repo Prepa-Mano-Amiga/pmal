@@ -3,6 +3,7 @@
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
+
 class rmedicos extends Model{
     use softDeletes;
     protected $primaryKey   =   'idrm';

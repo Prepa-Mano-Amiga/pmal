@@ -30,7 +30,7 @@
                         <td>{{$bem->telefono}}</td>
                         <td>
                             @if($bem->deleted_at =="")
-                            <a href="#" class="opt">
+                            <a href="{{URL::action('empleado@modificaempleado',['idbe'=>$bem->idbe])}}" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
                             
