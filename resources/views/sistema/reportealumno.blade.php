@@ -72,7 +72,7 @@
                         <td><img src ="{{asset('archivos/'.$al->cert_sec)}}" height = 60 width = 60></td>
                         <td>
                             @if($al->deleted_at =="")
-                            <a href="#" class="opt">
+                            <a href="{{URL::action('alumno@modificaAl',['ida'=>$al->ida])}}" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
                             

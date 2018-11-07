@@ -22,6 +22,8 @@ Route::POST('/guardAlum','alumno@guardaAlum')->name('guardaAlum');
 Route::get('/reportealum','alumno@reportealum');
 Route::get('/eliminaalum/{ida}','alumno@eliminaalum')->name('eliminaalum');
 Route::get('/restauraalum/{ida}','alumno@restauraalum')->name('restauraalum');
+Route::get('/modificaAl/{ida}','alumno@modificaAl')->name('modificaAl');
+Route::POST('/editAlum','alumno@editAlum')->name('editAlum');
 
 //Vista Administracion
 Route::get('/admin','administrador@admin');
@@ -31,6 +33,8 @@ Route::POST('/guardamun','municipio@guardamun')->name('guardamun');
 Route::get('/reportemun','municipio@reportemun');
 Route::get('/eliminamun/{idm}','municipio@eliminamun')->name('eliminamun');
 Route::get('/restauramun/{idm}','municipio@restauramun')->name('restauramun');
+Route::get('/modificamun/{idm}','municipio@modificamun')->name('modificamun');
+Route::POST('/editmun','municipio@editmun')->name('editmun');
 
 //catalogo estado
 Route::get('/altaest','estado@altaestado');
@@ -45,6 +49,8 @@ Route::POST('/guardausuario','usuario@guardausuario')->name('guardausuario');
 Route::get('/reporteusuario','usuario@reporteusuario');
 Route::get('/eliminausuario/{idu}','usuario@eliminausuario')->name('eliminausuario');
 Route::get('/restaurausuario/{idu}','usuario@restaurausuario')->name('restaurausuario');
+Route::get('/modificausuario/{idu}','usuario@modificausuario')->name('modificausuario');
+Route::POST('/editusuario','usuario@editusuario')->name('editusuario');
 
 //Catalogo Escuela
 Route::get('/altaescuela','escuela@altaescuela');

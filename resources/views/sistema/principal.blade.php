@@ -401,8 +401,9 @@
         <!-- End Page wrapper  -->
     </div>
     <!-- End Wrapper -->
-    <!-- All Jquery -->
-    
+
+    <!-- All Jquery -->    
+
     <script src="{{ asset('js/lib/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{ asset('js/lib/bootstrap/js/popper.min.js') }}"></script>
@@ -415,6 +416,7 @@
     <script src="{{ asset('js/lib/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
     <!--Custom JavaScript -->
     <script src="{{ asset('js/custom.min.js') }}"></script>
+
 
 </body>
 

@@ -47,7 +47,7 @@ class municipio extends Controller
 	INNER JOIN estados AS e ON e.ide = m.ide");
 		return view ('sistema.reportemunicipio')->with('municipio',$municipio);
 	}
-	//
+	//elimina municipio
 	public function eliminamun($idm)
 	{
 		    municipios::find($idm)->delete();
@@ -55,30 +55,27 @@ class municipio extends Controller
 			$mensaje = "El municipio ha sido borrado Correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
+	//restaura municipio
 	public function restauramun($idm)
 	{
 		municipios::withTrashed()->where('idm',$idm)->restore();
-		$proceso = "RESTAURACION DE MUNICIPIO";	
-	    $mensaje="Registro restaurado correctamente";
+		$proceso 	= "RESTAURACION DE MUNICIPIO";	
+	    $mensaje	="Registro restaurado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
+	//modifica municipio
 	public function modificamun($idm)
 	{
-		$municipios = municipios::where('idm','=',$idm)->get();
-		
-		$ide = $maestro[0]->ide;
-		
+		$mun = municipios::where('idm','=',$idm)->get();
+		$ide = $mun[0]->ide;
 		$estados = estados::where('ide','=',$ide)->get();
-		$demasestados = estados::where('ide','!=',$ide)
-		                           ->get();
-		
-		
-		return view('sistema.guardamaestro')
-								 ->with('ide',$ide)
-								 ->with('estados',$estados[0]->nombre)
-								 ->with('demasestados',$demasestados);
+		$allestados = estados::where('ide','!=',$ide)->get();
+		return view('sistema.guardamunicipio')->with('mun',$mun[0])
+											->with('ide',$ide)
+											->with('estados',$estados[0]->nombre)
+											->with('allestados',$allestados);
 	}
-	public function editamun(Request $request)
+	public function editmun(Request $request)
 	{
 		$idm 		= $request->idm;
 		$nombre		= $request->nombre;
