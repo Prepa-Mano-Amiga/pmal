@@ -20,7 +20,7 @@
                         <td>{{$es->nombre}}</td>
                         <td>
                             @if($es->deleted_at =="")
-                            <a href="#" class="opt">
+                            <a href="{{URL::action('estado@modificaEst',['ide'=>$es->ide])}}" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
                             
@@ -41,7 +41,7 @@
                         <th>Nombre</th>
                         <th>Operaciones</th>
                     </tr>
-                    </tfoot>
+                </tfoot>
                 </tbody>
             </table>
         </div>

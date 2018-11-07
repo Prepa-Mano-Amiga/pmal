@@ -1,11 +1,10 @@
 @extends('sistema.principal')
-
 @section('contenido')
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Alta Escuela</h4>
+        <h4 class="card-title">Modifica Escuela</h4>
         <h6 class="card-subtitle">Preparatoria Mano Amiga Lerma</h6>
-        <form action='{{route('guardaescuela')}}' class="form p-t-20" method='POST' enctype='multipart/form-data'>
+        <form action='{{route('editaEscuela')}}' class="form p-t-20" method='POST' enctype='multipart/form-data'>
             {{csrf_field()}}
             <div class="row">
                 <div class="col-lg-6">
@@ -16,7 +15,7 @@
                         <label for="exampleInputuname">Clave Escuela</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-key"></i></div>
-                                <input type="text"  class="form-control" name = 'ides' value="{{$idec}}" readonly="readonly">
+                                <input type="text"  class="form-control" name = 'ides' value="{{$escuela->ides}}" readonly="readonly">
                         </div>
                     </div>
 				</div>
@@ -29,7 +28,7 @@
                         <label for="exampleInputuname">Nombre</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-user"></i></div>
-                                <input type="text" class="form-control" name="nombre" value="{{old('nombre')}}">
+                                <input type="text" class="form-control" name="nombre" value="{{$escuela->nombre}}">
                         </div>
                     </div>
                 </div>
@@ -44,7 +43,7 @@
                         <label for="exampleInputuname">Localidad</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-location-pin"></i></div>
-                                <input type="text" class="form-control" name="localidad" value="{{old('localidad')}}">
+                                <input type="text" class="form-control" name="localidad" value="{{$escuela->localidad}}">
                         </div>
                     </div>
                 </div>
@@ -57,7 +56,7 @@
                         <label for="exampleInputuname">Sostenimiento</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-money"></i></div>
-                                <input type="text" class="form-control" name="sostenimiento" value="{{old('sostenimiento')}}">
+                                <input type="text" class="form-control" name="sostenimiento" value="{{$escuela->sostenimiento}}">
                         </div>
                     </div>
                 </div>
@@ -72,7 +71,7 @@
                         <label for="exampleInputuname">Fecha De Egreso</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-calendar"></i></div>
-                                <input type="date" class="form-control" name="fec_engre" value="{{old('fec_engre')}}">
+                                <input type="date" class="form-control" name="fec_engre" value="{{$escuela->fec_engre}}">
                         </div>
                     </div>
                 </div>
@@ -85,7 +84,7 @@
                         <label for="exampleInputuname">Promedio</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-medall"></i></div>
-                                <input type="text" class="form-control" name="promedio" value="{{old('promedio')}}">
+                                <input type="text" class="form-control" name="promedio" value="{{$escuela->promedio}}">
                         </div>
                     </div>
                 </div>
@@ -100,7 +99,7 @@
                         <label for="exampleInputuname">Clave de Sector</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-bookmark"></i></div>
-                                <input type="text" class="form-control" name="clave_sector" value="{{old('clave_sector')}}">
+                                <input type="text" class="form-control" name="clave_sector" value="{{$escuela->clave_sector}}">
                         </div>
                     </div>
                 </div>
@@ -110,9 +109,10 @@
                         <label for="exampleInputuname">Seleccione Municipio</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-location-pin"></i></div>
-                            <Select class="form-control" name='idm'>
-                                @foreach($municipios as $mun)
-                                    <option value = '{{$mun->idm}}'>{{$mun->nombre}}</option>
+                            <Select class="form-control" name="idm">
+                                <option value='{{$idm}}'>{{$municipio}}</option>
+                                @foreach($demasMunicipios as $dm)
+                                    <option value='{{$dm->idm}}'>{{$dm->nombre}}</option>
                                 @endforeach
                             </select>
                         </div>

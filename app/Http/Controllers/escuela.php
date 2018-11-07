@@ -33,7 +33,7 @@ class escuela extends Controller
 				'nombre'	    =>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 				'localidad'	    =>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 				'sostenimiento'	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-				'promedio'	    =>'required',['regex:/^[0-9]{2}+[.][0-9]{2}$/'],
+				'promedio'	    =>'required|regex:/^[0-9]+[.][0-9]{2}$/',
 				'clave_sector'	=>'required|min:8|max:32',
 			]);
 			
@@ -74,4 +74,50 @@ class escuela extends Controller
 	    $mensaje="Registro restaurado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
+
+	public function modificaEscuela($ides){
+        $escuela = escuelas::where('ides','=',$ides)->get();
+        $idm = $escuela[0]->idm;
+        $municipio = municipios::where('idm','=',$idm)->get();
+        $demasMunicipios = municipios::where('idm','!=',$idm)->get();
+        return view('sistema.editaEscuela')
+                                            ->with('escuela',$escuela[0])
+                                            ->with('idm',$idm)
+                                            ->with('municipio', $municipio[0]->nombre)
+                                            ->with('demasMunicipios',$demasMunicipios);
+	}
+	
+	public function editaEscuela(Request $request){
+        $nombre	        = $request->nombre;
+		$ides 		    = $request->ides;
+		$localidad 	    = $request->localidad;
+		$sostenimiento 	= $request->sostenimiento;
+		$fec_engre		= $request->fec_engre;
+		$promedio		= $request->promedio;
+		$clave_sector 	= $request->clave_sector;
+
+        $this->validate($request,[
+            'ides'		    =>'required|numeric',
+			'nombre'	    =>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+			'localidad'	    =>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+			'sostenimiento'	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+			'promedio'	    =>'required|regex:/^[0-9]+[.][0-9]{1}$/',
+			'clave_sector'	=>'required|min:8|max:32',
+        ]);
+        
+            $escul = escuelas::find($ides);
+            $escul->ides		    =	$request->ides;
+			$escul->nombre	        =	$request->nombre;
+			$escul->localidad	    =	$request->localidad;
+			$escul->sostenimiento	=	$request->sostenimiento;
+			$escul->fec_engre	    =	$request->fec_engre;
+			$escul->promedio	    =	$request->promedio;
+            $escul->clave_sector    =	$request->clave_sector;
+            $escul->idm		        =	$request->idm;
+			$escul->save();
+            
+            $proceso = "Modificar Escuela";
+            $mensaje = "Registro Modificado Correctamente";
+            return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+    }
 }

@@ -9,13 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon.png')}}">
     <title>Ela - Bootstrap Admin Dashboard Template</title>
     <!-- Bootstrap Core CSS -->
-    <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('css/lib/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="css/helper.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{asset('css/helper.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
@@ -39,10 +39,10 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
-                        <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b>
+                        <b><img src="{{asset('images/logo.png')}}" alt="homepage" class="dark-logo" /></b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span><img src="images/logo-text.png" alt="homepage" class="dark-logo" /></span>
+                        <span><img src="{{asset('images/logo-text.png')}}" alt="homepage" class="dark-logo" /></span>
                     </a>
                 </div>
                 <!-- End Logo -->
@@ -181,28 +181,28 @@
                                         <div class="message-center">
                                             <!-- Message -->
                                             <a href="#">
-                                                <div class="user-img"> <img src="images/users/5.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                                <div class="user-img"> <img src="{{asset('images/users/5.jpg')}}" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
                                                 <div class="mail-contnet">
                                                     <h5>Michael Qin</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span>
                                                 </div>
                                             </a>
                                             <!-- Message -->
                                             <a href="#">
-                                                <div class="user-img"> <img src="images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
+                                                <div class="user-img"> <img src="{{asset('images/users/2.jpg')}}" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
                                                 <div class="mail-contnet">
                                                     <h5>John Doe</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span>
                                                 </div>
                                             </a>
                                             <!-- Message -->
                                             <a href="#">
-                                                <div class="user-img"> <img src="images/users/3.jpg" alt="user" class="img-circle"> <span class="profile-status away pull-right"></span> </div>
+                                                <div class="user-img"> <img src="{{asset('images/users/3.jpg')}}" alt="user" class="img-circle"> <span class="profile-status away pull-right"></span> </div>
                                                 <div class="mail-contnet">
                                                     <h5>Mr. John</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span>
                                                 </div>
                                             </a>
                                             <!-- Message -->
                                             <a href="#">
-                                                <div class="user-img"> <img src="images/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
+                                                <div class="user-img"> <img src="{{asset('images/users/4.jpg')}}" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
                                                 <div class="mail-contnet">
                                                     <h5>Michael Qin</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
                                                 </div>
@@ -218,7 +218,7 @@
                         <!-- End Messages -->
                         <!-- Profile -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/users/5.jpg" alt="user" class="profile-pic" /></a>
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('images/users/5.jpg')}}" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
                                     <li><a href="#"><i class="ti-user"></i> Profile</a></li>
@@ -292,28 +292,28 @@
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-wpforms"></i><span class="hide-menu">Altas</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="altaAlum">Nuevo Alumno</a></li>
-                                <li><a href="altaemp">Nuevo Empleado</a></li>
-                                <li><a href="altaescuela">Nueva Escuela</a></li>
-                                <li><a href="altaest">Nuevo Estado</a></li>
-                                <li><a href="altalibro">Nuevo Libro</a></li>
-                                <li><a href="altamun">Nuevo Municipio</a></li>
-                                <li><a href="altaregmedicos">Nuevo Registro Medico</a></li>
-                                <li><a href="altaTutor">Nuevo Tutor</a></li>
-                                <li><a href="altausuario">Nuevo Usuario</a></li>
+                                <li><a href="{{URL::action('alumno@altaAlum')}}">Nuevo Alumno</a></li>
+                                <li><a href="{{URL::action('empleado@altaempleado')}}">Nuevo Empleado</a></li>
+                                <li><a href="{{URL::action('escuela@altaescuela')}}">Nueva Escuela</a></li>
+                                <li><a href="{{URL::action('estado@altaestado')}}">Nuevo Estado</a></li>
+                                <li><a href="{{URL::action('libro@altalibro')}}">Nuevo Libro</a></li>
+                                <li><a href="{{URL::action('municipio@altamun')}}">Nuevo Municipio</a></li>
+                                <li><a href="{{URL::action('medico@altaregmedicos')}}">Nuevo Registro Medico</a></li>
+                                <li><a href="{{URL::action('tutor@altaTutor')}}">Nuevo Tutor</a></li>
+                                <li><a href="{{URL::action('usuario@altausuario')}}">Nuevo Usuario</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-search"></i><span class="hide-menu">Consultas</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="reportealum">Reporte Alumno</a></li>
-                                <li><a href="reporteempleado">Reporte Empleado</a></li>
-                                <li><a href="reporteEscuelas">Reporte Escuela</a></li>
-                                <li><a href="reporteEstados">Reporte Estado</a></li>
-                                <li><a href="reportelibro">Reporte Libro</a></li>
-                                <li><a href="reportemun">Reporte Municipio</a></li>
-                                <li><a href="reporteregmedico">Reporte Registro Medico</a></li>
-                                <li><a href="reporteTutor">Reporte Tutor</a></li>
-                                <li><a href="reporteusuario">Reporte Usuario</a></li>
+                                <li><a href="{{URL::action('alumno@reportealum')}}">Reporte Alumno</a></li>
+                                <li><a href="{{URL::action('empleado@reporteempleado')}}">Reporte Empleado</a></li>
+                                <li><a href="{{URL::action('escuela@reporteEscuelas')}}">Reporte Escuela</a></li>
+                                <li><a href="{{URL::action('estado@reporteEstado')}}">Reporte Estado</a></li>
+                                <li><a href="{{URL::action('libro@reportelibro')}}">Reporte Libro</a></li>
+                                <li><a href="{{URL::action('municipio@reportemun')}}">Reporte Municipio</a></li>
+                                <li><a href="{{URL::action('medico@reporteregmedico')}}">Reporte Registro Medico</a></li>
+                                <li><a href="{{URL::action('tutor@reporteTutor')}}">Reporte Tutor</a></li>
+                                <li><a href="{{URL::action('usuario@reporteusuario')}}">Reporte Usuario</a></li>
                             </ul>
                         </li>
                         <li class="nav-label">Layout</li>
@@ -402,18 +402,18 @@
     </div>
     <!-- End Wrapper -->
     <!-- All Jquery -->
-    <script src="js/lib/jquery/jquery.min.js"></script>
+    <script src="{{asset('js/lib/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="js/lib/bootstrap/js/popper.min.js"></script>
-    <script src="js/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{asset('js/lib/bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{asset('js/lib/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="js/jquery.slimscroll.js"></script>
+    <script src="{{asset('js/jquery.slimscroll.js')}}"></script>
     <!--Menu sidebar -->
-    <script src="js/sidebarmenu.js"></script>
+    <script src="{{asset('js/sidebarmenu.js')}}"></script>
     <!--stickey kit -->
-    <script src="js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="{{asset('js/lib/sticky-kit-master/dist/sticky-kit.min.js')}}"></script>
     <!--Custom JavaScript -->
-    <script src="js/custom.min.js"></script>
+    <script src="{{asset('js/custom.min.js')}}"></script>
 
 </body>
 

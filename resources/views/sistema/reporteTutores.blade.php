@@ -52,7 +52,7 @@
                         <td>{{$tu->alumno}}</td>
                         <td>
                             @if($tu->deleted_at =="")
-                            <a href="#" class="opt">
+                            <a href="{{URL::action('tutor@modificaTutor',['idt'=>$tu->idt])}}" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
                             

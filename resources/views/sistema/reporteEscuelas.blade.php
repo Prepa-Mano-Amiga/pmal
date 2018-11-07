@@ -32,7 +32,7 @@
                         <td>{{$es->municipio}}</td>
                         <td>
                             @if($es->deleted_at =="")
-                            <a href="#" class="opt">
+                            <a href="{{URL::action('escuela@modificaEscuela',['ides'=>$es->ides])}}" class="opt">
                                 <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
                             </a>
                             

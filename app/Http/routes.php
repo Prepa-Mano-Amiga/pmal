@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Vista Administracion
+Route::get('/admin','administrador@index');
 
 //catalogo Alumnos
 Route::get('/altaAlum','alumno@altaAlum');
@@ -23,8 +25,6 @@ Route::get('/reportealum','alumno@reportealum');
 Route::get('/eliminaalum/{ida}','alumno@eliminaalum')->name('eliminaalum');
 Route::get('/restauraalum/{ida}','alumno@restauraalum')->name('restauraalum');
 
-//Vista Administracion
-Route::get('/admin','administrador@admin');
 //catalogo municipio
 Route::get('/altamun','municipio@altamun');
 Route::POST('/guardamun','municipio@guardamun')->name('guardamun');
@@ -38,6 +38,8 @@ Route::POST('/guardaestado','estado@guardaestado')->name('guardaestado');
 Route::get('/reporteEstados','estado@reporteEstado');
 Route::get('/eliminaestado/{ide}','estado@eliminaestado')->name('eliminaestado');
 Route::get('/restauraestado/{ide}','estado@restauraestado')->name('restauraestado');
+Route::get('/modificaEst/{ide}','estado@modificaEst')->name('modificaEst');
+Route::POST('/editaEstado','estado@editaEstado')->name('editaEstado');
 
 //catalogo usuario
 Route::get('/altausuario','usuario@altausuario');
@@ -52,13 +54,17 @@ Route::POST('/guardaescuela','escuela@guardaescuela')->name('guardaescuela');
 Route::get('/reporteEscuelas','escuela@reporteEscuelas');
 Route::get('/eliminaescuela/{ides}','escuela@eliminaescuela')->name('eliminaescuela');
 Route::get('/restauraescuela/{ides}','escuela@restauraescuela')->name('restauraescuela');
+Route::get('/modificaEscuela/{ides}','escuela@modificaEscuela')->name('modificaEscuela');
+Route::POST('/editaEscuela','escuela@editaEscuela')->name('editaEscuela');
 
 //Catalogo tutores
 Route::get('/altaTutor','tutor@altaTutor');
 Route::POST('/guardaTutor','tutor@guardaTutor')->name('guardaTutor');
 Route::get('/reporteTutor','tutor@reporteTutor');
-Route::get('/eliminatutor/{ides}','tutor@eliminatutor')->name('eliminatutor');
-Route::get('/restauratutor/{ides}','tutor@restauratutor')->name('restauratutor');
+Route::get('/eliminatutor/{idt}','tutor@eliminatutor')->name('eliminatutor');
+Route::get('/restauratutor/{idt}','tutor@restauratutor')->name('restauratutor');
+Route::get('/modificaTutor/{idt}','tutor@modificaTutor')->name('modificaTutor');
+Route::POST('/editaTutor','tutor@editaTutor')->name('editaTutor');
 
 //catalogo empleado
 Route::get('/altaemp','empleado@altaempleado');

@@ -7,7 +7,7 @@ use App\Http\Requests;
 
 class administrador extends Controller
 {
-    public function admin(){
+    public function index(){
         return view ('sistema.admin');
     }
 }

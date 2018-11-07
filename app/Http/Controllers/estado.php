@@ -56,4 +56,29 @@ class estado extends Controller
 	    $mensaje="Registro restaurado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
+
+	public function modificaEst($ide){
+        $estado = estados::where('ide','=',$ide)->get();
+        return view('sistema.editaEstado')
+                                            ->with('estado',$estado[0]);
+	}
+	
+	public function editaEstado(Request $request){
+        $nombre = $request->nombre;
+        $ide    = $request->ide;
+
+        $this->validate($request,[
+            'nombre'	=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+        ]);
+        
+            $est = estados::find($ide);
+            $est->ide     =   $request->ide;
+			$est->nombre  =   $request->nombre;
+			$est->save();
+            
+            $proceso = "Modificar Estado";
+            $mensaje = "Registro Modificado Correctamente";
+            return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+    }
+
 }
