@@ -25,11 +25,14 @@
                             </a>
                             
                             <a href="{{URL::action('estado@eliminaestado',['ide'=>$es->ide])}}" class="opt">
-                                <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
+                                <i class='fa fa-ban fa-lg fa-fw' title='Inhabilitar'></i>
                             </a>
                             @else
                             <a href="{{URL::action('estado@restauraestado',['ide'=>$es->ide])}}" class="opt"> 
                                <i class='fa fa-history' title='Restaurar'></i> 
+                            </a>
+                            <a href="{{URL::action('estado@efisicaestado',['ide'=>$es->ide])}}" class="opt">
+                                <i class='fa fa-trash fa-lg fa-fw' title='elimminar'></i>
                             </a>
                             @endif
                         </td>

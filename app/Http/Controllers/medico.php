@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\rmedicos;
+use App\DB;
 
 class medico extends Controller
 {
@@ -34,17 +35,17 @@ class medico extends Controller
 		
 		$this->validate($request,[
          'idrm'=>'required|numeric',
-         'responsable'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'responsable'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
          'num_hermanos'=>'required|numeric',
-         'nom_hermanos'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'nom_hermanos'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
          'edad'=>'required|numeric',
-         'tipo_sangre'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'contacto1'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'tel1'=>'required|numeric',
-         'contacto2'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'tel2'=>'required|numeric',
-         'contacto1'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-	     'tel3'=>'required|numeric'
+         'tipo_sangre'=>'required|regex:/^[A,B,O][+,-]$/',
+         'contacto1'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'tel1'=>'required|regex:/^[0-9]{10}/',
+         'contacto2'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'tel2'=>'required|regex:/^[0-9]{10}/',
+         'contacto3'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+	     'tel3'=>'required|regex:/^[0-9]{10}/'
          
 	     ]);
 		 	 
@@ -79,8 +80,16 @@ class medico extends Controller
     {
         rmedicos::find($idrm)->delete();
         $proceso = "ELIMINAR Registro Medico";
-        $mensaje = "El Registro Medico ha sido borrado Correctamente";
+        $mensaje = "El Registro Medico ha sido inhabilitado Correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+    }
+    public function efisicamed($idrm)
+    {
+        rmedicos::withTrashed()->where('idrm',$idrm)->forceDelete();
+        $proceso = "ELIMINAR REGISTROS MEDICOS";
+        $mensaje = "El registro medico ha sido borrado Correctamente";
+        return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+
     }
     public function restauraregmedico($idrm)
     {
@@ -117,18 +126,18 @@ class medico extends Controller
 		
 		
 		$this->validate($request,[
-         'idrm'=>'required|numeric',
-         'responsable'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+          'idrm'=>'required|numeric',
+         'responsable'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
          'num_hermanos'=>'required|numeric',
-         'nom_hermanos'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'nom_hermanos'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
          'edad'=>'required|numeric',
-         'tipo_sangre'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'contacto1'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'tel1'=>'required|numeric',
-         'contacto2'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'tel2'=>'required|numeric',
-         'contacto1'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-	     'tel3'=>'required|numeric'
+         'tipo_sangre'=>'required|regex:/^[A,B,O][+,-]$/',
+         'contacto1'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'tel1'=>'required|regex:/^[0-9]{10}/',
+         'contacto2'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'tel2'=>'required|regex:/^[0-9]{10}/',
+         'contacto3'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+	     'tel3'=>'required|regex:/^[0-9]{10}/'
          
 	     ]);
 		 	 

@@ -35,11 +35,14 @@
                             </a>
                             
                             <a href="{{URL::action('empleado@eliminaempleado',['idbe'=>$bem->idbe])}}" class="opt">
-                                <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
+                                <i class='fa fa-ban fa-lg fa-fw' title='Inhabilitar'></i>
                             </a>
                             @else
                             <a href="{{URL::action('empleado@restauraempleado',['idbe'=>$bem->idbe])}}" class="opt"> 
                                <i class='fa fa-history' title='Restaurar'></i> 
+                            </a>
+                            <a href="{{URL::action('empleado@efisicae',['idbe'=>$bem->idbe])}}" class="opt">
+                                <i class='fa fa-trash fa-lg fa-fw' title='eliminar'></i>
                             </a>
                             @endif
                         </td>  

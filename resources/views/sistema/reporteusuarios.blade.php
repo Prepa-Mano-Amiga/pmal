@@ -37,11 +37,14 @@
                             </a>
                             
                             <a href="{{URL::action('usuario@eliminausuario',['idu'=>$us->idu])}}" class="opt">
-                                <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
+                                <i class='fa fa-ban fa-lg fa-fw' title='Inhabilitar'></i>
                             </a>
                             @else
                             <a href="{{URL::action('usuario@restaurausuario',['idu'=>$us->idu])}}" class="opt"> 
                                <i class='fa fa-history' title='Restaurar'></i> 
+                            </a>
+                            <a href="{{URL::action('usuario@efisicau',['idu'=>$us->idu])}}" class="opt">
+                                <i class='fa fa-trash fa-lg fa-fw' title='eliminar'></i>
                             </a>
                             @endif
                         </td>
