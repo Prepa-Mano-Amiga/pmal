@@ -13,7 +13,8 @@ class tutor extends Controller
     public function altaTutor()
 	{	
 		$municipios = municipios::OrderBy('nombre','Asc')->get();
-		$alumnos 	= alumnos::OrderBy('nombre','Asc')->get();
+		//$alumnos 	= alumnos::OrderBy('nombre','Asc')->get();
+		$alumnos=\DB::select("SELECT CONCAT(nombre, ' ',ap_pat,' ',ap_mat) AS ida FROM alumnos");
 		$clavesig 	= tutores::orderBy('idt','desc')->take(1)->get();
 		$idtu	  	= $clavesig[0]->idt+1;
 		return view ('sistema.altaTutor')->with('municipios',$municipios)->with('alumnos',$alumnos)->with('idtu',$idtu);
@@ -76,7 +77,7 @@ class tutor extends Controller
 			$tut	->localidad  		=	$request->localidad;
 			$tut	->cp  				=	$request->cp;
 			$tut	->idm 	 			=	$request->idm;
-            $tut	->ida		    	=	$request->ida;
+            $tut	->ida 		        =	$request->ida;
 			$tut	->save();
 			
 			$proceso ="Alta de Tutor";

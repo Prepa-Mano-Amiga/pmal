@@ -4,7 +4,7 @@
     <div class="card-body">
         <h4 class="card-title">Alta Alumnos</h4>
         <h6 class="card-subtitle">Preparatoria Mano Amiga Lerma</h6>
-            <form class="form p-t-20" action = '{{route('guardaAlum')}}' method='POST' enctype='multipart/form-data'>
+            <form class="form p-t-20" action = '{{route("guardaAlum")}}' method='POST' enctype='multipart/form-data'>
                 {{csrf_field()}}
                 <div class="row">
                     <div class="col-lg-6">

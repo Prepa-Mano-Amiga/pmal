@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\municipios;
 use App\escuelas;
+use App\DB;
 
 class escuela extends Controller
 {

@@ -32,8 +32,8 @@ class empleado extends Controller
          'ap_pat'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
          'ap_mat'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
          'turno'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-		 'correo'=>'required|',
-	     'telefono'=>'required|numeric'
+		 'correo'=>'required|email',
+	     'telefono'=>'required|regex:/^[0-9]{10}$/'
 	     ]);
 		 	 
 		    $emple = new bempleados;
@@ -96,8 +96,8 @@ class empleado extends Controller
          'ap_pat'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
          'ap_mat'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
          'turno'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-		 'correo'=>'required|',
-	     'telefono'=>'required|numeric'
+		 'correo'=>'required|email',
+	     'telefono'=>'required|regex:/^[0-9]{13}$/'
 	     ]);
 		 	 
 		    $emple = bempleados::find($idbe);

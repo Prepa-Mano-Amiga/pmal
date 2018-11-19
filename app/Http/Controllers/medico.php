@@ -35,16 +35,16 @@ class medico extends Controller
 		$this->validate($request,[
          'idrm'=>'required|numeric',
          'responsable'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'num_hermanos'=>'required|numeric',
+         'num_hermanos'=>'required|integer|min:1|max:6',
          'nom_hermanos'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
          'edad'=>'required|numeric',
          'tipo_sangre'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
          'contacto1'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'tel1'=>'required|numeric',
+         'tel1'=>'required|regex:/^[0-9]{13}$/',
          'contacto2'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'tel2'=>'required|numeric',
-         'contacto1'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-	     'tel3'=>'required|numeric'
+         'tel2'=>'required|regex:/^[0-9]{13}$/',
+         'contacto3'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+	     'tel3'=>'required|regex:/^[0-9]{13}$/'
          
 	     ]);
 		 	 
@@ -119,16 +119,16 @@ class medico extends Controller
 		$this->validate($request,[
          'idrm'=>'required|numeric',
          'responsable'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'num_hermanos'=>'required|numeric',
+         'num_hermanos'=>'required|integer|min:1|max:6',
          'nom_hermanos'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
          'edad'=>'required|numeric',
          'tipo_sangre'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
          'contacto1'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'tel1'=>'required|numeric',
+         'tel1'=>'required|regex:/^[0-9]{10}$/',
          'contacto2'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'tel2'=>'required|numeric',
-         'contacto1'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-	     'tel3'=>'required|numeric'
+         'tel2'=>'required|regex:/^[0-9]{10}$/',
+         'contacto3'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+	     'tel3'=>'required|regex:/^[0-9]{10}$/'
          
 	     ]);
 		 	 

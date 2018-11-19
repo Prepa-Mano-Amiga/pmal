@@ -4,7 +4,7 @@
     <div class="card-body">
         <h4 class="card-title">Alta Tutor</h4>
         <h6 class="card-subtitle">Preparatoria Mano Amiga Lerma</h6>
-        <form action='{{route('guardaTutor')}}' class="form p-t-20" method='POST' enctype='multipart/form-data'>
+        <form action='{{route("guardaTutor")}}' class="form p-t-20" method='POST' enctype='multipart/form-data'>
             {{csrf_field()}}
             <div class="row">
                 <div class="col-lg-6">
@@ -252,7 +252,7 @@
                             <div class="input-group-addon"><i class="ti-user"></i></div>
                             <Select class="form-control" name='ida'>
                                 @foreach($alumnos as $alum)
-                                    <option value = '{{$alum->ida}}'>{{$alum->nombre}}</option>
+                                    <option value = '{{$alum->id}}'>{{$alum->idm}}</option>
                                 @endforeach
                             </select>
                         </div>
