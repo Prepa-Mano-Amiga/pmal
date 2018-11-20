@@ -77,11 +77,21 @@ class usuario extends Controller
 	public function eliminausuario($idu)
 	{
 				usuarios::find($idu)->delete();
-				$proceso = "ELIMINAR USUARIO";
-				$mensaje = "El usuario ha sido borrado Correctamente";
+				$proceso = "INHABILITAR USUARIO";
+				$mensaje = "El usuario ha sido inhabilitado Correctamente";
 				return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
 
+	//Eliminacion fisica usuario
+	public function efisicau($idu)
+    {
+        usuarios::withTrashed()->where('idu',$idu)->forceDelete();
+        $proceso = "ELIMINAR USUARIO";
+        $mensaje = "El usuario ha sido borrado Correctamente";
+        return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+
+	}
+	
 	//restaura usuario
 	public function restaurausuario($idu)
 	{

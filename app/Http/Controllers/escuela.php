@@ -36,6 +36,7 @@ class escuela extends Controller
 				'sostenimiento'	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 				'promedio'	    =>'required|regex:/^[0-9]+[.][0-9]{1}$/',
 				'clave_sector'	=>'required|regex:/^[0-9]{2}[A-Z]{3}[0-9]{4}[A-Z]{1}$/',
+
 			]);
 			
 
@@ -61,13 +62,21 @@ class escuela extends Controller
 			INNER JOIN municipios AS m ON e.idm = m.idm");
 			return view ('sistema.reporteEscuelas')->with('escuelas',$escuelas);
 		}
-		public function eliminaescuela($ides)
+	public function eliminaescuela($ides)
 	{
 		    escuelas::find($ides)->delete();
 		    $proceso = "ELIMINAR Escuela";
-			$mensaje = "El escuela ha sido borrado Correctamente";
+			$mensaje = "El escuela ha sido borrada Correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
+	public function efisicaes($ides)
+    {
+        escuelas::withTrashed()->where('ides',$ides)->forceDelete();
+        $proceso = "ELIMINAR ESCUELA";
+        $mensaje = "La Escuela ha sido borrada Correctamente";
+        return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+
+    }
 	public function restauraescuela($ides)
 	{
 		escuelas::withTrashed()->where('ides',$ides)->restore();

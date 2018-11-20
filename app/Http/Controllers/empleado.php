@@ -35,6 +35,7 @@ class empleado extends Controller
          'turno'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 		 'correo'=>'required|email',
 	     'telefono'=>'required|regex:/^[0-9]{10}$/',
+
 	     ]);
 		 	 
 		    $emple = new bempleados;
@@ -61,10 +62,20 @@ class empleado extends Controller
 	public function eliminaempleado($idbe)
 	{
 		    bempleados::find($idbe)->delete();
-		    $proceso = "ELIMINAR Empleado";
-			$mensaje = "El empleado ha sido borrado Correctamente";
+		    $proceso = "Inhabilita Empleado";
+			$mensaje = "El empleado ha sido inhabilitado Correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
+
+	public function efisicae($idbe)
+    {
+        bempleados::withTrashed()->where('idbe',$idbe)->forceDelete();
+        $proceso = "ELIMINAR EMPLEADO";
+        $mensaje = "El empleado ha sido borrado Correctamente";
+        return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+
+	}
+	
 	public function restauraempleado($idbe)
 	{
 		bempleados::withTrashed()->where('idbe',$idbe)->restore();

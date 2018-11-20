@@ -173,13 +173,23 @@ class alumno extends Controller
 		return view ('sistema.reportealumno')->with('alumnos',$alumnos);
     }
 
-    //Elimina Alumno
+    //Elimina logica Alumno
     public function eliminaalum($ida)
 	{
 		    alumnos::find($ida)->delete();
 		    $proceso = "ELIMINAR ALUMNO";
 			$mensaje = "El alumno ha sido borrado Correctamente";
             return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+    }
+
+    //elimina fisica 
+    public function efisicaA($ida)
+    {
+        alumnos::withTrashed()->where('ida',$ida)->forceDelete();
+        $proceso = "ELIMINAR ALUMNO";
+        $mensaje = "El alumno ha sido borrado Correctamente";
+        return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+
     }
     
     //Restaura Alumno

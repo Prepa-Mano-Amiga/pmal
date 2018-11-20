@@ -38,11 +38,14 @@
                             </a>
                             
                             <a href="{{URL::action('libro@eliminalibro',['idl'=>$lib->idl])}}" class="opt">
-                                <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
+                                <i class='fa fa-ban fa-lg fa-fw' title='Inhabilitar'></i>
                             </a>
                             @else
                             <a href="{{URL::action('libro@restauralibro',['idl'=>$lib->idl])}}" class="opt"> 
                                 <i class='fa fa-reply-all' title='Restaurar'></i> 
+                            </a>
+                            <a href="{{URL::action('libro@efisicalibro',['idl'=>$lib->idl])}}" class="opt">
+                                <i class='fa fa-trash fa-lg fa-fw' title='elimminar'></i>
                             </a>
                             @endif
                         </td>

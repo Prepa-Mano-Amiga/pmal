@@ -57,11 +57,14 @@
                             </a>
                             
                             <a href="{{URL::action('tutor@eliminatutor',['idt'=>$tu->idt])}}" class="opt">
-                                <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
+                                <i class='fa fa-ban fa-lg fa-fw' title='Inhabilitar'></i>
                             </a>
                             @else
                             <a href="{{URL::action('tutor@restauratutor',['idt'=>$tu->idt])}}" class="opt"> 
                                 <i class='fa fa-reply-all' title='Restaurar'></i> 
+                            </a>
+                            <a href="{{URL::action('tutor@efisicat',['idt'=>$tu->idt])}}" class="opt">
+                                <i class='fa fa-trash fa-lg fa-fw' title='eliminar'></i>
                             </a>
                             @endif
                         </td>

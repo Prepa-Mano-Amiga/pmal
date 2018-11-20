@@ -46,10 +46,19 @@ class estado extends Controller
 	public function eliminaestado($ide)
 	{
 		    estados::find($ide)->delete();
-		    $proceso = "ELIMINAR Estado";
-			$mensaje = "El estado ha sido borrado Correctamente";
+		    $proceso = "Inhabilita Estado";
+			$mensaje = "El estado ha sido inhabilitado Correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
+
+	public function efisicaestado($ide)
+    {
+        estados::withTrashed()->where('ide',$ide)->forceDelete();
+        $proceso = "ELIMINAR ESTADO";
+        $mensaje = "El estado ha sido borrado Correctamente";
+        return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+
+    }
 	public function restauraestado($ide)
 	{
 		estados::withTrashed()->where('ide',$ide)->restore();

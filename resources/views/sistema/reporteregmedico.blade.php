@@ -45,11 +45,14 @@
                             </a>
                             
                             <a href="{{URL::action('medico@eliminaregmedico',['idrm'=>$me->idrm])}}" class="opt">
-                                <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
+                                <i class='fa fa-ban fa-lg fa-fw' title='Inhabilitar'></i>
                             </a>
                             @else
                             <a href="{{URL::action('medico@restauraregmedico',['idrm'=>$me->idrm])}}" class="opt"> 
                                 <i class='fa fa-reply-all' title='Restaurar'></i> 
+                            </a>
+                            <a href="{{URL::action('medico@efisicamed',['idrm'=>$me->idrm])}}" class="opt">
+                                <i class='fa fa-trash fa-lg fa-fw' title='eliminar'></i>
                             </a>
                             @endif
                         </td>

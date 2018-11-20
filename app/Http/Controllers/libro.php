@@ -76,10 +76,18 @@ class libro extends Controller
 	public function eliminalibro($idl)
 	{
 		    libros::find($idl)->delete();
-		    $proceso = "ELIMINAR Libro";
-			$mensaje = "El libro ha sido borrado Correctamente";
+		    $proceso = "Inhabilitar Libro";
+			$mensaje = "El libro ha sido Inhabilitado Correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
+	public function efisicalibro($idl)
+    {
+        libros::withTrashed()->where('idl',$idl)->forceDelete();
+        $proceso = "ELIMINAR LIBRO";
+        $mensaje = "El libro ha sido borrado Correctamente";
+        return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+
+    }
 	public function restauralibro($idl)
 	{
 		libros::withTrashed()->where('idl',$idl)->restore();
