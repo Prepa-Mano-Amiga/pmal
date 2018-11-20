@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon.png')}}">
-    <title>Ela - Bootstrap Admin Dashboard Template</title>
+    <title>Preparatoria Mano Amiga Lerma</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/lib/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
@@ -37,7 +37,7 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{URL::action('administrador@index')}}">
                         <!-- Logo icon -->
                         <b><img src="{{asset('images/logo.png')}}" alt="homepage" class="dark-logo" /></b>
                         <!--End Logo icon -->
@@ -243,12 +243,15 @@
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Home</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-primary pull-right">2</span></span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-home"></i><span class="hide-menu">Inicio <span class="label label-rouded label-primary pull-right">2</span></span></a>
+                        <!--
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="index.html">Ecommerce </a></li>
                                 <li><a href="index1.html">Analytics </a></li>
                             </ul>
+                        -->
                         </li>
+                        <!--
                         <li class="nav-label">Apps</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Email</span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -290,7 +293,9 @@
                                 <li><a href="uc-weather.html">Weather</a></li>
                             </ul>
                         </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-wpforms"></i><span class="hide-menu">Altas</span></a>
+                        -->
+                        <li class="nav-label">Catalogos</li>
+                        <li><a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-wpforms"></i><span class="hide-menu">Altas<span class="label label-rouded label-danger pull-right">9</span></span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL::action('alumno@altaAlum')}}">Nuevo Alumno</a></li>
                                 <li><a href="{{URL::action('empleado@altaempleado')}}">Nuevo Empleado</a></li>
@@ -303,7 +308,7 @@
                                 <li><a href="{{URL::action('usuario@altausuario')}}">Nuevo Usuario</a></li>
                             </ul>
                         </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-search"></i><span class="hide-menu">Consultas</span></a>
+                        <li><a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-search"></i><span class="hide-menu">Consultas<span class="label label-rouded label-success pull-right">9</span></span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL::action('alumno@reportealum')}}">Reporte Alumno</a></li>
                                 <li><a href="{{URL::action('empleado@reporteempleado')}}">Reporte Empleado</a></li>
@@ -316,6 +321,7 @@
                                 <li><a href="{{URL::action('usuario@reporteusuario')}}">Reporte Usuario</a></li>
                             </ul>
                         </li>
+                        <!--
                         <li class="nav-label">Layout</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-columns"></i><span class="hide-menu">Layout</span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -368,6 +374,7 @@
                                 <li><a href="#">item 1.4</a></li>
                             </ul>
                         </li>
+                        -->
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -380,11 +387,11 @@
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Dashboard</h3> </div>
+                    <h3 class="text-primary">Administración</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Altas</a></li>
+                        <li class="breadcrumb-item active">Administración</li>
                     </ol>
                 </div>
             </div>

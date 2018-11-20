@@ -29,12 +29,13 @@
                             </a>
                             @else
                             <a href="{{URL::action('estado@restauraestado',['ide'=>$es->ide])}}" class="opt"> 
-                               <i class='fa fa-history' title='Restaurar'></i> 
+                                <i class='fa fa-reply-all' title='Restaurar'></i> 
                             </a>
                             @endif
                         </td>
                         @endforeach
                     </tr> 
+                <!--
                 <tfoot>
                     <tr> 
                         <th>Clave</th>
@@ -42,6 +43,7 @@
                         <th>Operaciones</th>
                     </tr>
                 </tfoot>
+                -->
                 </tbody>
             </table>
         </div>

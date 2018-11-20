@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\estados;
+use App\DB;
 
 class estado extends Controller
 {

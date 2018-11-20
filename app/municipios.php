@@ -3,10 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\softDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class municipios extends Model{
-    use softDeletes;
+    use SoftDeletes;
     protected $primaryKey   =   'idm';
     protected $fillable     =   ['idm','nombre','ide'];
     protected $date=['deleted_at'];

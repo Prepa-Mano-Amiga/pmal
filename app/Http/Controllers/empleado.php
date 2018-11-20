@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\bempleados;
+use App\DB;
 
 class empleado extends Controller
 {
@@ -28,12 +29,12 @@ class empleado extends Controller
 		
 		$this->validate($request,[
 	     'idbe'=>'required|numeric',
-         'nombre'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'ap_pat'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'ap_mat'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'turno'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-		 'correo'=>'required|',
-	     'telefono'=>'required|numeric'
+         'nombre'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'ap_pat'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'ap_mat'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'turno'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+		 'correo'=>'required|email',
+	     'telefono'=>'required|regex:/^[0-9]{10}$/',
 	     ]);
 		 	 
 		    $emple = new bempleados;
@@ -92,12 +93,12 @@ class empleado extends Controller
 		
 		$this->validate($request,[
 	     'idbe'=>'required|numeric',
-         'nombre'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'ap_pat'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'ap_mat'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'turno'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-		 'correo'=>'required|',
-	     'telefono'=>'required|numeric'
+         'nombre'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'ap_pat'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'ap_mat'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'turno'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+		 'correo'=>'required|email',
+	     'telefono'=>'required|regex:/^[0-9]{10}$/',
 	     ]);
 		 	 
 		    $emple = bempleados::find($idbe);

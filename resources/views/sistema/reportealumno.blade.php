@@ -12,13 +12,13 @@
                         <th>Nombre</th>
                         <th>Ap. Paterno</th>
                         <th>Ap. Materno</th>
-                        <th>Edad</th>
-                        <th>Curp</th>
+                        <!--<th>Edad</th>-->
+                        <!--<th>Curp</th>-->
                         <th>Email</th>
-                        <th>Grado</th>
-                        <th>Semestre</th>
+                        <!--<th>Grado</th>-->
+                        <!--<th>Semestre</th>-->
                         <th>Telefono</th>
-                        <th>Estado</th>
+                        <th>Escuela de Procedencia</th>
                         <th>Municipio</th>
                         <th>Calle</th>
                         <th>Num. Interior</th>
@@ -26,10 +26,10 @@
                         <th>Colonia</th>
                         <th>Localidad</th>
                         <th>Codigo Postal</th>
-                        <th>Lugar Nacimiento</th>
-                        <th>Día</th>
-                        <th>Mes</th>
-                        <th>Año</th>
+                        <!--<th>Lugar Nacimiento</th>-->
+                        <!--<th>Día</th>-->
+                        <!--<th>Mes</th>-->
+                        <!--<th>Año</th>-->
                         <th>Ciclo Escolar</th>
                         <th>Responsable</th>
                         <th>Acta Nacimiento</th>
@@ -46,13 +46,13 @@
                         <td>{{$al->nombre}}</td>
                         <td>{{$al->ap_pat}}</td>
                         <td>{{$al->ap_mat}}</td>
-                        <td>{{$al->edad}}</td>
-                        <td>{{$al->curp}}</td>
+                        <!--<td>{{$al->edad}}</td>-->
+                        <!--<td>{{$al->curp}}</td>-->
                         <td>{{$al->email}}</td>
-                        <td>{{$al->grado}}</td>
-                        <td>{{$al->semestre}}</td>
+                        <!--<td>{{$al->grado}}</td>-->
+                        <!--<td>{{$al->semestre}}</td>-->
                         <td>{{$al->telefono}}</td>
-                        <td>{{$al->estado}}</td>
+                        <td>{{$al->escuela}}</td>
                         <td>{{$al->municipio}}</td>
                         <td>{{$al->calle}}</td>
                         <td>{{$al->num_int}}</td>
@@ -60,10 +60,10 @@
                         <td>{{$al->colonia}}</td>
                         <td>{{$al->localidad}}</td>
                         <td>{{$al->cp}}</td>
-                        <td>{{$al->lugar_nac}}</td>
-                        <td>{{$al->dia}}</td>
-                        <td>{{$al->mes}}</td>
-                        <td>{{$al->año}}</td>
+                        <!--<td>{{$al->lugar_nac}}</td>-->
+                        <!--<td>{{$al->dia}}</td>-->
+                        <!--<td>{{$al->mes}}</td>-->
+                        <!--<td>{{$al->año}}</td>-->
                         <td>{{$al->ciclo_escolar}}</td>
                         <td>{{$al->responsable}}</td>
                         <td><img src ="{{asset('archivos/'.$al->act_nac)}}" height = 60 width = 60></td>
@@ -81,13 +81,15 @@
                             </a>
                             @else
                             <a href="{{URL::action('alumno@restauraalum',['ida'=>$al->ida])}}" class="opt"> 
-                               <i class='fa fa-history' title='Restaurar'></i> 
+                               <i class='fa fa-reply-all' title='Restaurar'></i> 
                             </a>
                             @endif
                         </td>  
                         @endforeach
                     </tr>
+                <!--
                 <tfoot>
+                    <tr> 
                         <th>Clave</th>
                         <th>Nombre</th>
                         <th>Ap. Paterno</th>
@@ -98,7 +100,7 @@
                         <th>Grado</th>
                         <th>Semestre</th>
                         <th>Telefono</th>
-                        <th>Estado</th>
+                        <th>Escuela de Procedencia</th>
                         <th>Municipio</th>
                         <th>Calle</th>
                         <th>Num. Interior</th>
@@ -119,6 +121,7 @@
                         <th>Operaciones</th>
                     </tr>
                 </tfoot>
+                -->
                 </tbody>
             </table>
         </div>

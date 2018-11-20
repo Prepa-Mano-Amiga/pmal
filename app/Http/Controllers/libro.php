@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\libros;
+use App\DB;
 
 class libro extends Controller
 {
@@ -30,8 +31,9 @@ class libro extends Controller
 		
 		$this->validate($request,[
          'idl'=>'required|numeric',
-         'autor'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'clasificacion'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+		 'nombre'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'autor'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'clasificacion'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
          'existencias'=>'required|numeric',
          'codigo'=>'required|numeric',
          'archivo'=>'image|mimes:jpg,jpeg,png,gif'
@@ -109,12 +111,13 @@ class libro extends Controller
 		
 		
 		$this->validate($request,[
-         'idl'=>'required|numeric',
-         'autor'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'clasificacion'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'existencias'=>'required|numeric',
-         'codigo'=>'required|numeric',
-         'archivo'=>'image|mimes:jpg,jpeg,png,gif'
+			'idl'=>'required|numeric',
+			'nombre'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+			'autor'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+			'clasificacion'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+			'existencias'=>'required|numeric',
+			'codigo'=>'required|numeric',
+			'archivo'=>'image|mimes:jpg,jpeg,png,gif'
 	     ]);
      $file = $request->file('archivo');
 	 if($file!="")

@@ -56,7 +56,7 @@
                         <label for="exampleInputuname">Clasificación</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-book"></i></div>
-					 			<input type ='text'  class="form-control" name = 'clasificacion' value="{{old('clas')}}">
+					 			<input type ='text'  class="form-control" name = 'clasificacion' value="{{old('clasificacion')}}">
 						</div>
                     </div>
 				</div>
@@ -71,7 +71,7 @@
                         <label for="exampleInputuname">Existencias</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-book"></i></div>	
-								<input type ='text' class="form-control" name ='existencias' value="{{old('exis')}}">
+								<input type ='text' class="form-control" name ='existencias' value="{{old('existencias')}}">
 						</div>
                     </div>
 				</div>
@@ -114,10 +114,9 @@
 						</div>
                     </div>
 				</div>
-			</div>
-					
-			<input type="submit" class="btn btn-success waves-effect waves-light m-r-10" name="Guardar" value="Guardar">
-			<input type="reset" class="btn btn-danger waves-effect waves-light" value="Cancelar">
+			</div>		
+			<button type='submit' class="btn btn-success  btn-flat btn-addon m-b-10 m-l-5 waves-effect waves-light m-r-10" Value='Guardar'><i class="ti-plus"></i>Guardar</button>
+            <button type="reset" class="btn btn-danger btn-flat btn-addon m-b-10 m-l-5 waves-effect waves-light" value="Cancelar"><i class="ti-close"></i>Cancelar</button>
 		</form>
 	</div>
 </div>

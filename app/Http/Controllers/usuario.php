@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\usuarios;
+use App\DB;
 
 class usuario extends Controller
 {
@@ -126,8 +127,10 @@ class usuario extends Controller
 			$img2	= $ldate.$img;
 			\Storage::disk('local')->put($img2,\File::get($file));
 			}
+			else {
+				$img2	= 'sin_foto.jpg';
+			}
 		
-        
         $usu	        =	usuarios::find($idu);
 		$usu->idu		=	$request->idu;
 		$usu->usuario	=	$request->usuario;
@@ -136,7 +139,7 @@ class usuario extends Controller
 		$usu->nombre	=	$request->nombre;
 		$usu->ap_pat	=	$request->ap_pat;
 		$usu->ap_mat	=	$request->ap_mat;
-		$usu->foto	=	$img2;
+		$usu->foto		=	$img2;
 		$usu->save();
 			
 			$proceso ="MODIFICAION DE USUARIO";

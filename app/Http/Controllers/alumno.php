@@ -8,6 +8,7 @@ use App\alumnos;
 use App\escuelas;
 use App\municipios;
 use App\rmedicos;
+use App\DB;
 
 class alumno extends Controller
 {
@@ -60,7 +61,7 @@ class alumno extends Controller
             'email'	    =>'required|email',
             'grado'	    =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
             'semestre'	=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-            'telefono'	=>'required|regex:/^[0-9]{13}$/',
+            'telefono'	=>'required|regex:/^[0-9]{10}$/',
             'calle'	    =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
             'num_int'	=>'required|integer',
             'num_ext'	=>'required|integer',
@@ -124,35 +125,35 @@ class alumno extends Controller
 		
 
 		$alum	=	new alumnos;
-		$alum->ida		    =	$request->ida;
-        $alum->nombre	    =	$request->nombre;
-        $alum->ap_mat       = $request->ap_mat;
-        $alum->ap_pat       = $request->ap_pat;
-		$alum->edad	        =	$request->edad;
-        $alum->sexo	        =	$request->sexo;
-        $alum->curp         = $request->curp;
-        $alum->email        = $request->email;
-        $alum->grado        = $request->grado;
-        $alum->semestre     = $request->semestre;
-        $alum->telefono     = $request->telefono;
-        $alum->calle        = $request->calle;
-        $alum->num_int      = $request->num_int;
-        $alum->num_ext      = $request->num_ext;
-        $alum->colonia      = $request->colonia;
-        $alum->localidad    = $request->localidad;
-        $alum->cp		    =	$request->cp;
-        $alum->lugar_nac    = $request->lugar_nac;
-        $alum->dia          = $request->dia;
-        $alum->mes          = $request->mes;
-        $alum->año          = $request->año;
-        $alum->ciclo_escolar   = $request->ciclo_escolar;
-        $alum->ides		    =	$request->ides;
-        $alum->idrm		    =	$request->idrm;
-        $alum->idm		    =	$request->idm;
-        $alum->act_nac	    =	$img2;
-        $alum->fich_pago	=	$imgf2;
-        $alum->foto	        =	$imgfo2;
-        $alum->cert_sec	    =	$imgc2;
+		$alum->ida		        =	$request->ida;
+        $alum->nombre	        =	$request->nombre;
+        $alum->ap_mat           =   $request->ap_mat;
+        $alum->ap_pat           =   $request->ap_pat;
+		$alum->edad	            =	$request->edad;
+        $alum->sexo	            =	$request->sexo;
+        $alum->curp             =   $request->curp;
+        $alum->email            =   $request->email;
+        $alum->grado            =   $request->grado;
+        $alum->semestre         =   $request->semestre;
+        $alum->telefono         =   $request->telefono;
+        $alum->calle            =   $request->calle;
+        $alum->num_int          =   $request->num_int;
+        $alum->num_ext          =   $request->num_ext;
+        $alum->colonia          =   $request->colonia;
+        $alum->localidad        =   $request->localidad;
+        $alum->cp		        =	$request->cp;
+        $alum->lugar_nac        =   $request->lugar_nac;
+        $alum->dia              =   $request->dia;
+        $alum->mes              =   $request->mes;
+        $alum->año              =   $request->año;
+        $alum->ciclo_escolar    =   $request->ciclo_escolar;
+        $alum->ides		        =	$request->ides;
+        $alum->idrm		        =	$request->idrm;
+        $alum->idm		        =	$request->idm;
+        $alum->act_nac	        =	$img2;
+        $alum->fich_pago	    =	$imgf2;
+        $alum->foto	            =	$imgfo2;
+        $alum->cert_sec	        =	$imgc2;
 		$alum->save();
 		 
 		$proceso ="ALTA DE ALUMNO";
@@ -164,7 +165,7 @@ class alumno extends Controller
 	public function reportealum(){
 		$alumnos=\DB::select("SELECT a.ida,a.nombre,a.ap_pat,a.ap_mat,a.edad,a.sexo,a.curp,a.email,a.grado,a.semestre,a.telefono,a.calle,a.num_int,a.num_ext,
         a.colonia,a.localidad,a.cp,a.lugar_nac,a.dia,a.mes,a.año,a.ciclo_escolar,a.act_nac,a.fich_pago,a.foto,a.cert_sec,a.deleted_at,
-        e.nombre AS estado,m.nombre AS municipio,r.responsable AS responsable
+        e.nombre AS escuela,m.nombre AS municipio,r.responsable AS responsable
         FROM alumnos AS a
         INNER JOIN escuelas AS e ON e.ides = a.ides
         INNER JOIN municipios AS m ON m.idm = a.idm
@@ -249,7 +250,7 @@ class alumno extends Controller
             'email'	    =>'required|email',
             'grado'	    =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
             'semestre'	=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-            'telefono'	=>'regex:/^[0-9]{13}$/',
+            'telefono'	=>'required|regex:/^[0-9]{10}$/',
             'calle'	    =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
             'num_int'	=>'required|integer',
             'num_ext'	=>'required|integer',

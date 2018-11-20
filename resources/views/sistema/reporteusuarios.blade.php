@@ -41,12 +41,13 @@
                             </a>
                             @else
                             <a href="{{URL::action('usuario@restaurausuario',['idu'=>$us->idu])}}" class="opt"> 
-                               <i class='fa fa-history' title='Restaurar'></i> 
+                                <i class='fa fa-reply-all' title='Restaurar'></i> 
                             </a>
                             @endif
                         </td>
                         @endforeach
                     </tr>
+                    <!--
                     <tfoot>
                         <tr>
                             <th>Clave</th>
@@ -56,9 +57,11 @@
                             <th>Nombre</th>
                             <th>Apellido Paterno</th>
                             <th>Apellido Materno</th>
+                            <th>Foto</th>
                             <th>Operaciones</th>
                         </tr>
                     </tfoot>
+                    -->
                 </tbody>
             </table>
         </div>

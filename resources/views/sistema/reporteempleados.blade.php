@@ -39,15 +39,15 @@
                             </a>
                             @else
                             <a href="{{URL::action('empleado@restauraempleado',['idbe'=>$bem->idbe])}}" class="opt"> 
-                               <i class='fa fa-history' title='Restaurar'></i> 
+                                <i class='fa fa-reply-all' title='Restaurar'></i> 
                             </a>
                             @endif
                         </td>  
                         @endforeach
-                        
                     </tr>  
+                <!--
                 <tfoot>
-                    <tr>
+                    <tr> 
                         <th>Clave</th>
                         <th>Nombre</th>
                         <th>Apellido paterno</th>
@@ -58,6 +58,7 @@
                         <th>Operaciones</th>
                     </tr>
                 </tfoot>
+                -->
                 </tbody>
             </table>
         </div>
