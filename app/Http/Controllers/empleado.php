@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\bempleados;
 use App\DB;
+use Session;
 
 class empleado extends Controller
 {
@@ -48,7 +49,7 @@ class empleado extends Controller
 			$emple->telefono=$request->telefono;
             $emple->save();
             
-		$proceso = "ALTA DE EMPLEADO";	
+		$proceso = "Alta Empleado";	
 	    $mensaje="Registro guardado correctamente";
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)
@@ -62,16 +63,16 @@ class empleado extends Controller
 	public function eliminaempleado($idbe)
 	{
 		    bempleados::find($idbe)->delete();
-		    $proceso = "Inhabilita Empleado";
-			$mensaje = "El empleado ha sido inhabilitado Correctamente";
+		    $proceso = "Desactivar Empleado";
+			$mensaje = "El empleado ha sido desactivado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
 
 	public function efisicae($idbe)
     {
         bempleados::withTrashed()->where('idbe',$idbe)->forceDelete();
-        $proceso = "ELIMINAR EMPLEADO";
-        $mensaje = "El empleado ha sido borrado Correctamente";
+        $proceso = "Eliminar Empleado";
+        $mensaje = "El empleado ha sido borrado correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 
 	}
@@ -79,7 +80,7 @@ class empleado extends Controller
 	public function restauraempleado($idbe)
 	{
 		bempleados::withTrashed()->where('idbe',$idbe)->restore();
-		$proceso = "RESTAURACION DE EMPLEADO";	
+		$proceso = "Restauración Empleado";	
 	    $mensaje="Registro restaurado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
@@ -122,7 +123,7 @@ class empleado extends Controller
 			$emple->telefono=$request->telefono;
             $emple->save();
             
-		$proceso = "MODIFICACION DE EMPLEADO";	
+		$proceso = "Modificación Empleado";	
 	    $mensaje="Registro modificado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}

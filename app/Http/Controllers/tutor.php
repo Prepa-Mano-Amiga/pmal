@@ -8,6 +8,7 @@ use App\municipios;
 use App\alumnos;
 use App\tutores;
 use App\DB;
+use Session;
 
 class tutor extends Controller
 {
@@ -81,7 +82,7 @@ class tutor extends Controller
             $tut	->ida		    	=	$request->ida;
 			$tut	->save();
 			
-			$proceso ="Alta de Tutor";
+			$proceso ="Alta Tutor";
 			$mensaje= "Registro guardado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 		}
@@ -98,22 +99,22 @@ class tutor extends Controller
 		public function eliminatutor($idt)
 	{
 		    tutores::find($idt)->delete();
-		    $proceso = "INHABILITAR TUTOR";
-			$mensaje = "El Tutor ha sido inhabilitado Correctamente";
+		    $proceso = "Desactivar Tutor";
+			$mensaje = "El Tutor ha sido desactivar correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
 	public function efisicat($idt)
     {
         tutores::withTrashed()->where('idt',$idt)->forceDelete();
-        $proceso = "ELIMINAR TUTOR";
-        $mensaje = "El tutor ha sido borrado Correctamente";
+        $proceso = "Eliminar Tutor";
+        $mensaje = "El tutor ha sido borrado correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 
     }
 	public function restauratutor($idt)
 	{
 		tutores::withTrashed()->where('idt',$idt)->restore();
-		$proceso = "RESTAURACION DE TUTOR";	
+		$proceso = "Restauración de Tutor";	
 	    $mensaje="Registro restaurado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
@@ -194,7 +195,7 @@ class tutor extends Controller
 			$tut->save();
             
             $proceso = "Modificar Tutor";
-            $mensaje = "Registro Modificado Correctamente";
+            $mensaje = "Registro modificado correctamente";
             return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
     }
 }

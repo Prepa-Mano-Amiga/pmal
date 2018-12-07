@@ -225,7 +225,7 @@
                                     <li><a href="#"><i class="ti-wallet"></i> Balance</a></li>
                                     <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
                                     <li><a href="#"><i class="ti-settings"></i> Setting</a></li>
-                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a href="{{URL::action('login@cerrarsesion')}}"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -241,7 +241,9 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
+                    
                         <li class="nav-devider"></li>
+                        <li class="nav-label"><i class="fa fa-user"></i> Bienvenido: {{Session::get('sesionname')}}</li>
                         <li class="nav-label">Home</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-home"></i><span class="hide-menu">Inicio <span class="label label-rouded label-primary pull-right">2</span></span></a>
                         <!--
@@ -294,6 +296,7 @@
                             </ul>
                         </li>
                         -->
+                        @if(Session::get('sesiontipo')=="admin")
                         <li class="nav-label">Catalogos</li>
                         <li><a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-wpforms"></i><span class="hide-menu">Altas<span class="label label-rouded label-danger pull-right">9</span></span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -308,6 +311,7 @@
                                 <li><a href="{{URL::action('usuario@altausuario')}}">Nuevo Usuario</a></li>
                             </ul>
                         </li>
+                        @endif
                         <li><a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-search"></i><span class="hide-menu">Consultas<span class="label label-rouded label-success pull-right">9</span></span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{URL::action('alumno@reportealum')}}">Reporte Alumno</a></li>

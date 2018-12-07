@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\rmedicos;
 use App\DB;
+use Session;
 
 class medico extends Controller
 {
@@ -63,7 +64,7 @@ class medico extends Controller
             $med->tel3=$request->tel3;
             $med->save();
             
-		$proceso = "Alta De Registro Medico";	
+		$proceso = "Alta Registro Medico";	
 	    $mensaje="Registro guardado correctamente";
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)
@@ -78,14 +79,14 @@ class medico extends Controller
     public function eliminaregmedico($idrm)
     {
         rmedicos::find($idrm)->delete();
-        $proceso = "ELIMINAR Registro Medico";
-        $mensaje = "El Registro Medico ha sido inhabilitado Correctamente";
+        $proceso = "Desactivar Registro Medico";
+        $mensaje = "El Registro Medico ha sido desactivado correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
     }
     public function efisicamed($idrm)
     {
         rmedicos::withTrashed()->where('idrm',$idrm)->forceDelete();
-        $proceso = "ELIMINAR REGISTROS MEDICOS";
+        $proceso = "Eliminar Registro Medico";
         $mensaje = "El registro medico ha sido borrado Correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 
@@ -93,7 +94,7 @@ class medico extends Controller
     public function restauraregmedico($idrm)
     {
     rmedicos::withTrashed()->where('idrm',$idrm)->restore();
-    $proceso = "RESTAURACION DE REGISTRO MEDICO";	
+    $proceso = "Restauracion de Registro Medico";	
     $mensaje="Registro restaurado correctamente";
     return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
     }  

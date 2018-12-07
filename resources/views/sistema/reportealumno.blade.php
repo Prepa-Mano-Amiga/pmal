@@ -72,20 +72,21 @@
                         <td><img src ="{{asset('archivos/'.$al->cert_sec)}}" height = 60 width = 60></td>
                         <td>
                             @if($al->deleted_at =="")
-                            <a href="{{URL::action('alumno@modificaAl',['ida'=>$al->ida])}}" class="opt">
-                                <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
-                            </a>
-                            
-                            <a href="{{URL::action('alumno@eliminaalum',['ida'=>$al->ida])}}" class="opt">
-                                <i class='fa fa-ban fa-lg fa-fw' title='Inhabilitar'></i>
-                            </a>
+                                <a href="{{URL::action('alumno@modificaAl',['ida'=>$al->ida])}}" class="opt">
+                                    <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
+                                </a>
+                                
+                                <a href="{{URL::action('alumno@eliminaalum',['ida'=>$al->ida])}}" class="opt">
+                                    <i class='fa fa-toggle-on fa-lg fa-fw' title='Inhabilitar'></i>
+                                </a>
                             @else
-                            <a href="{{URL::action('alumno@restauraalum',['ida'=>$al->ida])}}" class="opt"> 
-                               <i class='fa fa-reply-all' title='Restaurar'></i> 
-                            </a>
-                            <a href="{{URL::action('alumno@efisicaA',['ida'=>$al->ida])}}" class="opt">
-                                <i class='fa fa-trash fa-lg fa-fw' title='eliminar'></i>
-                            </a>
+                                <a href="{{URL::action('alumno@restauraalum',['ida'=>$al->ida])}}" class="opt"> 
+                                    <i class='fa fa-toggle-off fa-lg fa-fw' title='Restaurar'></i> 
+                                    <!--<i class='fa fa-reply-all' title='Restaurar'></i> -->
+                                </a>
+                                <a href="{{URL::action('alumno@efisicaA',['ida'=>$al->ida])}}" class="opt">
+                                    <i class='fa fa-times fa-lg fa-fw' title='elimminar'></i>
+                                </a>
                             @endif
                         </td>  
                         @endforeach

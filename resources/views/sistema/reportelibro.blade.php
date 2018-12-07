@@ -33,20 +33,21 @@
                             height =50 width=50></td>
                         <td>
                             @if($lib->deleted_at =="")
-                            <a href="{{URL::action('libro@modificalibro',['idl'=>$lib->idl])}}" class="opt">
-                                <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
-                            </a>
-                            
-                            <a href="{{URL::action('libro@eliminalibro',['idl'=>$lib->idl])}}" class="opt">
-                                <i class='fa fa-ban fa-lg fa-fw' title='Inhabilitar'></i>
-                            </a>
+                                <a href="{{URL::action('libro@modificalibro',['idl'=>$lib->idl])}}" class="opt">
+                                    <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
+                                </a>
+                                
+                                <a href="{{URL::action('libro@eliminalibro',['idl'=>$lib->idl])}}" class="opt">
+                                    <i class='fa fa-toggle-on fa-lg fa-fw' title='Inhabilitar'></i>
+                                </a>
                             @else
-                            <a href="{{URL::action('libro@restauralibro',['idl'=>$lib->idl])}}" class="opt"> 
-                                <i class='fa fa-reply-all' title='Restaurar'></i> 
-                            </a>
-                            <a href="{{URL::action('libro@efisicalibro',['idl'=>$lib->idl])}}" class="opt">
-                                <i class='fa fa-trash fa-lg fa-fw' title='elimminar'></i>
-                            </a>
+                                <a href="{{URL::action('libro@restauralibro',['idl'=>$lib->idl])}}" class="opt"> 
+                                    <i class='fa fa-toggle-off fa-lg fa-fw' title='Restaurar'></i> 
+                                    <!--<i class='fa fa-reply-all' title='Restaurar'></i> -->
+                                </a>
+                                <a href="{{URL::action('libro@efisicalibro',['idl'=>$lib->idl])}}" class="opt">
+                                    <i class='fa fa-times fa-lg fa-fw' title='elimminar'></i>
+                                </a>
                             @endif
                         </td>
                         @endforeach

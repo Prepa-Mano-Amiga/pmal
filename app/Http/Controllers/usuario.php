@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\usuarios;
 use App\DB;
+use Session;
 
 class usuario extends Controller
 {
@@ -61,7 +62,7 @@ class usuario extends Controller
 			$usu->foto	=	$img2;
 			$usu->save();
 			
-			$proceso ="ALTA DE Usuario";
+			$proceso ="Alta Usuario";
 			$mensaje= "Registro guardado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 		}
@@ -77,8 +78,8 @@ class usuario extends Controller
 	public function eliminausuario($idu)
 	{
 				usuarios::find($idu)->delete();
-				$proceso = "INHABILITAR USUARIO";
-				$mensaje = "El usuario ha sido inhabilitado Correctamente";
+				$proceso = "Desactivar Usuario";
+				$mensaje = "El usuario ha sido desactivado correctamente";
 				return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
 
@@ -86,8 +87,8 @@ class usuario extends Controller
 	public function efisicau($idu)
     {
         usuarios::withTrashed()->where('idu',$idu)->forceDelete();
-        $proceso = "ELIMINAR USUARIO";
-        $mensaje = "El usuario ha sido borrado Correctamente";
+        $proceso = "Eliminar Usuario";
+        $mensaje = "El usuario ha sido borrado correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 
 	}
@@ -96,7 +97,7 @@ class usuario extends Controller
 	public function restaurausuario($idu)
 	{
 			usuarios::withTrashed()->where('idu',$idu)->restore();
-			$proceso = "RESTAURACION DE USUARIO";	
+			$proceso = "Restauración De Equipo";	
 			$mensaje="Registro restaurado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
@@ -152,7 +153,7 @@ class usuario extends Controller
 		$usu->foto		=	$img2;
 		$usu->save();
 			
-			$proceso ="MODIFICAION DE USUARIO";
+			$proceso ="Modificación de Usuario";
 			$mensaje= "Registro guardado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}

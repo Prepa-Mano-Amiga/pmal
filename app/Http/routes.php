@@ -108,3 +108,8 @@ Route::get('/restauralibro/{idl}','libro@restauralibro')->name('restauralibro');
 Route::get('/modificalibro/{idl}','libro@modificalibro')->name('modificalibro');
 Route::POST('/editalibro','libro@editalibro')->name('editalibro');
 
+//Login
+Route::get('/login','login@login')->name('login');
+Route::POST('/valida','login@valida')->name('valida');
+Route::get('/cerrarsesion','login@cerrarsesion')->name('cerrarsesion');
+Route::get('/principal','login@principal')->name('principal');

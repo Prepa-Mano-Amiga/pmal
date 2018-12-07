@@ -9,6 +9,7 @@ use App\escuelas;
 use App\municipios;
 use App\rmedicos;
 use App\DB;
+use Session;
 
 class alumno extends Controller
 {
@@ -156,7 +157,7 @@ class alumno extends Controller
         $alum->cert_sec	        =	$imgc2;
 		$alum->save();
 		 
-		$proceso ="ALTA DE ALUMNO";
+		$proceso ="Alta Alumno";
 		$mensaje= "Registro guardado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
     }
@@ -177,8 +178,8 @@ class alumno extends Controller
     public function eliminaalum($ida)
 	{
 		    alumnos::find($ida)->delete();
-		    $proceso = "ELIMINAR ALUMNO";
-			$mensaje = "El alumno ha sido borrado Correctamente";
+		    $proceso = "Eliminar Alumno";
+			$mensaje = "El alumno ha sido desactivado correctamente";
             return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
     }
 
@@ -186,8 +187,8 @@ class alumno extends Controller
     public function efisicaA($ida)
     {
         alumnos::withTrashed()->where('ida',$ida)->forceDelete();
-        $proceso = "ELIMINAR ALUMNO";
-        $mensaje = "El alumno ha sido borrado Correctamente";
+        $proceso = "Desactivar Alumno";
+        $mensaje = "El alumno ha sido borrado correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 
     }
@@ -196,7 +197,7 @@ class alumno extends Controller
 	public function restauraalum($ida)
 	{
 		alumnos::withTrashed()->where('ida',$ida)->restore();
-		$proceso = "RESTAURACION DE ALUMNO";	
+		$proceso = "Restauración Alumno";	
 	    $mensaje="Registro restaurado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
     }
@@ -354,7 +355,7 @@ class alumno extends Controller
 		}
         $alum->save();
         
-		$proceso ="MODIFICACION DE ALUMNO";
+		$proceso ="Modificación Alumno";
 		$mensaje= "Registro modificado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}

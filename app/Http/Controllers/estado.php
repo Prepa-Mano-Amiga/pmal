@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\estados;
 use App\DB;
+use Session;
 
 class estado extends Controller
 {
@@ -32,7 +33,7 @@ class estado extends Controller
 			$est->nombre	=	$request->nombre;
 			$est->save();
 			
-			$proceso ="ALTA DE ESTADO";
+			$proceso ="Alta Estado";
 			$mensaje= "Registro guardado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 		}
@@ -46,15 +47,15 @@ class estado extends Controller
 	public function eliminaestado($ide)
 	{
 		    estados::find($ide)->delete();
-		    $proceso = "Inhabilita Estado";
-			$mensaje = "El estado ha sido inhabilitado Correctamente";
+		    $proceso = "Desactivar Estado";
+			$mensaje = "El estado ha sido desactivado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
 
 	public function efisicaestado($ide)
     {
         estados::withTrashed()->where('ide',$ide)->forceDelete();
-        $proceso = "ELIMINAR ESTADO";
+        $proceso = "Eliminar Estado";
         $mensaje = "El estado ha sido borrado Correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 
@@ -62,7 +63,7 @@ class estado extends Controller
 	public function restauraestado($ide)
 	{
 		estados::withTrashed()->where('ide',$ide)->restore();
-		$proceso = "RESTAURACION DE Estado";	
+		$proceso = "Restauración de estado";	
 	    $mensaje="Registro restaurado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
@@ -87,7 +88,7 @@ class estado extends Controller
 			$est->save();
             
             $proceso = "Modificar Estado";
-            $mensaje = "Registro Modificado Correctamente";
+            $mensaje = "Registro modificado correctamente";
             return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
     }
 
