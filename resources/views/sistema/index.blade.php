@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Imperial Boootstrap Template</title>
+  <title>Preparatoria Mano Amiga Lerma</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -22,6 +22,7 @@
   <meta name="twitter:description" content="">
   <meta name="twitter:image" content="">
 
+  <link rel="icon" type="image/png" sizes="16x16" href="{{asset('img/logoPMA.ico')}}">
   <!-- Place your favicon.ico and apple-touch-icon.png in the template root directory -->
   <link href="favicon.ico" rel="shortcut icon">
 
@@ -56,14 +57,14 @@
     <div class="hero-container">
       <div class="wow fadeIn">
         <div class="hero-logo">
-          <img class="" src="img/logo.png" alt="Imperial">
+          <img class="" src="img/logo_new.png" alt="Imperial">
         </div>
 
         <h1>Bienvenidos A Mano Amiga Lerma</h1>
-        <h2>We create <span class="rotating">beautiful graphics, functional websites, working mobile apps</span></h2>
+        <h2>Contamos Con <span class="rotating">Preescolar, Primaria, Secundaria, Preparatoria</span></h2>
         <div class="actions">
-          <a href="#about" class="btn-get-started">Get Strated</a>
-          <a href="#services" class="btn-services">Our Services</a>
+          <a href="#about" class="btn-get-started">Comenzar</a>
+          <a href="#services" class="btn-services">Nuestros Servicios</a>
         </div>
       </div>
     </div>
@@ -76,7 +77,7 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="#hero"><img src="img/logo.png" alt="" title="" /></img></a>
+        <a href="#hero"><img src="img/logo_new.png" alt="" title="" /></img></a>
         <!-- Uncomment below if you prefer to use a text image -->
         <!--<h1><a href="#hero">Header 1</a></h1>-->
       </div>
@@ -136,23 +137,41 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <section id="about">
+    <div class="container wow fadeInUp">
       <div class="row">
-        <div class="col-md-4  service-item">
+        <div class="col-md-6">
           <h5 class="about-title">Misión</h5>
           <p class="about-text">
             Transformar la vida de las personas que tienen menos oportunidades a través de la formación integral.
           </p>
         </div>
-
-        <div class="col-md-4  service-item">
+        <div class="col-md-6">
           <h5 class="about-title">Visión</h5>
           <p class="about-text">
             Ser reconocidos como un motor de cambio positivo para todos nuestros beneficiarios por nuestra eficacia en la transformación de la sociedad a través de un modelo de educación integral.
           </p>
         </div>
+      </div><br>
+      <h3 class="section-title">Valores</h3>
+      <div class="row">
+        <div class="col-md-3">
+          <p><i class="fa fa-heart"></i> Caridad y trascendencia</p>
+        </div>
+        <div class="col-md-3">
+          <p><i class="fa fa-wrench"></i> Humildad y servicio</p>
+        </div>
+        <div class="col-md-3">
+          <p><i class="fa fa-thumbs-up"></i> Autenticidad y congruencia</p>
+        </div>
+        <div class="col-md-3">
+          <p><i class="fa fa-graduation-cap"></i> Integridad</p>
+        </div>
       </div>
+    </div>
   </section>
-
   <!--==========================
   Services Section
   ============================-->
@@ -435,9 +454,9 @@
     <div class="container wow fadeInUp">
       <div class="row">
         <div class="col-md-12">
-          <h3 class="section-title">Contact Us</h3>
+          <h3 class="section-title">Contactanos</h3>
           <div class="section-title-divider"></div>
-          <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <p class="section-description">Escribe lo que nos quieras decir.</p>
         </div>
       </div>
 
@@ -446,7 +465,7 @@
           <div class="info">
             <div>
               <i class="fa fa-map-marker"></i>
-              <p>A108 Adam Street<br>New York, NY 535022</p>
+              <p>29 de Marzo No.6, Col. La Mota<br>Lerma Estado de México, C.P. 52000</p>
             </div>
 
             <div>
@@ -456,7 +475,7 @@
 
             <div>
               <i class="fa fa-phone"></i>
-              <p>+1 5589 55488 55s</p>
+              <p>7282824314</p>
             </div>
 
           </div>
@@ -464,26 +483,26 @@
 
         <div class="col-md-5 col-md-push-2">
           <div class="form">
-            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="sendmessage">Su Mensaje Ha Sido Enviado</div>
             <div id="errormessage"></div>
             <form action="" method="post" role="form" class="contactForm">
               <div class="form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <input type="email" class="form-control" name="email" id="email" placeholder="Correo" data-rule="email" data-msg="Please enter a valid email" />
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mensaje"></textarea>
                 <div class="validation"></div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">Enviar Mensaje</button></div>
             </form>
           </div>
         </div>
