@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Imperial Boootstrap Template</title>
+  <title>Preparatoria Mano Amiga Lerma</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -22,6 +22,7 @@
   <meta name="twitter:description" content="">
   <meta name="twitter:image" content="">
 
+  <link rel="icon" type="image/png" sizes="16x16" href="{{asset('img/logoPMA.ico')}}">
   <!-- Place your favicon.ico and apple-touch-icon.png in the template root directory -->
   <link href="favicon.ico" rel="shortcut icon">
 
@@ -56,14 +57,14 @@
     <div class="hero-container">
       <div class="wow fadeIn">
         <div class="hero-logo">
-          <img class="" src="img/logo.png" alt="Imperial">
+          <img class="" src="img/logo_new.png" alt="Imperial">
         </div>
 
         <h1>Bienvenidos A Mano Amiga Lerma</h1>
-        <h2>We create <span class="rotating">beautiful graphics, functional websites, working mobile apps</span></h2>
+        <h2>Contamos Con <span class="rotating">Preescolar, Primaria, Secundaria, Preparatoria</span></h2>
         <div class="actions">
-          <a href="#about" class="btn-get-started">Get Strated</a>
-          <a href="#services" class="btn-services">Our Services</a>
+          <a href="#about" class="btn-get-started">Comenzar</a>
+          <a href="#services" class="btn-services">Nuestros Servicios</a>
         </div>
       </div>
     </div>
@@ -76,7 +77,7 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="#hero"><img src="img/logo.png" alt="" title="" /></img></a>
+        <a href="#hero"><img src="img/logo_new.png" alt="" title="" /></img></a>
         <!-- Uncomment below if you prefer to use a text image -->
         <!--<h1><a href="#hero">Header 1</a></h1>-->
       </div>
@@ -87,8 +88,8 @@
           <li><a href="#about">Nosotros</a></li>
           <li><a href="#services">Servicios</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#team">Team</a></li>
+          <li><a href="#testimonials">Área de salud</a></li>
+          <li><a href="#team">Apoya a mano amiga</a></li>
           <!--
           <li class="menu-has-children"><a href="">Drop Down</a>
             <ul>
@@ -136,23 +137,41 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <section id="about">
+    <div class="container wow fadeInUp">
       <div class="row">
-        <div class="col-md-4  service-item">
+        <div class="col-md-6">
           <h5 class="about-title">Misión</h5>
           <p class="about-text">
             Transformar la vida de las personas que tienen menos oportunidades a través de la formación integral.
           </p>
         </div>
-
-        <div class="col-md-4  service-item">
+        <div class="col-md-6">
           <h5 class="about-title">Visión</h5>
           <p class="about-text">
             Ser reconocidos como un motor de cambio positivo para todos nuestros beneficiarios por nuestra eficacia en la transformación de la sociedad a través de un modelo de educación integral.
           </p>
         </div>
+      </div><br>
+      <h3 class="section-title">Valores</h3>
+      <div class="row">
+        <div class="col-md-3">
+          <p><i class="fa fa-heart"></i> Caridad y trascendencia</p>
+        </div>
+        <div class="col-md-3">
+          <p><i class="fa fa-wrench"></i> Humildad y servicio</p>
+        </div>
+        <div class="col-md-3">
+          <p><i class="fa fa-thumbs-up"></i> Autenticidad y congruencia</p>
+        </div>
+        <div class="col-md-3">
+          <p><i class="fa fa-graduation-cap"></i> Integridad</p>
+        </div>
       </div>
+    </div>
   </section>
-
   <!--==========================
   Seccion de numeros 
   ============================-->
@@ -413,23 +432,22 @@
     <div class="container wow fadeInUp">
       <div class="row">
         <div class="col-md-12">
-          <h3 class="section-title">Testimonials</h3>
+          <h3 class="section-title">Área de salud</h3>
           <div class="section-title-divider"></div>
-          <p class="section-description">Erdo lide, nora porodo filece, salvam esse se, quod concedimus ses haec dicturum fuisse</p>
+          <p class="section-description"> El Área de Salud dentro de Mano Amiga, nace ante las necesidades más urgentes de la población en caso de desastre y ha continuado hasta el día de hoy como un programa de campañas médicas y apoyo a familias de escasos recursos en comunidades vulnerables a prevenir enfermedades.</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-3">
           <div class="profile">
-            <div class="pic"><img src="img/client-1.jpg" alt=""></div>
-            <h4>Saul Goodman</h4>
-            <span>Lawless Inc</span>
+            <div class="pic"><img src="img/areaSM.jpg" alt=""></div>
+            <h4>Misión</h4>
           </div>
         </div>
         <div class="col-md-9">
           <div class="quote">
-            <b><img src="img/quote_sign_left.png" alt=""></b> Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper. <small><img src="img/quote_sign_right.png" alt=""></small>
+            <b><img src="img/quote_sign_left.png" alt=""></b> Dar a las personas más necesitadas o más marginadas, servicios médicos preventivos asistenciales de alta calidad y calidez, para contribuir en la transformación de las personas y al desarrollo social de este país. <small><img src="img/quote_sign_right.png" alt=""></small>
           </div>
         </div>
       </div>
@@ -437,18 +455,39 @@
       <div class="row">
         <div class="col-md-9">
           <div class="quote">
-            <b><img src="img/quote_sign_left.png" alt=""></b> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis architecto beatae. <small><img src="img/quote_sign_right.png" alt=""></small>
+              <li>Ser una organización de excelencia en la transformación de personas y comunidades.</li><br>
+              <li>Ser referentes en el campo de la responsabilidad social pues contamos con los programas y servicios sociales efectivos.</li><br>
+              <li>Operar con estándares y certificaciones internacionales, esquemas de medición y Evaluación continua, que aseguren los resultados.</li><br>
+              <li>Contar con una red de bienhechores comprometidos.</li><br>
+              <li>Ser una organización que se distinga por sus principios operativos de transparencia y rendición de cuentas.</li>
           </div>
         </div>
         <div class="col-md-3">
           <div class="profile">
-            <div class="pic"><img src="img/client-2.jpg" alt=""></div>
-            <h4>Sara Wilsson</h4>
-            <span>Odeo Inc</span>
+            <div class="pic"><img src="img/areaSM2.jpg" alt=""></div>
+            <h4>Visión</h4>
+          </div>
+        </div>
+      </div><br><br>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="profile">
+            <div class="pic"><img src="img/areaSM3.jpg" alt=""></div>
+            <h4>Valores</h4>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="quote">
+              <li>Fidelidad a la misión.</li><br>
+              <li>Benedicencia.</li><br>
+              <li>Entrega.</li><br>
+              <li>Sobriedad.</li><br>
+              <li>Pureza de intención.</li><br>
+              <li>Compromiso responsable.</li><br>
+              <li>Espíritu de cuerpo.</li><br>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -459,66 +498,25 @@
     <div class="container wow fadeInUp">
       <div class="row">
         <div class="col-md-12">
-          <h3 class="section-title">Our Team</h3>
+          <h3 class="section-title">Apoya a Mano Amiga </h3>
           <div class="section-title-divider"></div>
-          <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <p class="section-description">¡Apadrina a un niño de Mano Amiga!</p>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-6">
           <div class="member">
-            <div class="pic"><img src="img/team-1.jpg" alt=""></div>
-            <h4>Walter White</h4>
-            <span>Chief Executive Officer</span>
-            <div class="social">
-              <a href=""><i class="fa fa-twitter"></i></a>
-              <a href=""><i class="fa fa-facebook"></i></a>
-              <a href=""><i class="fa fa-google-plus"></i></a>
-              <a href=""><i class="fa fa-linkedin"></i></a>
-            </div>
+            <div class="pic"><img src="img/ayudaMA2.jpg" alt=""></div>
+            <h4>Sé actor social y no sólo crítico social</h4>
+            <span>Gran parte del éxito del Programa, radica en el seguimiento de la relación entre alumnos Mano Amiga y sus Padrinos, dando un énfasis muy especial en la atención, necesidades e iniciativas de los Padrinos, de forma que puedan enviar y recibir correspondencia de sus ahijados, y también estar informados de los avances generales de nuestros proyectos.</span>
           </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-6">
           <div class="member">
-            <div class="pic"><img src="img/team-2.jpg" alt=""></div>
-            <h4>Sarah Jhinson</h4>
-            <span>Product Manager</span>
-            <div class="social">
-              <a href=""><i class="fa fa-twitter"></i></a>
-              <a href=""><i class="fa fa-facebook"></i></a>
-              <a href=""><i class="fa fa-google-plus"></i></a>
-              <a href=""><i class="fa fa-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="member">
-            <div class="pic"><img src="img/team-3.jpg" alt=""></div>
-            <h4>William Anderson</h4>
-            <span>CTO</span>
-            <div class="social">
-              <a href=""><i class="fa fa-twitter"></i></a>
-              <a href=""><i class="fa fa-facebook"></i></a>
-              <a href=""><i class="fa fa-google-plus"></i></a>
-              <a href=""><i class="fa fa-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="member">
-            <div class="pic"><img src="img/team-4.jpg" alt=""></div>
-            <h4>Amanda Jepson</h4>
-            <span>Accountant</span>
-            <div class="social">
-              <a href=""><i class="fa fa-twitter"></i></a>
-              <a href=""><i class="fa fa-facebook"></i></a>
-              <a href=""><i class="fa fa-google-plus"></i></a>
-              <a href=""><i class="fa fa-linkedin"></i></a>
-            </div>
+            <div class="pic"><img src="img/ayudaMA.jpg" alt=""></div>
+            <h4>¡Apadrina a un niño de Mano Amiga!</h4>
+            <span>El Programa de Padrinos Mano Amiga, desde su origen en 1987, surge como una iniciativa para apoyar a las familias de los alumnos que viven en situaciones económicas aún más restringidas que el resto de nuestros alumnos. La gran diferencia de este programa de Apadrinamiento es que se asegura la excelencia académica y el brindar seguimiento personalizado alumno por alumno, de tal forma que cualquier situación fuera de lo normal es atendida y monitoreada.</span>
           </div>
         </div>
 
@@ -533,9 +531,9 @@
     <div class="container wow fadeInUp">
       <div class="row">
         <div class="col-md-12">
-          <h3 class="section-title">Contact Us</h3>
+          <h3 class="section-title">Contactanos</h3>
           <div class="section-title-divider"></div>
-          <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <p class="section-description">Escribe lo que nos quieras decir.</p>
         </div>
       </div>
 
@@ -544,7 +542,7 @@
           <div class="info">
             <div>
               <i class="fa fa-map-marker"></i>
-              <p>A108 Adam Street<br>New York, NY 535022</p>
+              <p>29 de Marzo No.6, Col. La Mota<br>Lerma Estado de México, C.P. 52000</p>
             </div>
 
             <div>
@@ -554,7 +552,7 @@
 
             <div>
               <i class="fa fa-phone"></i>
-              <p>+1 5589 55488 55s</p>
+              <p>7282824314</p>
             </div>
 
           </div>
@@ -562,26 +560,26 @@
 
         <div class="col-md-5 col-md-push-2">
           <div class="form">
-            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="sendmessage">Su Mensaje Ha Sido Enviado</div>
             <div id="errormessage"></div>
             <form action="" method="post" role="form" class="contactForm">
               <div class="form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <input type="email" class="form-control" name="email" id="email" placeholder="Correo" data-rule="email" data-msg="Please enter a valid email" />
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                 <div class="validation"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mensaje"></textarea>
                 <div class="validation"></div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">Enviar Mensaje</button></div>
             </form>
           </div>
         </div>
