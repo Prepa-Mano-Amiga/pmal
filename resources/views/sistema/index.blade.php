@@ -460,8 +460,11 @@
               <li>Operar con estándares y certificaciones internacionales, esquemas de medición y Evaluación continua, que aseguren los resultados.</li><br>
               <li>Contar con una red de bienhechores comprometidos.</li><br>
               <li>Ser una organización que se distinga por sus principios operativos de transparencia y rendición de cuentas.</li>
+
           </div>
         </div>
+      </div><br><br>
+      <div class="row">
         <div class="col-md-3">
           <div class="profile">
             <div class="pic"><img src="img/areaSM2.jpg" alt=""></div>
