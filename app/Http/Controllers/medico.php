@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\rmedicos;
 use App\DB;
+use Session;
 
 class medico extends Controller
 {
@@ -34,19 +35,18 @@ class medico extends Controller
 		
 		
 		$this->validate($request,[
-         'idrm'=>'required|numeric',
-         'responsable'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-         'num_hermanos'=>'required|numeric',
-         'nom_hermanos'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-         'edad'=>'required|numeric',
-         'tipo_sangre'=>'required|regex:/^[A,B,O][+,-]$/',
-         'contacto1'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-         'tel1'=>'required|regex:/^[0-9]{10}/',
-         'contacto2'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-         'tel2'=>'required|regex:/^[0-9]{10}/',
-         'contacto3'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-	     'tel3'=>'required|regex:/^[0-9]{10}/'
-         
+            'idrm'         =>'required|numeric',
+            'responsable'  =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'num_hermanos' =>'required|numeric',
+            'nom_hermanos' =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'edad'         =>'required|numeric',
+            'tipo_sangre'  =>'required|regex:/^[A,B,O][+,-]$/',
+            'contacto1'    =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'tel1'         =>'required|regex:/^[0-9]{10}$/',
+            'contacto2'    =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'tel2'         =>'required|regex:/^[0-9]{10}$/',
+            'contacto3'    =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'tel3'         =>'required|regex:/^[0-9]{10}$/'
 	     ]);
 		 	 
 		    $med = new rmedicos;
@@ -64,7 +64,7 @@ class medico extends Controller
             $med->tel3=$request->tel3;
             $med->save();
             
-		$proceso = "Alta De Registro Medico";	
+		$proceso = "Alta Registro Medico";	
 	    $mensaje="Registro guardado correctamente";
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)
@@ -79,14 +79,14 @@ class medico extends Controller
     public function eliminaregmedico($idrm)
     {
         rmedicos::find($idrm)->delete();
-        $proceso = "ELIMINAR Registro Medico";
-        $mensaje = "El Registro Medico ha sido inhabilitado Correctamente";
+        $proceso = "Desactivar Registro Medico";
+        $mensaje = "El Registro Medico ha sido desactivado correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
     }
     public function efisicamed($idrm)
     {
         rmedicos::withTrashed()->where('idrm',$idrm)->forceDelete();
-        $proceso = "ELIMINAR REGISTROS MEDICOS";
+        $proceso = "Eliminar Registro Medico";
         $mensaje = "El registro medico ha sido borrado Correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 
@@ -94,7 +94,7 @@ class medico extends Controller
     public function restauraregmedico($idrm)
     {
     rmedicos::withTrashed()->where('idrm',$idrm)->restore();
-    $proceso = "RESTAURACION DE REGISTRO MEDICO";	
+    $proceso = "Restauracion de Registro Medico";	
     $mensaje="Registro restaurado correctamente";
     return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
     }  
@@ -126,6 +126,7 @@ class medico extends Controller
 		
 		
 		$this->validate($request,[
+<<<<<<< HEAD
 
           'idrm'=>'required|numeric',
          'responsable'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
@@ -139,6 +140,20 @@ class medico extends Controller
          'tel2'=>'required|regex:/^[0-9]{10}/',
          'contacto3'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 	     'tel3'=>'required|regex:/^[0-9]{10}/'
+=======
+            'idrm'        =>'required|numeric',
+            'responsable'  =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'num_hermanos' =>'required|numeric',
+            'nom_hermanos' =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'edad'         =>'required|numeric',
+            'tipo_sangre'  =>'required|regex:/^[A,B,O][+,-]$/',
+            'contacto1'    =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'tel1'         =>'required|regex:/^[0-9]{10}$/',
+            'contacto2'    =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'tel2'         =>'required|regex:/^[0-9]{10}$/',
+            'contacto3'    =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+            'tel3'         =>'required|regex:/^[0-9]{10}$/'
+>>>>>>> origin/master
 	     ]);
 		 	 
 		    $med = rmedicos::find($idrm);

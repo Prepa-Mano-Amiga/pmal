@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\libros;
 use App\DB;
+use Session;
 
 class libro extends Controller
 {
@@ -62,7 +63,7 @@ class libro extends Controller
             $lib->archivo = $img2;
             $lib->save();
             
-		$proceso = "Alta De Libro";	
+		$proceso = "Alta Libro";	
 	    $mensaje="Registro guardado correctamente";
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)
@@ -76,22 +77,22 @@ class libro extends Controller
 	public function eliminalibro($idl)
 	{
 		    libros::find($idl)->delete();
-		    $proceso = "Inhabilitar Libro";
-			$mensaje = "El libro ha sido Inhabilitado Correctamente";
+		    $proceso = "Desactivar Libro";
+			$mensaje = "El libro ha sido desactivado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
 	public function efisicalibro($idl)
     {
         libros::withTrashed()->where('idl',$idl)->forceDelete();
-        $proceso = "ELIMINAR LIBRO";
-        $mensaje = "El libro ha sido borrado Correctamente";
+        $proceso = "Eliminar Libro";
+        $mensaje = "El libro ha sido borrado correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 
     }
 	public function restauralibro($idl)
 	{
 		libros::withTrashed()->where('idl',$idl)->restore();
-		$proceso = "RESTAURACION DE LIBRO";	
+		$proceso = "Restauración de Libro";	
 	    $mensaje="Registro restaurado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
@@ -119,13 +120,13 @@ class libro extends Controller
 		
 		
 		$this->validate($request,[
-         'idl'=>'required|numeric',
-		 'nombre'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-         'autor'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-         'clasificacion'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-         'existencias'=>'required|numeric',
-         'codigo'=>'required|numeric',
-         'archivo'=>'image|mimes:jpg,jpeg,png,gif'
+			'idl'=>'required|numeric',
+			'nombre'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+			'autor'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+			'clasificacion'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+			'existencias'=>'required|numeric',
+			'codigo'=>'required|numeric',
+			'archivo'=>'image|mimes:jpg,jpeg,png,gif'
 	     ]);
      $file = $request->file('archivo');
 	 if($file!="")
@@ -154,7 +155,7 @@ class libro extends Controller
 			}
 			$lib->save();
             
-		$proceso = "Modificación De Libro";	
+		$proceso = "Modificación de Libro";	
 	    $mensaje="Registro guardado correctamente";
 		return view('sistema.mensaje')
 		->with('proceso',$proceso)->with('mensaje',$mensaje);

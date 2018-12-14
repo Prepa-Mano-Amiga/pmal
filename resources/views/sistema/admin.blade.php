@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <title>Ela - Bootstrap Admin Dashboard Template</title>
+    <title>Preparatoria Mano Amiga Lerma</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -42,7 +42,7 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{URL::action('administrador@index')}}">
                         <!-- Logo icon -->
                         <b><img src="images/logo.png" alt="homepage" class="dark-logo" /></b>
                         <!--End Logo icon -->
@@ -248,13 +248,13 @@
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Home</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-primary pull-right">2</span></span></a>
-                            <ul aria-expanded="false" class="collapse">
+                        <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-home"></i><span class="hide-menu">Inicio<span class="label label-rouded label-primary pull-right">2</span></span></a>
+                            <!--<ul aria-expanded="false" class="collapse">
                                 <li><a href="index.html">Ecommerce </a></li>
                                 <li><a href="index1.html">Analytics </a></li>
-                            </ul>
+                            </ul>-->
                         </li>
-                        <li class="nav-label">Apps</li>
+                        <!--<li class="nav-label">Apps</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Email</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="email-compose.html">Compose</a></li>
@@ -294,34 +294,35 @@
                                 <li><a href="uc-toastr.html">Toastr</a></li>
                                 <li><a href="uc-weather.html">Weather</a></li>
                             </ul>
-                        </li>
+                        </li>-->
+                        <li class="nav-label">Catalogos</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-wpforms"></i><span class="hide-menu">Altas</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="altaAlum">Nuevo Alumno</a></li>
-                                <li><a href="altaemp">Nuevo Empleado</a></li>
-                                <li><a href="altaescuela">Nueva Escuela</a></li>
-                                <li><a href="altaest">Nuevo Estado</a></li>
-                                <li><a href="altalibro">Nuevo Libro</a></li>
-                                <li><a href="altamun">Nuevo Municipio</a></li>
-                                <li><a href="altaregmedicos">Nuevo Registro Medico</a></li>
-                                <li><a href="altaTutor">Nuevo Tutor</a></li>
-                                <li><a href="altausuario">Nuevo Usuario</a></li>
+                                <li><a href="{{URL::action('alumno@altaAlum')}}">Nuevo Alumno</a></li>
+                                <li><a href="{{URL::action('empleado@altaempleado')}}">Nuevo Empleado</a></li>
+                                <li><a href="{{URL::action('escuela@altaescuela')}}">Nueva Escuela</a></li>
+                                <li><a href="{{URL::action('estado@altaestado')}}">Nuevo Estado</a></li>
+                                <li><a href="{{URL::action('libro@altalibro')}}">Nuevo Libro</a></li>
+                                <li><a href="{{URL::action('municipio@altamun')}}">Nuevo Municipio</a></li>
+                                <li><a href="{{URL::action('medico@altaregmedicos')}}">Nuevo Registro Medico</a></li>
+                                <li><a href="{{URL::action('tutor@altaTutor')}}">Nuevo Tutor</a></li>
+                                <li><a href="{{URL::action('usuario@altausuario')}}">Nuevo Usuario</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-search"></i><span class="hide-menu">Consultas</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="reportealum">Reporte Alumno</a></li>
-                                <li><a href="reporteempleado">Reporte Empleado</a></li>
-                                <li><a href="reporteEscuelas">Reporte Escuela</a></li>
-                                <li><a href="reporteEstados">Reporte Estado</a></li>
-                                <li><a href="reportelibro">Reporte Libro</a></li>
-                                <li><a href="reportemun">Reporte Municipio</a></li>
-                                <li><a href="reporteregmedico">Reporte Registro Medico</a></li>
-                                <li><a href="reporteTutor">Reporte Tutor</a></li>
-                                <li><a href="reporteusuario">Reporte Usuario</a></li>
+                                <li><a href="{{URL::action('alumno@reportealum')}}">Reporte Alumno</a></li>
+                                <li><a href="{{URL::action('empleado@reporteempleado')}}">Reporte Empleado</a></li>
+                                <li><a href="{{URL::action('escuela@reporteEscuelas')}}">Reporte Escuela</a></li>
+                                <li><a href="{{URL::action('estado@reporteEstado')}}">Reporte Estado</a></li>
+                                <li><a href="{{URL::action('libro@reportelibro')}}">Reporte Libro</a></li>
+                                <li><a href="{{URL::action('municipio@reportemun')}}">Reporte Municipio</a></li>
+                                <li><a href="{{URL::action('medico@reporteregmedico')}}">Reporte Registro Medico</a></li>
+                                <li><a href="{{URL::action('tutor@reporteTutor')}}">Reporte Tutor</a></li>
+                                <li><a href="{{URL::action('usuario@reporteusuario')}}">Reporte Usuario</a></li>
                             </ul>
                         </li>
-                        <li class="nav-label">Layout</li>
+                        <!--<li class="nav-label">Layout</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-columns"></i><span class="hide-menu">Layout</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="layout-blank.html">Blank</a></li>
@@ -372,7 +373,7 @@
                                 </li>
                                 <li><a href="#">item 1.4</a></li>
                             </ul>
-                        </li>
+                        </li>-->
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -385,38 +386,40 @@
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Dashboard</h3> </div>
+                    <h3 class="text-primary">Administración</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Inicio</a></li>
+                        <li class="breadcrumb-item active">Administración</li>
                     </ol>
                 </div>
             </div>
             <!-- End Bread crumb -->
             <!-- Container fluid  -->
             <div class="container-fluid">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi adipisci ipsum pariatur inventore aperiam perferendis, similique velit deserunt excepturi in ab quo illum saepe officiis fuga eaque illo iusto consectetur.
-                Blanditiis cumque doloribus dicta, corporis tenetur perspiciatis magni asperiores enim voluptas? Voluptatum nam blanditiis cumque minima saepe tempora cupiditate veritatis fuga, laboriosam, cum voluptatem rerum quaerat, voluptatibus eos! Optio, accusamus.
-                Ut veritatis vero exercitationem a rerum porro dignissimos sunt harum. Animi in vitae similique quis odio magni quas, nobis praesentium. Assumenda, dolores? Velit facere, recusandae autem voluptates cum omnis ratione?
-                Ut expedita, fugiat id dolore quibusdam illo iure veniam aut, exercitationem sapiente labore pariatur ab quod, qui excepturi asperiores totam reiciendis animi quidem? Officia aperiam eaque, vero cumque esse dolores.
-                Cum necessitatibus harum, quia sapiente dolore, hic commodi repellat reiciendis, cumque neque aliquam consequuntur. Ratione, minima qui voluptas fugiat cupiditate voluptatem ab molestias, modi suscipit corrupti, soluta ad impedit alias!
-                Necessitatibus eveniet vel perspiciatis, nesciunt maiores sit, ex similique quae cum distinctio aliquam eligendi. Nemo velit similique ipsa facilis, illo recusandae reprehenderit et, quibusdam animi excepturi blanditiis amet? Architecto, adipisci?
-                Iusto quod deleniti impedit ipsa in asperiores veritatis error harum esse autem perferendis suscipit voluptates obcaecati, repudiandae incidunt, dicta non consequuntur sequi vel? Quas quos sed molestiae impedit laborum mollitia.
-                Tenetur ratione, illo minima adipisci pariatur asperiores! Eveniet adipisci ut dolore tenetur quo commodi maxime, nihil asperiores minus! Nostrum ratione quae ullam nobis voluptas ipsa iusto hic eius vitae assumenda!
-                Adipisci dignissimos numquam perferendis deleniti id itaque, blanditiis quas error non quibusdam nihil accusamus odit tempora beatae debitis cupiditate eos assumenda magni optio vitae hic? Incidunt voluptas culpa consectetur tenetur!
-                Ex provident quis a ea alias sequi aut nisi quod molestiae blanditiis suscipit amet vel consectetur tempore sint, dignissimos nemo quibusdam nostrum porro. Harum, autem neque tenetur a qui sequi!
+                <div class="lor">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi adipisci ipsum pariatur inventore aperiam perferendis, similique velit deserunt excepturi in ab quo illum saepe officiis fuga eaque illo iusto consectetur.
+                    Blanditiis cumque doloribus dicta, corporis tenetur perspiciatis magni asperiores enim voluptas? Voluptatum nam blanditiis cumque minima saepe tempora cupiditate veritatis fuga, laboriosam, cum voluptatem rerum quaerat, voluptatibus eos! Optio, accusamus.
+                    Ut veritatis vero exercitationem a rerum porro dignissimos sunt harum. Animi in vitae similique quis odio magni quas, nobis praesentium. Assumenda, dolores? Velit facere, recusandae autem voluptates cum omnis ratione?
+                    Ut expedita, fugiat id dolore quibusdam illo iure veniam aut, exercitationem sapiente labore pariatur ab quod, qui excepturi asperiores totam reiciendis animi quidem? Officia aperiam eaque, vero cumque esse dolores.
+                    Cum necessitatibus harum, quia sapiente dolore, hic commodi repellat reiciendis, cumque neque aliquam consequuntur. Ratione, minima qui voluptas fugiat cupiditate voluptatem ab molestias, modi suscipit corrupti, soluta ad impedit alias!
+                    Necessitatibus eveniet vel perspiciatis, nesciunt maiores sit, ex similique quae cum distinctio aliquam eligendi. Nemo velit similique ipsa facilis, illo recusandae reprehenderit et, quibusdam animi excepturi blanditiis amet? Architecto, adipisci?
+                    Iusto quod deleniti impedit ipsa in asperiores veritatis error harum esse autem perferendis suscipit voluptates obcaecati, repudiandae incidunt, dicta non consequuntur sequi vel? Quas quos sed molestiae impedit laborum mollitia.
+                    Tenetur ratione, illo minima adipisci pariatur asperiores! Eveniet adipisci ut dolore tenetur quo commodi maxime, nihil asperiores minus! Nostrum ratione quae ullam nobis voluptas ipsa iusto hic eius vitae assumenda!
+                    Adipisci dignissimos numquam perferendis deleniti id itaque, blanditiis quas error non quibusdam nihil accusamus odit tempora beatae debitis cupiditate eos assumenda magni optio vitae hic? Incidunt voluptas culpa consectetur tenetur!
+                    Ex provident quis a ea alias sequi aut nisi quod molestiae blanditiis suscipit amet vel consectetur tempore sint, dignissimos nemo quibusdam nostrum porro. Harum, autem neque tenetur a qui sequi!
 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Porro pariatur et nesciunt, voluptates veritatis eos dolorum, incidunt similique sunt, quas alias quibusdam hic aliquam! Ut aspernatur et soluta.
-                Aut corrupti laborum fugiat! Error eaque architecto itaque natus perferendis in beatae aspernatur minus debitis sint rem atque totam sit, officia, ullam animi tenetur suscipit non. Quo voluptates cupiditate sapiente?
-                Ipsam commodi quibusdam totam aspernatur, quasi quod assumenda fuga autem, velit hic corrupti incidunt, ullam blanditiis quo excepturi error ducimus distinctio odit. Assumenda delectus molestias omnis vitae ratione corporis dolores?
-                Minima iure sunt, aliquam illum, quam officiis dolore tempore maiores, eos voluptatibus eveniet doloremque adipisci autem placeat reprehenderit pariatur tenetur? Vel numquam ullam quidem commodi quibusdam rerum velit et quam!
-                Aperiam unde itaque illum veritatis, harum quos. Ipsam esse adipisci atque distinctio quas eum assumenda quam, incidunt tenetur. Aliquid iusto earum dolorem tenetur incidunt ullam optio rem obcaecati aliquam consequuntur.
-                Adipisci dolorem tempore neque tempora delectus quidem nisi sapiente ex aliquid quod expedita quibusdam eum alias iste, ratione necessitatibus pariatur sint deserunt iure fugit! Adipisci praesentium perspiciatis consequuntur provident nostrum.
-                Doloremque ad optio alias dicta, voluptatem ab accusantium tempore sapiente amet harum reprehenderit est neque recusandae architecto magni nulla natus aliquid vero qui? Quos numquam soluta quaerat omnis expedita! Exercitationem!
-                Dolor minus esse iure. Dolorum, vero unde quaerat hic error tempore quidem, cumque voluptate, doloribus veniam ipsum. Sunt, quas? Dolorum, perferendis enim quas illo consectetur doloremque nostrum porro beatae ut!
-                Nisi, numquam minima. Reiciendis neque nulla adipisci consequuntur mollitia quae earum! Quis, quam dolorum nostrum pariatur ea nam eius esse qui possimus? Assumenda fugit provident quia facilis eos. Odit, commodi.
-                Minus cupiditate neque mollitia dolores amet ipsum aspernatur, itaque explicabo. Cum sequi nulla molestiae voluptates vitae perferendis rerum minima labore inventore quidem voluptatum quisquam laudantium quia velit cupiditate, optio non.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Porro pariatur et nesciunt, voluptates veritatis eos dolorum, incidunt similique sunt, quas alias quibusdam hic aliquam! Ut aspernatur et soluta.
+                    Aut corrupti laborum fugiat! Error eaque architecto itaque natus perferendis in beatae aspernatur minus debitis sint rem atque totam sit, officia, ullam animi tenetur suscipit non. Quo voluptates cupiditate sapiente?
+                    Ipsam commodi quibusdam totam aspernatur, quasi quod assumenda fuga autem, velit hic corrupti incidunt, ullam blanditiis quo excepturi error ducimus distinctio odit. Assumenda delectus molestias omnis vitae ratione corporis dolores?
+                    Minima iure sunt, aliquam illum, quam officiis dolore tempore maiores, eos voluptatibus eveniet doloremque adipisci autem placeat reprehenderit pariatur tenetur? Vel numquam ullam quidem commodi quibusdam rerum velit et quam!
+                    Aperiam unde itaque illum veritatis, harum quos. Ipsam esse adipisci atque distinctio quas eum assumenda quam, incidunt tenetur. Aliquid iusto earum dolorem tenetur incidunt ullam optio rem obcaecati aliquam consequuntur.
+                    Adipisci dolorem tempore neque tempora delectus quidem nisi sapiente ex aliquid quod expedita quibusdam eum alias iste, ratione necessitatibus pariatur sint deserunt iure fugit! Adipisci praesentium perspiciatis consequuntur provident nostrum.
+                    Doloremque ad optio alias dicta, voluptatem ab accusantium tempore sapiente amet harum reprehenderit est neque recusandae architecto magni nulla natus aliquid vero qui? Quos numquam soluta quaerat omnis expedita! Exercitationem!
+                    Dolor minus esse iure. Dolorum, vero unde quaerat hic error tempore quidem, cumque voluptate, doloribus veniam ipsum. Sunt, quas? Dolorum, perferendis enim quas illo consectetur doloremque nostrum porro beatae ut!
+                    Nisi, numquam minima. Reiciendis neque nulla adipisci consequuntur mollitia quae earum! Quis, quam dolorum nostrum pariatur ea nam eius esse qui possimus? Assumenda fugit provident quia facilis eos. Odit, commodi.
+                    Minus cupiditate neque mollitia dolores amet ipsum aspernatur, itaque explicabo. Cum sequi nulla molestiae voluptates vitae perferendis rerum minima labore inventore quidem voluptatum quisquam laudantium quia velit cupiditate, optio non.
+                </div>
             </div>
             <!-- End Container fluid  -->
             <!-- footer -->

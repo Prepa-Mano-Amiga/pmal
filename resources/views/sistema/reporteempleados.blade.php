@@ -30,27 +30,28 @@
                         <td>{{$bem->telefono}}</td>
                         <td>
                             @if($bem->deleted_at =="")
-                            <a href="{{URL::action('empleado@modificaempleado',['idbe'=>$bem->idbe])}}" class="opt">
-                                <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
-                            </a>
-                            
-                            <a href="{{URL::action('empleado@eliminaempleado',['idbe'=>$bem->idbe])}}" class="opt">
-                                <i class='fa fa-ban fa-lg fa-fw' title='Inhabilitar'></i>
-                            </a>
+                                <a href="{{URL::action('empleado@modificaempleado',['idbe'=>$bem->idbe])}}" class="opt">
+                                    <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
+                                </a>
+                                
+                                <a href="{{URL::action('empleado@eliminaempleado',['idbe'=>$bem->idbe])}}" class="opt">
+                                    <i class='fa fa-toggle-on fa-lg fa-fw' title='Inhabilitar'></i>
+                                </a>
                             @else
-                            <a href="{{URL::action('empleado@restauraempleado',['idbe'=>$bem->idbe])}}" class="opt"> 
-                               <i class='fa fa-history' title='Restaurar'></i> 
-                            </a>
-                            <a href="{{URL::action('empleado@efisicae',['idbe'=>$bem->idbe])}}" class="opt">
-                                <i class='fa fa-trash fa-lg fa-fw' title='eliminar'></i>
-                            </a>
+                                <a href="{{URL::action('empleado@restauraempleado',['idbe'=>$bem->idbe])}}" class="opt"> 
+                                    <i class='fa fa-toggle-off fa-lg fa-fw' title='Restaurar'></i> 
+                                    <!--<i class='fa fa-reply-all' title='Restaurar'></i> -->
+                                </a>
+                                <a href="{{URL::action('empleado@efisicae',['idbe'=>$bem->idbe])}}" class="opt">
+                                    <i class='fa fa-times fa-lg fa-fw' title='elimminar'></i>
+                                </a>
                             @endif
                         </td>  
                         @endforeach
-                        
                     </tr>  
+                <!--
                 <tfoot>
-                    <tr>
+                    <tr> 
                         <th>Clave</th>
                         <th>Nombre</th>
                         <th>Apellido paterno</th>
@@ -61,6 +62,7 @@
                         <th>Operaciones</th>
                     </tr>
                 </tfoot>
+                -->
                 </tbody>
             </table>
         </div>

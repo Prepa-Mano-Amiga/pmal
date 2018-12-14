@@ -1,7 +1,10 @@
 @extends('sistema.principal')
 
 @section('contenido')
-<h1>{{$proceso}}<h1>
-<br>
-<b>{{$mensaje}}</b>
+<div class="card-content">
+    <div class="alert alert-success">
+        <h4 class="alert-heading">{{$proceso}}</h4>
+        <p>{{$mensaje}}</p>
+    </div>
+</div>
 @stop

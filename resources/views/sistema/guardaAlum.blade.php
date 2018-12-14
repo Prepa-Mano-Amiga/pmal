@@ -425,8 +425,8 @@
                     </div>
                 </div><br><br>
 
-                <input type='submit' class="btn btn-success waves-effect waves-light m-r-10" Value='Guardar'>
-                <input type="reset" class="btn btn-danger waves-effect waves-light" value="Cancelar">
+                <button type='submit' class="btn btn-success  btn-flat btn-addon m-b-10 m-l-5 waves-effect waves-light m-r-10" Value='Guardar'><i class="ti-plus"></i>Guardar</button>
+                <button type="reset" class="btn btn-danger btn-flat btn-addon m-b-10 m-l-5 waves-effect waves-light" value="Cancelar"><i class="ti-close"></i>Cancelar</button>
             </form>
     </div>
 </div>

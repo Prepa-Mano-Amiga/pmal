@@ -7,14 +7,21 @@ use App\Http\Requests;
 use App\municipios;
 use App\alumnos;
 use App\tutores;
+use App\DB;
+use Session;
 
 class tutor extends Controller
 {
     public function altaTutor()
 	{	
 		$municipios = municipios::OrderBy('nombre','Asc')->get();
+<<<<<<< HEAD
 		//$alumnos 	= alumnos::OrderBy('nombre','Asc')->get();
 		$alumnos=\DB::select("SELECT CONCAT(nombre, ' ',ap_pat,' ',ap_mat) AS ida FROM alumnos");
+=======
+		$alumnos 	= alumnos::OrderBy('nombre','Asc')->get();
+		//$alumnos=\DB::select("SELECT CONCAT(nombre,' ',ap_pat,' ',ap_mat)AS Nombre FROM alumnos");
+>>>>>>> origin/master
 		$clavesig 	= tutores::orderBy('idt','desc')->take(1)->get();
 		$idtu	  	= $clavesig[0]->idt+1;
 		return view ('sistema.altaTutor')->with('municipios',$municipios)->with('alumnos',$alumnos)->with('idtu',$idtu);
@@ -47,7 +54,7 @@ class tutor extends Controller
 				'ap_mat'	    	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 				'ocupacion'	    	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 				'compañia'	    	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-				'curp'				=>'required|min:8|max:32',
+				'curp'				=>'required|regex:/^[A-Z]{4}[0-9]{6}[A-Z]{6}[0-9]{2}$/',
 				'grado_estudios'	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 				'email'				=>'required|email',
 				'calle'		    	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
@@ -80,7 +87,7 @@ class tutor extends Controller
             $tut	->ida 		        =	$request->ida;
 			$tut	->save();
 			
-			$proceso ="Alta de Tutor";
+			$proceso ="Alta Tutor";
 			$mensaje= "Registro guardado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 		}
@@ -97,22 +104,22 @@ class tutor extends Controller
 		public function eliminatutor($idt)
 	{
 		    tutores::find($idt)->delete();
-		    $proceso = "INHABILITAR TUTOR";
-			$mensaje = "El Tutor ha sido inhabilitado Correctamente";
+		    $proceso = "Desactivar Tutor";
+			$mensaje = "El Tutor ha sido desactivar correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
 	public function efisicat($idt)
     {
         tutores::withTrashed()->where('idt',$idt)->forceDelete();
-        $proceso = "ELIMINAR TUTOR";
-        $mensaje = "El tutor ha sido borrado Correctamente";
+        $proceso = "Eliminar Tutor";
+        $mensaje = "El tutor ha sido borrado correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 
     }
 	public function restauratutor($idt)
 	{
 		tutores::withTrashed()->where('idt',$idt)->restore();
-		$proceso = "RESTAURACION DE TUTOR";	
+		$proceso = "Restauración de Tutor";	
 	    $mensaje="Registro restaurado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
@@ -160,7 +167,7 @@ class tutor extends Controller
 			'ap_mat'	    	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 			'ocupacion'	    	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 			'compañia'	    	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-			'curp'				=>'required|min:8|max:32',
+			'curp'				=>'required|regex:/^[A-Z]{4}[0-9]{6}[A-Z]{6}[0-9]{2}$/',
 			'grado_estudios'	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 			'email'				=>'required|email',
 			'calle'		    	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
@@ -193,7 +200,7 @@ class tutor extends Controller
 			$tut->save();
             
             $proceso = "Modificar Tutor";
-            $mensaje = "Registro Modificado Correctamente";
+            $mensaje = "Registro modificado correctamente";
             return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
     }
 }

@@ -112,17 +112,17 @@
 						<i> {{ $errors->first('archivo') }} </i> 
 					@endif
 					<div class="form-group">
-						<label for="exampleInputuname">Seleccione foto</label>
+						<label for="exampleInputuname">Seleccione foto</label><br>
+						<img src ="{{asset('archivos/'.$libros->archivo)}}" height = 150 width = 150>
 						<div class="input-group">
 							<div class="input-group-addon"><i class="ti-cloud-up"></i></div>
 								<input type= 'file' class="form-control" name = 'archivo'>
 						</div>
                     </div>
 				</div>
-			</div>
-					
-			<input type="submit" class="btn btn-success waves-effect waves-light m-r-10" name="Guardar" value="Guardar">
-			<input type="reset" class="btn btn-danger waves-effect waves-light" value="Cancelar">
+			</div>	
+			<button type='submit' class="btn btn-success  btn-flat btn-addon m-b-10 m-l-5 waves-effect waves-light m-r-10" Value='Guardar'><i class="ti-plus"></i>Guardar</button>
+            <button type="reset" class="btn btn-danger btn-flat btn-addon m-b-10 m-l-5 waves-effect waves-light" value="Cancelar"><i class="ti-close"></i>Cancelar</button>
 		</form>
 	</div>
 </div>

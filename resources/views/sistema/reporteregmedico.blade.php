@@ -10,16 +10,16 @@
                     <tr>
                         <th>Clave</th>
                         <th>Responsable</th>
-                        <th>Numero de hermanos</th>
-                        <th>Nombre de hermanos</th>
+                        <!--<th>Numero de hermanos</th>-->
+                        <!--<th>Nombre de hermanos</th>-->
                         <th>Edad</th>
                         <th>Tipo de sangre</th>
                         <th>Contacto1</th>
                         <th>tel1</th>
                         <th>Contacto2</th>
                         <th>tel2</th>
-                        <th>Contacto3</th>
-                        <th>tel3</th>
+                        <!--<th>Contacto3</th>-->
+                        <!--<th>tel3</th>-->
                         <th>Operaciones</th>
                         @foreach($rmedico as $me)
                     </tr>
@@ -28,36 +28,38 @@
                     <tr>
                         <td>{{$me->idrm}}</td>
                         <td>{{$me->responsable}}</td>
-                        <td>{{$me->num_hermanos}}</td>
-                        <td>{{$me->nom_hermanos}}</td>
+                        <!--<td>{{$me->num_hermanos}}</td>-->
+                        <!--<td>{{$me->nom_hermanos}}</td>-->
                         <td>{{$me->edad}}</td>
                         <td>{{$me->tipo_sangre}}</td>
                         <td>{{$me->contacto1}}</td>
                         <td>{{$me->tel1}}</td>
                         <td>{{$me->contacto2}}</td>
                         <td>{{$me->tel2}}</td>
-                        <td>{{$me->contacto3}}</td>
-                        <td>{{$me->tel3}}</td>
+                        <!--<td>{{$me->contacto3}}</td>-->
+                        <!--<td>{{$me->tel3}}</td>-->
                         <td>
                             @if($me->deleted_at =="")
-                            <a href="{{URL::action('medico@modificaregmedico',['idrm'=>$me->idrm])}}" class="opt">
-                                <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
-                            </a>
-                            
-                            <a href="{{URL::action('medico@eliminaregmedico',['idrm'=>$me->idrm])}}" class="opt">
-                                <i class='fa fa-ban fa-lg fa-fw' title='Inhabilitar'></i>
-                            </a>
+                                <a href="{{URL::action('medico@modificaregmedico',['idrm'=>$me->idrm])}}" class="opt">
+                                    <i class='fa fa-pencil fa-lg fa-fw' title='Modificar'></i>
+                                </a>
+                                
+                                <a href="{{URL::action('medico@eliminaregmedico',['idrm'=>$me->idrm])}}" class="opt">
+                                    <i class='fa fa-toggle-on fa-lg fa-fw' title='Inhabilitar'></i>
+                                </a>
                             @else
-                            <a href="{{URL::action('medico@restauraregmedico',['idrm'=>$me->idrm])}}" class="opt"> 
-                               <i class='fa fa-history' title='Restaurar'></i> 
-                            </a>
-                            <a href="{{URL::action('medico@efisicamed',['idrm'=>$me->idrm])}}" class="opt">
-                                <i class='fa fa-trash fa-lg fa-fw' title='eliminar'></i>
-                            </a>
+                                <a href="{{URL::action('medico@restauraregmedico',['idrm'=>$me->idrm])}}" class="opt"> 
+                                    <i class='fa fa-toggle-off fa-lg fa-fw' title='Restaurar'></i> 
+                                    <!--<i class='fa fa-reply-all' title='Restaurar'></i> -->
+                                </a>
+                                <a href="{{URL::action('medico@efisicamed',['idrm'=>$me->idrm])}}" class="opt">
+                                    <i class='fa fa-times fa-lg fa-fw' title='elimminar'></i>
+                                </a>
                             @endif
                         </td>
                         @endforeach
                     </tr> 
+                <!--
                 <tfoot>
                     <tr>
                         <th>Clave</th>
@@ -75,6 +77,7 @@
                         <th>Operaciones</th>
                     </tr>
                 </tfoot>
+                -->
                 </tbody>
             </table>
         </div>

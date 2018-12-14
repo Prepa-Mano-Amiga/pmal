@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\estados;
 use App\municipios;
+use App\DB;
+use Session;
 
 class municipio extends Controller
 {
@@ -35,7 +37,7 @@ class municipio extends Controller
 			$mun->ide		=	$request->ide;
 			$mun->save();
 			
-			$proceso ="ALTA DE Municipio";
+			$proceso ="Alta Municipio";
 			$mensaje= "Registro guardado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 		}
@@ -51,15 +53,15 @@ class municipio extends Controller
 	public function eliminamun($idm)
 	{
 		    municipios::find($idm)->delete();
-		    $proceso = "Inhabilitar Municipio";
-			$mensaje = "El municipio ha sido inhabilitado Correctamente";
+		    $proceso = "Desactivar Municipio";
+			$mensaje = "El municipio ha sido desactivado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
 	//Eliminacion fisica municipio
 	public function efisicamun($idm)
     {
         municipios::withTrashed()->where('idm',$idm)->forceDelete();
-        $proceso = "ELIMINAR ALUMNO";
+        $proceso = "Eliminar Municipio";
         $mensaje = "El alumno ha sido borrado Correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 
@@ -69,7 +71,7 @@ class municipio extends Controller
 	public function restauramun($idm)
 	{
 		municipios::withTrashed()->where('idm',$idm)->restore();
-		$proceso 	= "RESTAURACION DE MUNICIPIO";	
+		$proceso 	= "Restauración de Municipio";	
 	    $mensaje	="Registro restaurado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
@@ -101,7 +103,7 @@ class municipio extends Controller
 			$mun->nombre	=	$request->nombre;
 			$mun->ide		=	$request->ide;
 			$mun->save();
-		$proceso = "Modificacion DE MUNICIPIO";	
+		$proceso = "Modificación de Municipio";	
 	    $mensaje="Registro modificado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}

@@ -7,6 +7,10 @@ use App\Http\Requests;
 use App\municipios;
 use App\escuelas;
 use App\DB;
+<<<<<<< HEAD
+=======
+use Session;
+>>>>>>> origin/master
 
 class escuela extends Controller
 {
@@ -34,8 +38,9 @@ class escuela extends Controller
 				'nombre'	    =>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 				'localidad'	    =>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 				'sostenimiento'	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-				'promedio'	    =>'required|regex:/^[0-9]+[.][0-9]$/',
-				'clave_sector'	=>'required|min:8|max:32',
+				'promedio'	    =>'required|regex:/^[0-9]+[.][0-9]{1}$/',
+				'clave_sector'	=>'required|regex:/^[0-9]{2}[A-Z]{3}[0-9]{4}[A-Z]{1}$/',
+
 			]);
 			
 
@@ -50,7 +55,7 @@ class escuela extends Controller
             $escul->idm		        =	$request->idm;
 			$escul->save();
 			
-			$proceso ="Alta de Escuela";
+			$proceso ="Alta Escuela";
 			$mensaje= "Registro guardado correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 		}
@@ -64,22 +69,22 @@ class escuela extends Controller
 	public function eliminaescuela($ides)
 	{
 		    escuelas::find($ides)->delete();
-		    $proceso = "ELIMINAR Escuela";
-			$mensaje = "El escuela ha sido borrada Correctamente";
+		    $proceso = "Desactivar Escuela";
+			$mensaje = "La escuela ha sido desactivada correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
 	public function efisicaes($ides)
     {
         escuelas::withTrashed()->where('ides',$ides)->forceDelete();
-        $proceso = "ELIMINAR ESCUELA";
-        $mensaje = "La Escuela ha sido borrada Correctamente";
+        $proceso = "Eliminar Escuela";
+        $mensaje = "La Escuela ha sido borrada correctamente";
         return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 
     }
 	public function restauraescuela($ides)
 	{
 		escuelas::withTrashed()->where('ides',$ides)->restore();
-		$proceso = "RESTAURACION DE ESCUELA";	
+		$proceso = "Restauración Escuela";	
 	    $mensaje="Registro restaurado correctamente";
 		return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);	
 	}
@@ -111,7 +116,7 @@ class escuela extends Controller
 			'localidad'	    =>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 			'sostenimiento'	=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 			'promedio'	    =>'required|regex:/^[0-9]+[.][0-9]{1}$/',
-			'clave_sector'	=>'required|min:8|max:32',
+			'clave_sector'	=>'required|regex:/^[0-9]{2}[A-Z]{3}[0-9]{4}[A-Z]{1}$/',
         ]);
         
             $escul = escuelas::find($ides);
@@ -126,7 +131,7 @@ class escuela extends Controller
 			$escul->save();
             
             $proceso = "Modificar Escuela";
-            $mensaje = "Registro Modificado Correctamente";
+            $mensaje = "Registro modificado correctamente";
             return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
     }
 }
