@@ -77,11 +77,14 @@
                             </a>
                             
                             <a href="{{URL::action('alumno@eliminaalum',['ida'=>$al->ida])}}" class="opt">
-                                <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
+                                <i class='fa fa-ban fa-lg fa-fw' title='Inhabilitar'></i>
                             </a>
                             @else
                             <a href="{{URL::action('alumno@restauraalum',['ida'=>$al->ida])}}" class="opt"> 
                                <i class='fa fa-history' title='Restaurar'></i> 
+                            </a>
+                            <a href="{{URL::action('alumno@efisicaA',['ida'=>$al->ida])}}" class="opt">
+                                <i class='fa fa-trash fa-lg fa-fw' title='eliminar'></i>
                             </a>
                             @endif
                         </td>  

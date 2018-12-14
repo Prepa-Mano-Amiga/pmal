@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-
+ 
                     <div class="col-lg-6">
                         @if($errors->first('nombre'))
                         <i>{{$errors->first('nombre')}}</i>

@@ -2,9 +2,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
-use App\alumnos;
+use App\alumnos; 
 use App\escuelas;
 use App\municipios;
 use App\rmedicos;
@@ -60,7 +59,7 @@ class alumno extends Controller
             'email'	    =>'required|email',
             'grado'	    =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
             'semestre'	=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
-            'telefono'	=>'required|regex:/^[0-9]{13}$/',
+            'telefono'	=>'required|regex:/^[0-9]{10}$/',
             'calle'	    =>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
             'num_int'	=>'required|integer',
             'num_ext'	=>'required|integer',
@@ -172,13 +171,23 @@ class alumno extends Controller
 		return view ('sistema.reportealumno')->with('alumnos',$alumnos);
     }
 
-    //Elimina Alumno
+    //Elimina logica Alumno
     public function eliminaalum($ida)
 	{
 		    alumnos::find($ida)->delete();
 		    $proceso = "ELIMINAR ALUMNO";
 			$mensaje = "El alumno ha sido borrado Correctamente";
             return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+    }
+
+    //elimina fisica 
+    public function efisicaA($ida)
+    {
+        alumnos::withTrashed()->where('ida',$ida)->forceDelete();
+        $proceso = "ELIMINAR ALUMNO";
+        $mensaje = "El alumno ha sido borrado Correctamente";
+        return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+
     }
     
     //Restaura Alumno

@@ -37,11 +37,14 @@
                             </a>
                             
                             <a href="{{URL::action('escuela@eliminaescuela',['ides'=>$es->ides])}}" class="opt">
-                                <i class='fa fa-trash fa-lg fa-fw' title='Eliminar'></i>
+                                <i class='fa fa-ban fa-lg fa-fw' title='Inhabilitar'></i>
                             </a>
                             @else
                             <a href="{{URL::action('escuela@restauraescuela',['ides'=>$es->ides])}}" class="opt"> 
                                <i class='fa fa-history' title='Restaurar'></i> 
+                            </a>
+                            <a href="{{URL::action('escuela@efisicaes',['ides'=>$es->ides])}}" class="opt">
+                                <i class='fa fa-trash fa-lg fa-fw' title='elimminar'></i>
                             </a>
                             @endif
                         </td>

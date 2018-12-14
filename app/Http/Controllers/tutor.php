@@ -97,10 +97,18 @@ class tutor extends Controller
 		public function eliminatutor($idt)
 	{
 		    tutores::find($idt)->delete();
-		    $proceso = "ELIMINAR TUTOR";
-			$mensaje = "El Tutor ha sido borrado Correctamente";
+		    $proceso = "INHABILITAR TUTOR";
+			$mensaje = "El Tutor ha sido inhabilitado Correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
+	public function efisicat($idt)
+    {
+        tutores::withTrashed()->where('idt',$idt)->forceDelete();
+        $proceso = "ELIMINAR TUTOR";
+        $mensaje = "El tutor ha sido borrado Correctamente";
+        return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+
+    }
 	public function restauratutor($idt)
 	{
 		tutores::withTrashed()->where('idt',$idt)->restore();

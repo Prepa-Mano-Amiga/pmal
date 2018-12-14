@@ -51,10 +51,20 @@ class municipio extends Controller
 	public function eliminamun($idm)
 	{
 		    municipios::find($idm)->delete();
-		    $proceso = "ELIMINAR Municipio";
-			$mensaje = "El municipio ha sido borrado Correctamente";
+		    $proceso = "Inhabilitar Municipio";
+			$mensaje = "El municipio ha sido inhabilitado Correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
+	//Eliminacion fisica municipio
+	public function efisicamun($idm)
+    {
+        municipios::withTrashed()->where('idm',$idm)->forceDelete();
+        $proceso = "ELIMINAR ALUMNO";
+        $mensaje = "El alumno ha sido borrado Correctamente";
+        return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+
+	}
+	
 	//restaura municipio
 	public function restauramun($idm)
 	{

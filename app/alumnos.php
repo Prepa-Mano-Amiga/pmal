@@ -13,4 +13,4 @@ class alumnos extends Model{
                                  'fich_pago','foto','cert_sec','ides','idrm','idm'];
     protected $date=['deleted_at'];
     
-}
+}  

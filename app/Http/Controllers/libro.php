@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\libros;
+use App\DB;
 
 class libro extends Controller
 {
@@ -30,8 +31,9 @@ class libro extends Controller
 		
 		$this->validate($request,[
          'idl'=>'required|numeric',
-         'autor'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'clasificacion'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+		 'nombre'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'autor'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'clasificacion'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
          'existencias'=>'required|numeric',
          'codigo'=>'required|numeric',
          'archivo'=>'image|mimes:jpg,jpeg,png,gif'
@@ -74,10 +76,18 @@ class libro extends Controller
 	public function eliminalibro($idl)
 	{
 		    libros::find($idl)->delete();
-		    $proceso = "ELIMINAR Libro";
-			$mensaje = "El libro ha sido borrado Correctamente";
+		    $proceso = "Inhabilitar Libro";
+			$mensaje = "El libro ha sido Inhabilitado Correctamente";
 			return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
 	}
+	public function efisicalibro($idl)
+    {
+        libros::withTrashed()->where('idl',$idl)->forceDelete();
+        $proceso = "ELIMINAR LIBRO";
+        $mensaje = "El libro ha sido borrado Correctamente";
+        return view('sistema.mensaje')->with('proceso',$proceso)->with('mensaje',$mensaje);
+
+    }
 	public function restauralibro($idl)
 	{
 		libros::withTrashed()->where('idl',$idl)->restore();
@@ -110,8 +120,9 @@ class libro extends Controller
 		
 		$this->validate($request,[
          'idl'=>'required|numeric',
-         'autor'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'clasificacion'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+		 'nombre'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'autor'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'clasificacion'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
          'existencias'=>'required|numeric',
          'codigo'=>'required|numeric',
          'archivo'=>'image|mimes:jpg,jpeg,png,gif'
