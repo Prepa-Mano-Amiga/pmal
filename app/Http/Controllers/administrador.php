@@ -9,6 +9,6 @@ use Session;
 class administrador extends Controller
 {
     public function index(){
-        return view ('sistema.admin');
+        return view ('sistema.index');
     }
 }

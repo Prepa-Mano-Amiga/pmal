@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 //Vista Administracion
-Route::get('/admin','administrador@index');
+Route::get('/index','administrador@index');
 
 //catalogo Alumnos
 Route::get('/altaAlum','alumno@altaAlum');
