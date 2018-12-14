@@ -86,8 +86,8 @@
         <ul class="nav-menu">
           <li class="menu-active"><a href="#hero">Inicio</a></li>
           <li><a href="#about">Nosotros</a></li>
-          <li><a href="#services">Servicios</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#services">Números</a></li>
+          <!--<li><a href="#portfolio">Portfolio</a></li>-->
           <li><a href="#testimonials">Área de salud</a></li>
           <li><a href="#team">Apoya a mano amiga</a></li>
           <!--
@@ -252,7 +252,7 @@
   
     <div class="container wow fadeInUp">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <h4 class="subscribe-title">Nuestro Modelo Educativo</h4>
           <p class="subscribe-text">
           Mano Amiga es un centro de formación integral donde niños y jóvenes necesitados reciben las herramientas que requieren para convertirse en personas exitosas. El programa pedagógico y todos sus programas de apoyo buscan desarrollar de forma armoniosa y jerarquizada los cuatro ámbitos de la persona: espiritual, intelectual, humano y social.
@@ -262,15 +262,16 @@
           Entre los programas de apoyo, están las academias deportivas y clubes para el desarrollo del liderazgo, además, cada colegio ofrece programas de formación para padres de familia, cursos de valores, programas especializados, etc.
           </p>
           <h4 class="subscribe-title">Nuestro Modelo de Impacto</h4>
-          <img src="img/modelo-de-impacto.jpg" alt="" width="800" height="700"> 
+          <img src="img/modelo-de-impacto.jpg" alt="" width="800" height="700"><br><br>
           <h4 class="subscribe-title">Nuestros Beneficiarios</h4>
           <p class="subscribe-text">
           Aunque en el centro de nuestro modelo se encuentran los alumnos de Mano Amiga, también reconocemos que 
           transformamos a otros grupos.
           </p>
-
-          <div class="row">
-        <div class="col-md-6 subscribe-item">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 subscribe-item">
           <div class="subscribe-icon"><i class="fa fa-group"></i></div>
           <h4 class="subscribe-title2"><a href="">ALUMNOS</a></h4>
           <p class="subscribe-description">Reconocen que estudiando en Mano Amiga contarán con una formación integral
@@ -280,7 +281,7 @@
              parte no sólo de la red de colegios Mano Amiga, sino cuentan con una identidad y sentido de pertenencia
               a la familia del Regnum Christi.</p>
         </div>
-        <div class="col-md-5 subscribe-item">
+        <div class="col-md-4 subscribe-item">
           <div class="subscribe-icon"><i class="fa fa-line-chart"></i></div>
           <h4 class="subscribe-title2"><a href="">COMUNIDAD</a></h4>
           <p class="subscribe-description">Las comunidades que rodean a un Colegio Mano Amiga, reconocen la 
@@ -289,7 +290,7 @@
             formidables, mayor participación en las diferentes actividades de la comunidad y una mayor conciencia 
             social de apoyo y desarrollo de todos los que integran el entorno. </p>
         </div>
-        <div class="col-md-6 subscribe-item">
+        <div class="col-md-4 subscribe-item">
           <div class="subscribe-icon"><i class="fa fa-group"></i></div>
           <h4 class="subscribe-title2"><a href="">FAMILIAS</a></h4>
           <p class="subscribe-description">Las familias son las primeras en verse beneficiadas por el modelo 
@@ -297,8 +298,10 @@
              cimentada en valores a cuotas que pueden pagar y reconocen que no podrían tener acceso a ese nivel de 
              educación tan accesible de otra forma. Los padres de familia encuentran en el Colegio un apoyo y motor 
              para superarse y salir adelante gracias a cursos psicológicos, profesionales y sobre cómo ser mejor padre. 
-          </div>
-          <div class="col-md-6 subscribe-item">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 subscribe-item">
           <div class="subscribe-icon"><i class="fa fa-handshake-o"></i></div>
           <h4 class="subscribe-title2"><a href="">BIENHECHORES</a></h4>
           <p class="subscribe-description">Aquellas empresas, personas o padrinos que apoyan a Mano Amiga reconocen
@@ -308,8 +311,8 @@
               con a obligación y deseo moral de trabajar con los que tienen menos oportunidades y desean ser solidarios. 
               En Mano Amiga encuentran transparencia y rendición de cuentas con estado financieros y reportes puntuales
                que los ayudan a tener confianza y claridad para seguir apoyándonos por muchos años más. 
-          </div>
-          <div class="col-md-6 subscribe-item">
+        </div>
+        <div class="col-md-4 subscribe-item">
           <div class="subscribe-icon"><i class="fa fa-book"></i></div>
           <h4 class="subscribe-title2"><a href="">FORMADORES</a></h4>
           <p class="subscribe-description">Nuestros profesores y personal administrativo, encuentra en Mano Amiga un 
@@ -318,16 +321,16 @@
               paredes. También encuentran en Mano Amiga un empleo con retribución adecuada que busca seguirlos 
               preparando y formando cada vez mejor para que desarrollen todas sus capacidades y seguir cumpliendo 
               su vocación. 
-          </div>
-          <div class="col-md-6 subscribe-item">
+        </div>
+        <div class="col-md-4 subscribe-item">
           <div class="subscribe-icon"><i class="fa fa-institution"></i></div>
           <h4 class="subscribe-title2"><a href="">REGNUM CHRISTI</a></h4>
           <p class="subscribe-description">Al ser parte de una red mucho mas grande de colegios e instituciones de educación,
              los miembros del Regnum Christi encuentran en Mano Amiga un apoyo, un brazo derecho de educación para
               aquellos que tienen menos oportunidades y un camino de formación en la conciencia social en todos sus 
               miembros y colaboradores.  
-          </div>
         </div>
+      </div>
 
         
 
@@ -338,6 +341,7 @@
   <!--==========================
   Porfolio Section
   ============================-->
+  <!--
   <section id="portfolio">
     <div class="container wow fadeInUp">
       <div class="row">
@@ -424,6 +428,7 @@
       </div>
     </div>
   </section>
+  -->
 
   <!--==========================
   Testimonials Section
@@ -463,8 +468,6 @@
 
           </div>
         </div>
-      </div><br><br>
-      <div class="row">
         <div class="col-md-3">
           <div class="profile">
             <div class="pic"><img src="img/areaSM2.jpg" alt=""></div>
